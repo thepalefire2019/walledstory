@@ -1,9 +1,11 @@
 <?php
 
 function tg_load_scripts(){
+	wp_enqueue_media();
 	wp_enqueue_style('bootstrap',get_template_directory_uri().'/css/bootstrap.min.css',array(),'4.3.1','all');
 	wp_enqueue_style('style',get_stylesheet_uri(),'all',microtime());
 	wp_enqueue_style('responsive',get_template_directory_uri().'/css/responsive.css',array(),microtime(),'all');
+	wp_enqueue_style('sarasij',get_template_directory_uri().'/css/sarasij.css',array(),microtime(),'all');
 	wp_enqueue_media();
 	wp_deregister_script('jquery');
 	wp_register_script('jquery',get_template_directory_uri().'/js/jquery.min.js',false,'3.4.1',false);

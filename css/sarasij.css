@@ -1,0 +1,88 @@
+
+.space20{width:100%; height:20px;}
+.space30{width:100%; height:30px;}
+.space40{width:100%; height:40px;}
+.space50{width:100%; height:50px;}
+.space60{width:100%; height:60px;}
+.space70{width:100%; height:70px;}
+.space80{width:100%; height:80px;}
+@import url('https://fonts.googleapis.com/css?family=Tomorrow:400,700,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap');
+/** media uploader **/
+
+.attachments-browser .media-toolbar-secondary{display: none;}
+.media-modal-close{right:10px; width:100px;}
+/** media uploader **/
+
+footer{width:100%; height:auto; background-color: #222222;}
+.foot{}
+.foot .bl-footer-logo{ }
+.foot .bl-footer-logo h2{font-family: 'Jomolhari', serif;font-weight: 400; font-size: 28px;letter-spacing: 6px;
+text-transform: uppercase;}
+.foot .bl-footer-logo h2 a{color:#717171; text-decoration: none;}
+.ft-content{padding-left: 10px}
+.ft-content p{text-align: justify; font-size:14px; color:#fff; line-height: 18px}
+.final-footer{width:100%; height:60px; background-color: #101010;}
+
+/** post Page design **/
+
+.my-post-page{ width:100%; margin: 0; padding:0; background: #000; height:100vh; }
+.my-post-page .my-post-page-container{ background: #C1B7AE; height: 100vh }
+.my-post-page .sk-content{border:1px solid #C1B7AE;width:100%;position: relative;}
+.sk-topic{height:200px;width:100%;overflow:hidden;}
+.sk-topic img{width:100%}
+.sk-item{height:73px;width:125px;position:absolute;background:#fff;bottom:0;left:115px}
+.sk-item h4{font-weight:500;font-size:20px;text-align:center;color:#929292}
+.bl-entry-content p{color:#2b2b2b;}
+.bl-entry-content p:first-child::first-letter{float: left;margin-right: 5px;font-size: 96px;line-height: 70px;
+	color: #535353;font-weight: 600;}
+
+
+
+.sa-content{}	
+.sa-content h2{text-align: center; margin-top: 30px;font-weight: 800; font-size: 40px;letter-spacing: 2px;
+	color:#000; }	
+.sa-content h5{text-align: center; font-size: 30px; font-weight: 600; letter-spacing: 2px; color: #000}	
+.sa-content p{text-align: center; margin-top: 20px; padding:10px; background-color: #227A6C; color:#fff; 
+	margin-left:15%; margin-right: 15%; border-radius: 15px;cursor: pointer;}	
+
+/** post Page design **/
+
+
+/**my account design **/
+/**
+ green : #00D99F;
+ light grey: #E8E8E8;
+ dark grey : #c9c9c9;
+**/
+.account-body{width:100%; height: 100vh; background: #E8E8E8;}
+.account-body .acc-parent-box{position: relative; margin-left: 50%; transform: translateX(-50%); width:60%; 
+	height:80vh;box-shadow: 0px 5px 20px rgba(0,0,0,0.5); background:#fff; }
+.account-body .acc-parent-box .acc-parent-box-back-border{position: absolute; top:0; left: 0; width: 100%; 
+	height:100%; border-bottom:0px solid #F7F7F7; border-right: 808px solid transparent; 
+	border-top: 500px solid #F7F7F7;}
+.account-body .acc-parent-box .acc-parent-box-gradient{position: absolute; bottom: 0; width: 100%; height: 80px; 
+	background:linear-gradient(180deg, #E8E8E8, rgba(0, 217, 159, 0.3)); border-bottom: 2px solid #00D99F}
+.account-body .acc-parent-box .acc-child-img-box{width:52%; height: 75vh; position:absolute;
+	left:-150px;top:-23px; box-shadow: 0px 5px 20px rgba(0,0,0,0.6);}
+.account-body .acc-parent-box .acc-child-img-box img{width: 100%; height: 100%;}
+.account-body .acc-parent-box .acc-child-img-box-shadow{width:52% ; height:75vh; 
+	position:absolute;left:-150px;top:-23px; background: rgba(0,0,0,0.5)}
+.account-body .acc-parent-box .acc-child-header{ position: absolute; left:300px; top: 10vh;}
+.account-body .acc-parent-box .acc-child-header h1{color: #696969; font-size: 48px; text-transform: capitalize; 
+	letter-spacing:6px;font-weight: 800; line-height: 52px; font-family: 'Ubuntu', sans-serif;}
+.account-body .acc-parent-box .acc-child-header h1:last-child{padding-left: 36px;}
+.account-body .acc-parent-box .acc-child-edit-btn{position: absolute;right: 46px; top: 16vh;}
+.account-body .acc-parent-box .acc-child-edit-btn button{background: transparent;border:1px solid #00D99F;
+	padding: 5px; color: #00D99F;}
+.account-body .acc-parent-box .acc-child-details{position: absolute; right:92px; width:44%;height: 12vh; 
+	bottom:191px;}
+.account-body .acc-parent-box .acc-child-details h2{text-align: center; font-weight: 800; font-size:38px;}
+.account-body .acc-parent-box .acc-child-details p{text-align: center; font-size:13px; line-height: 13px; 
+	font-weight: 600; text-transform: uppercase;}
+.account-body .acc-parent-box .acc-child-details .acc-child-details-border{border-right:1px solid #000;}
+.account-body .acc-parent-box .acc-child-details .acc-child-details-border:last-child{border:none;}
+.account-body .acc-parent-box .acc-child-about{position: absolute; bottom: 47px; right: 63px; width:50%;}
+.account-body .acc-parent-box .acc-child-about h3{color:#00D99F; font-weight: 600; font-size: 16px; 
+	text-transform:uppercase; margin-bottom: 6px; margin-left: 14px;}
+.account-body .acc-parent-box .acc-child-about p{ font-size: 13px; line-height: 15px; }

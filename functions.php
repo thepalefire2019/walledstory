@@ -199,6 +199,7 @@ function save_extra_user_profile_fields( $user_id ) {
     if ( !current_user_can( 'edit_user', $user_id ) ) { 
         return false; 
     }
+    
     update_user_meta( $user_id, 'facebook', $_POST['facebook'] );
     update_user_meta( $user_id, 'twitter', $_POST['twitter'] );
     update_user_meta( $user_id, 'youtube', $_POST['youtube'] );
@@ -257,3 +258,4 @@ function header_title(){
   return get_bloginfo('name'); 
 }
 //  =================================//Customize login page=====================
+

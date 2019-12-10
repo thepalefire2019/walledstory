@@ -25,10 +25,11 @@
                         </ul>
                     </div>
                     <div class="col-lg-8 bl-header-logo">
-                        <h2><a href="index.html">Walledstory</a></h2>
+                        <h2><a href="<?php echo site_url(); ?>">Walledstory</a></h2>
                     </div>
                     <div class="col-lg-2 bl-header-search">
                         <i class="fas fa-search"></i>
+                        
                        
                     </div>
                 </div>
