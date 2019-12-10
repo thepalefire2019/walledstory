@@ -26,8 +26,8 @@ text-transform: uppercase;}
 
 /** post Page design **/
 
-.my-post-page{ width:100%; margin: 0; padding:0; background: #000; height:100vh; }
-.my-post-page .my-post-page-container{ background: #C1B7AE; height: 100vh }
+.my-post-page{ width:100%; margin: 0; padding:0; background: #000; height:auto; }
+.my-post-page .my-post-page-container{ background: #C1B7AE; height: auto }
 .my-post-page .sk-content{border:1px solid #C1B7AE;width:100%;position: relative;}
 .sk-topic{height:200px;width:100%;overflow:hidden;}
 .sk-topic img{width:100%}

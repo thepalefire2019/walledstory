@@ -10,8 +10,8 @@ require get_template_directory(). '/english/register.php';
 
 function site_setup(){
 	add_theme_support('post-thumbnails');
-   	add_image_size('tg-large', 1200, 675 );
-   	add_image_size('tg-regular',820,461 );
+   	add_image_size('ws-large', 1200, 675 );
+   	add_image_size('ws-regular',820,461 );
    	add_theme_support('html5',array('comment-list','comment-form','search-form','gallery'));
 }
 add_action('after_setup_theme','site_setup');

@@ -1,10 +1,23 @@
 <?php
+if( !is_user_logged_in() ){
+    wp_redirect(site_url());
+}
 get_header();
+global $current_user, $wp_roles;
 ?>	
 <div class="my-post-page">
 	<div class="container my-post-page-container">
 		<div class="space40"></div>
 		<div class="row">
+			<div class="col-md-4">
+				<div class="sa-content">
+					<h2><?php echo the_author_meta( 'first_name', $current_user->ID )?></h2>
+					<h5>Your Personal Wall</h5>
+					<p data-toggle="modal" data-target="#exampleModalLong">
+						New Post
+					</p>
+				</div>
+			</div>
 			<?php
 			$englishblogs = new WP_Query( array(
 									'post_type' => 'ws_english',
@@ -15,28 +28,15 @@ get_header();
 			$loop_count = 0;
 			while( $englishblogs->have_posts() ){
 				$englishblogs->the_post();
-				if( $loop_count == 1 ){
-					?>
-						<div class="col-md-4">
-							<div class="sa-content">
-								<h2>Sarasij</h2>
-								<h5>Your Personal Wall</h5>
-								<p data-toggle="modal" data-target="#exampleModalLong">
-									New Post
-								</p>
-							</div>
-						</div>
-					<?php
-					
-				}
+				
 			?>
 			<div class="col-md-4">
 				<div class="sk-content">
 					<div class="sk-topic">
-						<img src=" <?php echo get_stylesheet_directory_uri().'/img/'.$temp_start_loop.'.jpg' ?>">
+						<?php the_post_thumbnail('ws-regular'); ?>
 					</div>
 					<div class="sk-item">
-						<h4>My take on minimus and fashion</h4>
+						<h4><?php echo get_the_title(); ?></h4>
 					</div>
 				</div>
 			</div>
