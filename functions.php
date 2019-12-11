@@ -219,12 +219,16 @@ function redirectsubscriber(){
 
   if( count($currentUser->roles) == 1 AND  $currentUser->roles[0] == 'subscriber'){
     wp_redirect(site_url('/'));
-    exit;
+    //exit;
   }
+  // if( count($currentUser->roles) == 1 AND  $currentUser->roles[0] == 'author'){
+  //   wp_redirect(site_url('/'));
+  //   //exit;
+  // }
 }
 //  =================================//redirect subscriber after login=====================
 
-//  =================================//redirect subscriber after login=====================
+//  =================================//hide admin top menu bar=====================
 
 add_action( 'wp_loaded','nosubsadminbar' );
 
@@ -234,8 +238,11 @@ function nosubsadminbar(){
   if( count($currentUser->roles) == 1 AND  $currentUser->roles[0] == 'subscriber'){
    show_admin_bar(false);
   }
+  // if( count($currentUser->roles) == 1 AND  $currentUser->roles[0] == 'author'){
+  //  show_admin_bar(false);
+  // }
 }
-//  =================================//redirect subscriber after login=====================
+//  =================================//hide admin top menu bar=====================
 
 
 //  =================================//Customize login page=====================
@@ -259,3 +266,28 @@ function header_title(){
 }
 //  =================================//Customize login page=====================
 
+// // if ( current_user_can('subscriber') && !current_user_can('upload_files') )
+// add_action('init', 'allow_subscriber_uploads');
+
+
+// function allow_subscriber_uploads() {
+
+//     $new_role = get_role('subscriber');
+//     $new_role->add_cap('upload_files');
+// }
+
+function only_show_user_images( $query ) {
+
+$current_userID = get_current_user_id();
+
+if ( $current_userID && !current_user_can('manage_options')) {
+
+$query['author'] = $current_userID;
+
+}
+
+return $query;
+
+}
+
+add_filter( 'ajax_query_attachments_args', 'only_show_user_images' ); 
