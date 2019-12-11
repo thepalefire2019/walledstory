@@ -83,7 +83,13 @@ function create_eng_cat_tax(){
             'show_in_quick_edit' => true,
             'public' => true,
             'publicly_queryable' => true,
-            'show_in_rest'      => true
+            'show_in_rest'      => true,
+            'capabilities' => array(
+                'manage_terms' => 'manage_eng_cat',
+                'edit_terms' => 'edit_eng_cat',
+                'delete_terms' => 'delete_eng_cat',
+                'assign_terms' => 'assign_eng_cat',
+) 
 
         )
     );
