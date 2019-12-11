@@ -221,10 +221,10 @@ function redirectsubscriber(){
     wp_redirect(site_url('/'));
     //exit;
   }
-  // if( count($currentUser->roles) == 1 AND  $currentUser->roles[0] == 'author'){
-  //   wp_redirect(site_url('/'));
-  //   //exit;
-  // }
+  if( count($currentUser->roles) == 1 AND  $currentUser->roles[0] == 'author'){
+    wp_redirect(site_url('/'));
+    //exit;
+  }
 }
 //  =================================//redirect subscriber after login=====================
 
@@ -238,9 +238,9 @@ function nosubsadminbar(){
   if( count($currentUser->roles) == 1 AND  $currentUser->roles[0] == 'subscriber'){
    show_admin_bar(false);
   }
-  // if( count($currentUser->roles) == 1 AND  $currentUser->roles[0] == 'author'){
-  //  show_admin_bar(false);
-  // }
+  if( count($currentUser->roles) == 1 AND  $currentUser->roles[0] == 'author'){
+   show_admin_bar(false);
+  }
 }
 //  =================================//hide admin top menu bar=====================
 
