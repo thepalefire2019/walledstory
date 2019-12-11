@@ -20,6 +20,7 @@ get_header();
 		.bl-header-search a{ color:#000; }
 		.register{position: absolute; transform: translateX(-50%); margin-left: 50%; bottom:2vh;}
 		.register a{ color:#fff; text-decoration: none;}
+		footer{display:none;}
 		@media only screen and (max-width : 767px) {
 			.parent{height: 100vh}
 			.bl-header-logo h2{ font-size: 2em; }

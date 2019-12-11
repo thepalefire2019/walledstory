@@ -38,6 +38,11 @@ global $current_user, $wp_roles;
 					<div class="sk-item">
 						<h4><?php echo get_the_title(); ?></h4>
 					</div>
+					<div class="sk-outer-border"></div>
+					<div class="sk-inner-border"></div>
+					<div class="sk-top-black-box"></div>
+					<div class="sk-right-black-box"></div>
+					<div class="sk-left-black-box"></div>
 				</div>
 			</div>
 			<?php
