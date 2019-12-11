@@ -212,7 +212,7 @@ function save_extra_user_profile_fields( $user_id ) {
 
 //  =================================//redirect subscriber after login=====================
 
-add_action( 'admin_init','redirectsubscriber' );
+//add_action( 'admin_init','redirectsubscriber' );
 
 function redirectsubscriber(){
   $currentUser = wp_get_current_user();
@@ -230,7 +230,7 @@ function redirectsubscriber(){
 
 //  =================================//hide admin top menu bar=====================
 
-add_action( 'wp_loaded','nosubsadminbar' );
+//add_action( 'wp_loaded','nosubsadminbar' );
 
 function nosubsadminbar(){
   $currentUser = wp_get_current_user();
