@@ -221,16 +221,29 @@ function redirectsubscriber(){
     wp_redirect(site_url('/'));
     //exit;
   }
-  if( count($currentUser->roles) == 1 AND  $currentUser->roles[0] == 'author'){
-    wp_redirect(site_url('/'));
-    //exit;
-  }
+  // if( count($currentUser->roles) == 1 AND  $currentUser->roles[0] == 'author'){
+  //   wp_redirect(site_url('/'));
+  //   //exit;
+  // }
 }
+function admin_default_page() {
+  $currentUser = wp_get_current_user();
+  
+    return site_url('/');
+  
+  
+}
+
+add_filter('login_redirect', 'admin_default_page');
+function js_logout_redirect( $url ) {
+    return site_url( '/' );
+}
+add_filter( 'logout_redirect', 'js_logout_redirect' );
 //  =================================//redirect subscriber after login=====================
 
 //  =================================//hide admin top menu bar=====================
 
-//add_action( 'wp_loaded','nosubsadminbar' );
+add_action( 'wp_loaded','nosubsadminbar' );
 
 function nosubsadminbar(){
   $currentUser = wp_get_current_user();
@@ -238,9 +251,9 @@ function nosubsadminbar(){
   if( count($currentUser->roles) == 1 AND  $currentUser->roles[0] == 'subscriber'){
    show_admin_bar(false);
   }
-  if( count($currentUser->roles) == 1 AND  $currentUser->roles[0] == 'author'){
-   show_admin_bar(false);
-  }
+  // if( count($currentUser->roles) == 1 AND  $currentUser->roles[0] == 'author'){
+  //  show_admin_bar(false);
+  // }
 }
 //  =================================//hide admin top menu bar=====================
 
