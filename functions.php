@@ -5,6 +5,7 @@ require get_template_directory(). '/inc/ajax_function_like_btn.php';
 require get_template_directory(). '/inc/custom_function.php';
 require get_template_directory(). '/bengali/register.php';
 require get_template_directory(). '/english/register.php';
+require get_template_directory(). '/like/register.php';
 
 
 

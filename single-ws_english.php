@@ -35,16 +35,46 @@ get_header();
                                                 <a href="#">PF</a>
                                             </div>
                                             <div class="col-lg-4 col-xs-12 text-right">
-                                                <span data-userid = "<?php echo $current_user_id ?>" data-ajaxurl="<?php echo admin_url('admin-ajax.php') ?>" data-like="<?php echo $like; ?>" data-postid="<?php echo get_the_ID(); ?>" id="like-btn">
-                                                	<a href="#" style="">
-                                                		<i class="fas fa-heart" <?php if( check_user_like( $current_user_id, $post_id ) ){ echo 'style="color:red;"'; } ?>>
-                                                			
-                                                		</i>
-                                                		&nbsp;&nbsp;
-                                                		<?php echo $like; ?> likes</a>
-                                                </span>
-                                                &nbsp;&nbsp;&nbsp;
+                                               <?php 
+                                                $likeCount = new WP_Query( array(
+                                                    'post_type'     => 'like',
+                                                    'meta_query'    => array(
+                                                        array(
+                                                            'key'       => 'liked_english_id',
+                                                            'compare'   => '=',
+                                                            'value'     => $post_id
+                                                        ))
+                                                ) );
+
+                                                $like_style = '';
+                                                $data_exist = 'data-exist="no"';
+                                                 $checklike = new WP_Query( array(
+                                                    'author'        => get_current_user_id(),
+                                                    'post_type'     => 'like',
+                                                    'meta_query'    => array(
+                                                        array(
+                                                            'key'       => 'liked_english_id',
+                                                            'compare'   => '=',
+                                                            'value'     => $post_id
+                                                        ))
+                                                ) );
+
+                                                 if( $checklike->found_posts ){
+                                                    $like_style = 'style="color:red"';
+                                                    $data_exist = 'data-exist="yes"';
+                                                 }
+
                                                 
+                                               ?>
+                                                <span class="like-box" <?php echo $data_exist; ?>>
+                                            		<i class="fas fa-heart" <?php echo $like_style;?> >
+                                            			
+                                            		</i>
+                                            		&nbsp;&nbsp;
+                                            		<?php echo $likeCount->found_posts; ?> likes
+                                                
+                                                    &nbsp;&nbsp;&nbsp;
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -54,21 +84,7 @@ get_header();
                                 </header>
                                 <div class="bl-content">
                                    <div class="bl-entry-content">
-                                        <?php echo get_the_content(); ?>
-                                      
-                                        <?php 
-                                            if( is_user_logged_in() ){
-                                                $user_id = get_current_user_id();
-                                                $like = get_like_num( $post_id );
-                                        ?>
-                                        <div class="like-btn-div">
-                                            <button data-userid = "<?php echo $user_id ?>"  data-ajaxurl="<?php echo admin_url('admin-ajax.php') ?>" data-like="<?php echo $like; ?>" data-postid="<?php echo get_the_ID(); ?>" id="like-btn" <?php if( check_user_like( $user_id, $post_id ) ){ echo 'disabled'; } ?>>Like</button>
-                                            <span id="like"><?php echo $like ?></span>
-                                        </div>
-                                        <?php
-                                            } // user login check
-
-                                        ?>
+                                        <?php echo get_the_content(); ?>                     
                                    </div>
                                 </div>
                             </div>

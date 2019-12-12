@@ -1,0 +1,33 @@
+@media only screen and (max-width : 767px) {
+	@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap');
+	.account-body {display: none;}
+	.bl-nav {display: none;}
+	.hide-mob {display: none;}
+	.mobile-account-body{ width:100%; display: block;}
+	.mobile-account-body .mob-acc-child-img-background{width:100%; position:relative; 
+		height: 26vh}
+	.mobile-account-body .mob-acc-child-img-background .mob-acc-img-gradient-background{position: absolute; 
+		width: 100%; height: 100%; background:rgba(0,0,0,0.5); top:0;}
+	.mobile-account-body .mob-acc-child-img-background .mob-acc-child-img-box{ position: absolute;width:100px; 
+		height: 100px; bottom: 36px;left: 10px;}
+	.mobile-account-body .mob-acc-child-img-background .mob-acc-child-img-box img{width: 100%; height: 100%; 
+		filter: brightness(115%); }
+	.mobile-account-body .mob-acc-child-img-background .mob-about{position: absolute;right: 0px; top:32px; 
+		width: calc( 100% - 120px); padding-left: 5px;}
+	.mobile-account-body .mob-acc-child-img-background .mob-about h3{color:#00D99F;font-size: 16px;font-weight:700;
+		padding-left:5px; padding-bottom: 5px;font-style: italic;}
+	.mobile-account-body .mob-acc-child-img-background .mob-about p{color: #fff; font-size: 14px; line-height:16px;
+		padding-right: 5px;}
+	.mobile-account-body .mob-name{}
+	.mobile-account-body .mob-name h1{ text-align: center; text-transform: capitalize; font-size: 43px; 
+		font-weight:900; font-family: 'Ubuntu', sans-serif;	 }
+	.mobile-account-body .mob-acc-details{}
+	.mobile-account-body .mob-acc-details .mob-acc-details-border{border-right: 1px solid #000;}
+	.mobile-account-body .mob-acc-details .mob-acc-details-border:last-child{border-right: unset;}
+	.mobile-account-body .mob-acc-details .mob-acc-details-border h2{text-align: center;font-size: 20px; 
+		font-weight:700 }
+	.mobile-account-body .mob-acc-details .mob-acc-details-border p{text-align: center}
+	.mobile-account-body .mob-edit-btn{margin-left: 50%;transform: translateX(-20%);}
+	.mobile-account-body .mob-edit-btn button{background: transparent;border:1px solid #00D99F;
+	padding: 5px; color: #00D99F;}
+}

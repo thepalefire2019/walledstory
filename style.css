@@ -299,6 +299,16 @@ body {
 {
     color: #00D99F;
 }
+.bl-post-content-header-content span
+{
+    color: #A3A3A3;
+    text-decoration: none;
+}
+
+.bl-post-content-header-content span:hover
+{
+    color: #00D99F; cursor: pointer;
+}
 
 .bl-post-content-header-title
 {

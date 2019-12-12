@@ -20,8 +20,9 @@ while( have_posts() ){
 	the_post();
 	the_content();
 	$avatar_url = get_the_author_meta( 'profile_picture', $current_user->ID ) ;
+    $mobile_back_img = get_stylesheet_directory_uri().'/img/1.jpg';
 ?>
-<div class="space60"></div>
+<div class="space60 hide-mob"></div>
 <div class="account-body">
 	<div class="acc-parent-box">
 		<div class="acc-parent-box-back-border"></div>
@@ -56,6 +57,51 @@ while( have_posts() ){
 			<p><?php the_author_meta( 'description', $current_user->ID ); ?></p>
 		</div>
 	</div>
+</div>
+<div class="mobile-account-body">
+    
+    <div class="mob-acc-child-img-background" style="background-image: url('<?php echo $mobile_back_img ?>');">
+        <div class="mob-acc-img-gradient-background"></div>
+
+        <div class="mob-acc-child-img-box">
+            <img src="<?php echo $avatar_url; ?>">
+        </div>
+
+        <div class="mob-about">
+            <h3>About</h3>
+            <p><?php the_author_meta( 'description', $current_user->ID ); ?></p>
+        </div>
+    </div>
+    <div class="space10"></div>
+    <div class="mob-name">
+        <h1>
+            <?php 
+                echo the_author_meta( 'first_name', $current_user->ID );
+                echo " ";
+                echo the_author_meta( 'last_name', $current_user->ID ); ?>
+            
+        </h1>
+    </div>
+    <div class="space30"></div>
+    <div class="mob-acc-details">
+        <div class="row ">
+            <div class="col-6 mob-acc-details-border">
+                <h2>34</h2>
+                <p>Posts</p>
+            </div>
+            <div class="col-6 mob-acc-details-border">
+                <h2>14</h2>
+                <p>Views</p>
+            </div>
+        </div>
+    </div>
+    <div class="space30"></div>
+    <div class="mob-edit-btn">
+        <button type="button" class="" data-toggle="modal" data-target="#exampleModalLong">
+            Edit Profile
+        </button>
+    </div>    
+    <div class="space20"></div>
 </div>
 
 
