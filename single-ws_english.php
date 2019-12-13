@@ -48,7 +48,9 @@ get_header();
 
                                                 $like_style = '';
                                                 $data_exist = 'data-exist="no"';
-                                                 $checklike = new WP_Query( array(
+
+                                                if( is_user_logged_in() ){
+                                                    $checklike = new WP_Query( array(
                                                     'author'        => get_current_user_id(),
                                                     'post_type'     => 'like',
                                                     'meta_query'    => array(
@@ -57,21 +59,23 @@ get_header();
                                                             'compare'   => '=',
                                                             'value'     => $post_id
                                                         ))
-                                                ) );
+                                                    ) );
 
-                                                 if( $checklike->found_posts ){
-                                                    $like_style = 'style="color:red"';
-                                                    $data_exist = 'data-exist="yes"';
-                                                 }
+                                                     if( $checklike->found_posts ){
+                                                        $like_style = 'style="color:red"';
+                                                        $data_exist = 'data-exist="yes"';
+                                                     }
+                                                }
+                                                 
 
                                                 
                                                ?>
-                                                <span class="like-box" <?php echo $data_exist; ?>>
+                                                <span class="like-box" <?php echo $data_exist; ?> data-english="<?php echo get_the_ID(); ?>" data-like="<?php if( isset( $checklike->posts[0]->ID ) ){echo $checklike->posts[0]->ID;} ?>">
                                             		<i class="fas fa-heart" <?php echo $like_style;?> >
                                             			
                                             		</i>
                                             		&nbsp;&nbsp;
-                                            		<?php echo $likeCount->found_posts; ?> likes
+                                            		<label class="present-like-count"><?php echo $likeCount->found_posts; ?></label> likes
                                                 
                                                     &nbsp;&nbsp;&nbsp;
                                                 </span>

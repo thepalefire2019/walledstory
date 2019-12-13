@@ -1,13 +1,54 @@
 	// like button
 	jQuery(document).ready(function($){
 		$(".like-box").on('click', function(e){
-			
-			if( $(this).data('exist') == 'yes' ){
+			var english_id = $(this).data('english');
+			var like_id = $(this).data('like');
+			if( $(this).attr('data-exist') == 'yes' ){
 				//delete like
-				alert("delete like");
+
+				$.ajax({
+					beforeSend : function(xhr){
+						xhr.setRequestHeader( 'X-WP-NONCE', wsdata.nonce );
+					},
+					url : wsdata.root_url +'/wp-json/ws/V1/like',
+					data : {
+						'like_id' : like_id
+					},
+					type : 'DELETE',
+					success : function( response ){
+						$('.fa-heart').css('color', '#fff');
+						var old_like_count = parseInt( $('.present-like-count').html() , 10 );
+						var new_like_count = old_like_count - 1;
+						$('.present-like-count').html( new_like_count );
+						$('.like-box').attr("data-like", '')
+						$('.like-box').attr("data-exist", 'no');
+					},
+					error : function ( response ){console.log( response )}
+				});
 			}else{
-				alert("add like");
 				//create like
+				$.ajax({
+					beforeSend : function(xhr){
+						xhr.setRequestHeader( 'X-WP-NONCE', wsdata.nonce );
+					},
+					url : wsdata.root_url +'/wp-json/ws/V1/like',
+					type : 'POST',
+					data :{
+						'english_id' : english_id
+					},
+					success : function( response ){
+						$('.fa-heart').css('color', 'red');
+						var old_like_count = parseInt( $('.present-like-count').html() , 10 );
+						var new_like_count = old_like_count + 1;
+						//alert(new_like_count);
+						$('.present-like-count').html( new_like_count );
+						$('.like-box').attr("data-like", response);
+						$('.like-box').attr("data-exist", 'yes');
+						console.log(response);
+					},
+					error : function ( response ){console.log( response )}
+				});
+				
 			}
 		});
 	});

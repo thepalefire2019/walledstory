@@ -31,3 +31,4 @@ function like_post_type(){
 
 require get_template_directory(). '/like/metabox.php';
 require get_template_directory(). '/like/save-metabox.php';
+require get_template_directory(). '/like/like-api.php';
