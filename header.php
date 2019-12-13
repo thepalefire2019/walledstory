@@ -43,6 +43,8 @@
                             <li class="bl-nav-bar-list-a"><a href="#">Blog</a></li>
                             <li class="bl-nav-bar-list-a"><a href="#">Contact</a></li>
                             <?php if( is_user_logged_in() ){ ?>
+                            <li class="bl-nav-bar-list-a"><a href="<?php echo site_url('/my-account'); ?>">Account</a></li>
+                            <li class="bl-nav-bar-list-a"><a href="<?php echo site_url('/my-post'); ?>">My Post</a></li>
                             <li class="bl-nav-bar-list-a"><a href="<?php echo wp_logout_url(); ?>">Logout</a></li>
                             <?php }else{ ?>
                             <li class="bl-nav-bar-list-a"><a href="<?php echo wp_registration_url() ; ?>">Register</a></li>
