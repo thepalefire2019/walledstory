@@ -86,6 +86,7 @@ get_header();
 
 		<div class="space40"></div>
 		<article class="front-page-gold">
+			<div class="front-page-gold-background"></div>
 			<div class="tag-line">
 				<span class="gold-line"></span>
 				<span class="gold">Gold</span>
@@ -128,6 +129,7 @@ get_header();
 		<div class="space30"></div>
 
 		<article class="front-page-silver">
+			<div class="front-page-silver-background"></div>
 			<div class="tag-line">
 				<span class="silver-line"></span>
 				<span class="silver">silver</span>
@@ -154,6 +156,7 @@ get_header();
 		<div class="space30"></div>
 
 		<article class="front-page-bronze">
+			<div class="front-page-bronze-background"></div>
 			<div class="tag-line">
 				<span class="bronze-line"></span>
 				<span class="bronze">bronze</span>
