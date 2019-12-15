@@ -227,4 +227,22 @@
 	});
 
 
+// Mobile menu functionality
+
+	jQuery(document).ready(function($){
+		$('.hd-menu').on( 'click', function(e){
+			
+			if( $(this).hasClass('menu-active') ){
+				$('.mobile-menu-screen').hide(500);
+				$(this).removeClass('menu-active');
+				$('.director').show(500);
+			}else{
+				$('.mobile-menu-screen').show(500);
+				$(this).addClass('menu-active');
+				$('.director').hide(500);
+			}
+			
+		} );
+	});
+
 

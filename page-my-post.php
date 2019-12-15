@@ -20,8 +20,9 @@ global $current_user, $wp_roles;
 			</div>
 			<?php
 			$englishblogs = new WP_Query( array(
-									'post_type' => 'ws_english',
-									'posts_per_page' => -1		
+									'post_type' 		=> 'ws_english',
+									'posts_per_page'	=> -1,
+									'author'			=> get_current_user_id()			
 							) );
 			$temp_loop = 5;
 			$temp_start_loop = 1;

@@ -23,6 +23,9 @@
                             <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                         </ul>
+                        <div class="hd-menu">
+                            <img src="<?php echo get_stylesheet_directory_uri()?>/img/svg/menu.svg">
+                        </div>
                     </div>
                     <div class="col-lg-8 bl-header-logo">
                         <h2><a href="<?php echo site_url(); ?>">Walledstory</a></h2>
@@ -38,8 +41,8 @@
                 <nav class="bl-nav-bar">
                     <div class="container">
                         <ul class="bl-nav-bar-list">
-                            <li class=""><a href="#">Home</a></li>
-                            <li class="bl-nav-bar-list-a"><a href="#">About</a></li>
+                            <li class=""><a href="<?php echo site_url('/') ?>">Home</a></li>
+                            <li class="bl-nav-bar-list-a"><a href="<?php echo site_url('/about') ?>">About</a></li>
                             <li class="bl-nav-bar-list-a"><a href="#">Blog</a></li>
                             <li class="bl-nav-bar-list-a"><a href="#">Contact</a></li>
                             <?php if( is_user_logged_in() ){ ?>
@@ -56,3 +59,35 @@
             </div>
             
         </header>
+
+        <div class="mobile-menu-screen">
+            <div class="container">
+                 <ul class="mob-nav-bar-list">
+                    <li class=""><a href="<?php echo site_url('/'); ?>">Home</a></li>
+                    <li class=""><a href="<?php echo site_url('/about'); ?>">About</a></li>
+                    <li class=""><a href="#">Blog</a></li>
+                    <li class=""><a href="#">Contact</a></li>
+                    <?php if( is_user_logged_in() ){ ?>
+                    <li class=""><a href="<?php echo site_url('/my-account'); ?>">Account</a></li>
+                    <li class=""><a href="<?php echo site_url('/my-post'); ?>">My Post</a></li>
+                    <li class=""><a href="<?php echo wp_logout_url(); ?>">Logout</a></li>
+                    <?php }else{ ?>
+                    <li class=""><a href="<?php echo wp_registration_url() ; ?>">Register</a></li>
+                    <li class=""><a href="<?php echo wp_login_url(); ?>">Login</a></li>
+                    <?php } ?>
+                </ul> 
+
+                <ul class="mob-nav-bar-extra-list">
+                    <li><a href="#">Dummy Extra</a></li>
+                    <li><a href="#">Dummy Extra</a></li>
+                    <li><a href="#">Dummy Extra</a></li>
+                    <li><a href="#">Dummy Extra</a></li>
+                    <li><a href="#">Dummy Extra</a></li>
+                    <li><a href="#">Dummy Extra</a></li>
+                    <li><a href="#">Dummy Extra</a></li>
+                </ul>
+            </div>
+          
+        </div>
+
+        <div class="director">

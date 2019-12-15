@@ -1,3 +1,4 @@
+</div><!-- Directot -->
 <footer>
 	<div class="container">
 		<div class="row foot">
