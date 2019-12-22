@@ -69,5 +69,16 @@
 	.front-page-gold .gold, .front-page-silver .silver, .front-page-bronze .bronze{padding: 4px 14px; left: 50px;}
 	.front-page-gold .read-all, .front-page-silver .read-all, .front-page-bronze .read-all{right: 20px; 
 		padding: 4px 20px;}
-		.first-post-img-gold{margin-top:10px;}
+	.first-post-img-gold{margin-top:10px;}
+	.most-viewed-parent{height: 196vh;}
+	.most-viewed-parent .shape{display: none;}
+	.most-viewed-parent .head{left: 30px;}
+	.most-viewed-parent .head h1{font-size: 40px;}
+	.most-viewed-parent .head p{font-size: 18px;}
+	.most-viewed-parent .post-box .single-box-black{height: 54vh; margin-bottom: 20px;margin-left: 50%; 
+		transform: translateX(-50%);}
+	.most-viewed-parent .post-box .single-box-white{height: 54vh; margin-bottom: 20px;margin-left: 50%; 
+		transform: translateX(-50%);}
+	.all-categories .cat-box p{font-size: 19px;}
+	.all-categories .underline-p{width: 100px;}
 }
