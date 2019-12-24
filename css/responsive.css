@@ -35,6 +35,7 @@
 	.bl-header-search{display: none;}
 	.hd-menu{display: block; position: absolute; right:21px; top:-22px; width: 32px; height:70px;}
 	.hd-menu img{ width: 100%; height: 100% }
+	.bl-header .main-menu{display: none}
 
 	/** Menu Screen **/
 	.mobile-menu-screen{position: absolute; width:100%; height:100vh; background-color: #E8E8E8;z-index: 2000;

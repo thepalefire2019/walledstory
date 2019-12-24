@@ -6,7 +6,7 @@
 					<div class="col-md-12" id="english">
 						<?php 
 							$englishblogs = new WP_Query( array(
-									'post_type' => 'ws_english',
+									'post_type' => 'ws_blog',
 									'posts_per_page' => -1		
 							) );
 

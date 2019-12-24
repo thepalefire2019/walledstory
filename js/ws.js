@@ -1,7 +1,7 @@
 	// like button
 	jQuery(document).ready(function($){
 		$(".like-box").on('click', function(e){
-			var english_id = $(this).data('english');
+			var blog_id = $(this).data('blog');
 			var like_id = $(this).data('like');
 			if( $(this).attr('data-exist') == 'yes' ){
 				//delete like
@@ -34,7 +34,7 @@
 					url : wsdata.root_url +'/wp-json/ws/V1/like',
 					type : 'POST',
 					data :{
-						'english_id' : english_id
+						'blog_id' : blog_id
 					},
 					success : function( response ){
 						$('.fa-heart').css('color', 'red');
@@ -70,7 +70,7 @@
 					beforeSend : function(xhr){
 						xhr.setRequestHeader( 'X-WP-NONCE', wsdata.nonce );
 					},
-					url: wsdata.root_url + '/wp-json/wp/V2/ws_english/'+ id,
+					url: wsdata.root_url + '/wp-json/wp/V2/ws_blog/'+ id,
 					type : 'DELETE',
 					success : function( response ){
 						console.log( 'Success' );
@@ -97,7 +97,7 @@
 				'title' 			: title,
 				'content'			: content,
 				'status'			: 'publish',
-				'english_category' 	:[category],
+				'blog_category' 	:[category],
 				'featured_media' 	: img 
 			}
 
@@ -105,7 +105,7 @@
 					beforeSend : function(xhr){
 						xhr.setRequestHeader( 'X-WP-NONCE', wsdata.nonce );
 					},
-					url: wsdata.root_url + '/wp-json/wp/V2/ws_english/',
+					url: wsdata.root_url + '/wp-json/wp/V2/ws_blog/',
 					type : 'POST',
 					data : ournewpostobj,
 					success : function( response ){
@@ -132,7 +132,7 @@
 	// 				beforeSend : function(xhr){
 	// 					xhr.setRequestHeader( 'X-WP-NONCE', wsdata.nonce );
 	// 				},
-	// 				url: wsdata.root_url + '/wp-json/wp/V2/ws_english/'+ id,
+	// 				url: wsdata.root_url + '/wp-json/wp/V2/ws_blog/'+ id,
 	// 				type : 'POST',
 	// 				data : oureditpostobj,
 	// 				success : function( response ){
@@ -246,3 +246,17 @@
 	});
 
 
+// Main Menu Functionality
+jQuery(document).ready(function($){
+	$('.main-menu').on('click', function(){
+		if( $(this).hasClass('main-menu-active') ){
+			$('.main-menu-screen').hide(500);
+			$(this).removeClass('main-menu-active');
+			$('.director').show(500);
+		}else{
+			$('.main-menu-screen').show(500);
+			$(this).addClass('main-menu-active');
+			$('.director').hide(500);
+		}
+	});
+});

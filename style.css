@@ -45,8 +45,8 @@ body {
 .bl-header
 {
     text-align: center;
-    margin-bottom: 3vh;
-    margin-top: 3vh;
+    margin-bottom: 3.5vh;
+    margin-top: 3.5vh;
 }
 
 .bl-header-social
@@ -409,6 +409,46 @@ span.dropcap
     text-align: center;
     font-style: italic !important;
     font-weight: bold !important;
+}
+.bl-widget ul
+{
+    list-style: none;
+}
+
+.bl-widget ul li
+{
+    padding-bottom: 15px;
+    margin-top: 15px;
+    border-bottom: 1px solid #e9eaee;
+    text-align: right;
+}
+
+.bl-widget ul li a
+{
+    color: #535353;
+    text-decoration: none;
+    float: left;
+}
+
+.bl-widget ul li span
+{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: #eaeaea;
+    clear: none;
+    color: #737373;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 23px;
+    text-align: center;
+    margin-top: -1px;
+    letter-spacing: 0em;
+}
+
+.bl-widget ul li a:hover
+{
+    color: #00D99F;
 }
 
 .bl-photo-holder

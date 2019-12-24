@@ -20,7 +20,7 @@ global $current_user, $wp_roles;
 			</div>
 			<?php
 			$englishblogs = new WP_Query( array(
-									'post_type' 		=> 'ws_english',
+									'post_type' 		=> 'ws_blog',
 									'posts_per_page'	=> -1,
 									'author'			=> get_current_user_id()			
 							) );
@@ -33,17 +33,20 @@ global $current_user, $wp_roles;
 			?>
 			<div class="col-md-4">
 				<div class="sk-content">
-					<div class="sk-topic">
-						<?php the_post_thumbnail('ws-regular'); ?>
-					</div>
-					<div class="sk-item">
-						<h4><?php echo get_the_title(); ?></h4>
-					</div>
-					<div class="sk-outer-border"></div>
-					<div class="sk-inner-border"></div>
-					<div class="sk-top-black-box"></div>
-					<div class="sk-right-black-box"></div>
-					<div class="sk-left-black-box"></div>
+					<a href="<?php echo get_the_permalink(); ?>">
+						<div class="sk-topic">
+							<?php the_post_thumbnail('ws-regular'); ?>
+						</div>
+						<div class="sk-item">
+							<h4><?php echo get_the_title(); ?></h4>
+						</div>
+						<div class="sk-outer-border"></div>
+						<div class="sk-inner-border"></div>
+						<div class="sk-top-black-box"></div>
+						<div class="sk-right-black-box"></div>
+						<div class="sk-left-black-box"></div>
+					</a>
+					
 				</div>
 			</div>
 			<?php
@@ -62,52 +65,3 @@ get_footer();
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Create New Post</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      
-		<div class="form-group">
-			<label for="post-title">Title of Post</label>
-			<input type="text" class="form-control" id="post-title" placeholder="Enter The Title" required>
-		</div>
-		<div class="form-group">
-			<label for="post-category">Select Category</label>
-			<select class="form-control" id="post-category">
-				<?php 
-				$eng_cats = get_terms([
-				    'taxonomy' => 'english_category',
-				    'hide_empty' => false,
-				]);
-				foreach( $eng_cats as $eng_cat ){
-				?>
-				<option value="<?php echo $eng_cat->term_id; ?>"><?php echo $eng_cat->name; ?></option>
-				
-				<?php } ?>
-			</select>
-		</div>
-		 <div class="form-group">
-			<label for="post-content">Post Content</label>
-			<textarea class="form-control" id="post-content" rows="3" required=""></textarea>
-		</div>
-		<div class="form-group">
-			<label for="post-content">Select Featured Image</label>
-			<input type="hidden"  class="img_url_1" id="post-img-id">
-			<span class="btn btn-secondary select-image-1" id="select-image-1">Select Image</span>
-			<img class="pro_img_1"  height="50" width="50">
-		</div>
-		
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-post">Create Post</button>
-      </div>
-    </div>
-  </div>
-</div>

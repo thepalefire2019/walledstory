@@ -5,20 +5,20 @@ add_action( 'init', 'english_post_type' );
 
 function english_post_type(){
 	$labels = array(
-    'name'                => _x( 'English', 'post type general name', 'your-plugin-textdomain'),
-    'singular_name'       => _x( 'English', 'post type singular name', 'your-plugin-textdomain' ), 
-    'menu_name'           => _x( 'English', 'admin menu', 'your-plugin-textdomain' ),
-    'name_admin_bar'      => _x( 'English', 'add new on admin bar', 'your-plugin-textdomain' ),
-    'add_new'             => _x( 'Add New', 'English', 'your-plugin-textdomain' ),
-    'add_new_item'        => __( 'Add New English', 'your-plugin-textdomain' ),
-    'new_item'            => __( 'New English', 'your-plugin-textdomain' ),
-    'edit_item'           => __( 'Edit English', 'your-plugin-textdomain' ),
-    'view_item'           => __( 'View English', 'your-plugin-textdomain' ),
-    'all_items'           => __( 'All English', 'your-plugin-textdomain' ),
-    'search_items'        => __( 'Search English', 'your-plugin-textdomain' ),
-    'parent_item_colon'   => __( 'Parent English:', 'your-plugin-textdomain' ),
-    'not_found'           => __( 'No english post found.', 'your-plugin-textdomain' ),
-    'not_found_in_trash'  => __( 'No english post found in Trash.', 'your-plugin-textdomain' )
+    'name'                => _x( 'Blog', 'post type general name', 'your-plugin-textdomain'),
+    'singular_name'       => _x( 'Blog', 'post type singular name', 'your-plugin-textdomain' ), 
+    'menu_name'           => _x( 'Blog', 'admin menu', 'your-plugin-textdomain' ),
+    'name_admin_bar'      => _x( 'Blog', 'add new on admin bar', 'your-plugin-textdomain' ),
+    'add_new'             => _x( 'Add New', 'Blog', 'your-plugin-textdomain' ),
+    'add_new_item'        => __( 'Add New Blog', 'your-plugin-textdomain' ),
+    'new_item'            => __( 'New Blog', 'your-plugin-textdomain' ),
+    'edit_item'           => __( 'Edit Blog', 'your-plugin-textdomain' ),
+    'view_item'           => __( 'View Blog', 'your-plugin-textdomain' ),
+    'all_items'           => __( 'All Blog', 'your-plugin-textdomain' ),
+    'search_items'        => __( 'Search Blog', 'your-plugin-textdomain' ),
+    'parent_item_colon'   => __( 'Parent Blog:', 'your-plugin-textdomain' ),
+    'not_found'           => __( 'No blog post found.', 'your-plugin-textdomain' ),
+    'not_found_in_trash'  => __( 'No blog post found in Trash.', 'your-plugin-textdomain' )
   ); 
 
   $args = array(
@@ -29,20 +29,20 @@ function english_post_type(){
     'show_ui'             => true,
     'show_in_menu'        => true,
     'query_var'           => true,
-    'rewrite'             => array( 'slug' => 'englishs' ),
+    'rewrite'             => array( 'slug' => 'blogs' ),
     'has_archive'         => true,
     'hierarchical'        => false,
     'menu_position'       => null,
     'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments','revisions'),
-    'taxonomies'          => array('english_category','post_tag'),
+    'taxonomies'          => array('blog_category','post_tag'),
     'show_in_rest'        => true,
     'menu_icon'           => 'dashicons-editor-textcolor',
     'menu_position'       => 5,
-    'capability_type'     => 'english',
+    'capability_type'     => 'blog',
     'map_meta_cap'        => true  
 );
 
-	register_post_type( 'ws_english', $args );
+	register_post_type( 'ws_blog', $args );
 }
 
 //  ======================================= Register Bengali post type===============================
@@ -56,8 +56,8 @@ add_action( 'init', 'create_eng_cat_tax' );
 function create_eng_cat_tax(){
 
 	register_taxonomy(
-        'english_category',
-        'ws_english',
+        'blog_category',
+        'ws_blog',
         array(
             'labels' =>array(
                         'name' =>'Categories',
@@ -97,9 +97,14 @@ function create_eng_cat_tax(){
 }
 //  ======================================= Register Category Tax for Bengali========================
 
+
+//  ======================================= Add Extra Files========================
+require get_template_directory(). '/blog/metabox.php';
+//  ======================================= Add Extra Files========================
+
 //  =======================================color option for bengali category========================
 
-add_action ( 'english_category_edit_form_fields', 'eng_category_color_fields');
+add_action ( 'blog_category_edit_form_fields', 'eng_category_color_fields');
 function eng_category_color_fields( $tag ){
     $t_id = $tag->term_id;
     $cat_meta = get_option( "eng_category_$t_id");
@@ -114,7 +119,7 @@ function eng_category_color_fields( $tag ){
 
     <?php
 }
-add_action ( 'edited_english_category', 'save_eng_category_color_fields');
+add_action ( 'edited_blog_category', 'save_eng_category_color_fields');
 function save_eng_category_color_fields( $term_id ) {
     if ( isset( $_POST['Cat_meta'] ) ) {
         $t_id = $term_id;
@@ -132,14 +137,14 @@ function save_eng_category_color_fields( $term_id ) {
 
 //Cat color column
 
-add_filter('manage_edit-english_category_columns' , 'eng_cat_color_taxonomy_columns');
+add_filter('manage_edit-blog_category_columns' , 'eng_cat_color_taxonomy_columns');
 function eng_cat_color_taxonomy_columns( $columns )
 {
   $columns['cat_color'] = __('Color');
 
   return $columns;
 } 
-add_filter( 'manage_english_category_custom_column', 'eng_cat_color_taxonomy_columns_content', 10, 3 );
+add_filter( 'manage_blog_category_custom_column', 'eng_cat_color_taxonomy_columns_content', 10, 3 );
 function eng_cat_color_taxonomy_columns_content( $content, $column_name, $term_id )
 {
     if ( 'cat_color' == $column_name ) {

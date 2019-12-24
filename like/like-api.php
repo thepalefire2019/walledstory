@@ -15,25 +15,25 @@ function like_api_routes(){
 
 function ws_like_post_routes( $data ){
 	if( is_user_logged_in() ){
-		$english_id = sanitize_text_field($data['english_id']);
+		$blog_id = sanitize_text_field($data['blog_id']);
 		 $checklike = new WP_Query( array(
 			                'author'        => get_current_user_id(),
 			                'post_type'     => 'like',
 			                'meta_query'    => array(
 			                    array(
-			                        'key'       => 'liked_english_id',
+			                        'key'       => 'liked_blog_id',
 			                        'compare'   => '=',
-			                        'value'     => $english_id
+			                        'value'     => $blog_id
 			                    ))
 			                ) );
-		if( $checklike->found_posts == 0 AND get_post_type($english_id) == 'ws_english' ){
+		if( $checklike->found_posts == 0 AND get_post_type($blog_id) == 'ws_blog' ){
 			$like_id = wp_insert_post(array(
 				'post_type' => 'like',
 				'post_status' => 'publish',
-				'post_title'	=> 'test 2',
+				'post_title'	=> 'Blog#'.$blog_id,
 				
 			));
-			update_post_meta( $like_id,"liked_english_id",$english_id );
+			update_post_meta( $like_id,"liked_blog_id",$blog_id );
 			return $like_id;
 		}else{
 			die("You have already liked the Post");
@@ -42,7 +42,7 @@ function ws_like_post_routes( $data ){
 	}else{
 		die("Please Log in To Like the Post.");
 	}
-	//$english_id = $_POST['english_id'];
+	//$blog_id = $_POST['blog_id'];
 	 
 }
 function ws_like_delete_routes( $data ){
