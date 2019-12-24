@@ -21,21 +21,21 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
         <header>
             <div class="dark-header">
                 <div class="row">
-                    <div class="col-md-4 dark-header-social">
+                    <div class="col-md-4 col-4 dark-header-social">
                          <ul>
                             <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                             <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                         </ul> 
                     </div>
-                    <div class="col-md-4 dark-header-add-post" >
+                    <div class="col-md-4 col-4 dark-header-add-post" >
                         <?php if( is_user_logged_in() ){ ?>
                         <p data-toggle="modal" data-target="#exampleModalLong">
                         Create Blog
                         </p>
                         <?php } ?>
                     </div>
-                    <div class="col-md-3 dark-header-profile">
+                    <div class="col-md-3 col-3 dark-header-profile">
                         <?php  if(is_user_logged_in()){ ?>
                         <div class="dropdown">
                             <a class="profile-btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -49,12 +49,12 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                             </div>
                         </div>
                         <?php }else{ ?>
-                        <div class="col-md-3 dark-header-profile-login">
+                        <div class="col-md-3 col-3 dark-header-profile-login">
                             <a href="<?php echo wp_login_url(); ?>" class="login">Login</a>
                         </div>
                         <?php } ?>
                     </div>
-                    <div class="col-md-1"></div>
+                    <div class="col-md-1 col-1"></div>
                 </div>
             </div>
             <div class="container-fluid bl-header">

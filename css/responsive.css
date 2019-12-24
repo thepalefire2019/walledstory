@@ -36,6 +36,11 @@
 	.hd-menu{display: block; position: absolute; right:21px; top:-22px; width: 32px; height:70px;}
 	.hd-menu img{ width: 100%; height: 100% }
 	.bl-header .main-menu{display: none}
+	.bl-header-logo h2{font-size: 1.5em;}
+	.dark-header .dark-header-add-post{right: 130px;}
+	.dark-header .dark-header-profile{right: 20px;}
+	.dropdown-menu{min-width: 6rem; font-size: 0.6rem;}
+	.dark-header .dark-header-profile .profile-btn{font-size: 14px;}
 
 	/** Menu Screen **/
 	.mobile-menu-screen{position: absolute; width:100%; height:100vh; background-color: #E8E8E8;z-index: 2000;
@@ -55,31 +60,10 @@
 	.abt-content p::first-letter{font-size:300%;}
 
 	/** front page **/
-	.front-page-banner .banner-parent .banner-post{height: 85vh;}
-	.front-page-banner .banner-parent .banner-post .carousel-ws-banner .carousel-inner-banner .carousel-item-banner 
-	.banner-content h1{width: 90%; font-size: 30px;margin-top: 68px;margin-bottom: 15px;}
-	.front-page-banner .banner-parent .banner-post .carousel-ws-banner .carousel-inner-banner .carousel-item-banner 
-	.banner-content h3{font-size: 18px;}
-	.front-page-banner .banner-parent .banner-post .carousel-ws-banner .carousel-inner-banner .carousel-item-banner 
-	.banner-content h2{margin-top: 10px;}
-	.front-page-banner .banner-parent .banner-post .carousel-ws-banner .carousel-inner-banner .carousel-item-banner 
-	.banner-content p{width: 60%; margin-bottom: 45px;}
-	.front-page-banner .banner-parent .banner-level{height: 10.7vh}
-	.front-page-banner .banner-parent .banner-level .banner-level-img{height: 78px; width: 80px;}
+	.left-layout .blog-card{width: 100%;height: 535px;}
+	.left-layout .blog-card .blog-card-body .blog-details{top: 290px;width: 90%;}
+	.left-layout .blog-card .blog-card-body .blog-img{width: 90%;height: 200px;}
+	.left-layout .blog-card .blog-card-footer{margin-top: 33px;}
 
-	.front-page-gold .gold, .front-page-silver .silver, .front-page-bronze .bronze{padding: 4px 14px; left: 50px;}
-	.front-page-gold .read-all, .front-page-silver .read-all, .front-page-bronze .read-all{right: 20px; 
-		padding: 4px 20px;}
-	.first-post-img-gold{margin-top:10px;}
-	.most-viewed-parent{height: 196vh;}
-	.most-viewed-parent .shape{display: none;}
-	.most-viewed-parent .head{left: 30px;}
-	.most-viewed-parent .head h1{font-size: 40px;}
-	.most-viewed-parent .head p{font-size: 18px;}
-	.most-viewed-parent .post-box .single-box-black{height: 54vh; margin-bottom: 20px;margin-left: 50%; 
-		transform: translateX(-50%);}
-	.most-viewed-parent .post-box .single-box-white{height: 54vh; margin-bottom: 20px;margin-left: 50%; 
-		transform: translateX(-50%);}
-	.all-categories .cat-box p{font-size: 19px;}
-	.all-categories .underline-p{width: 100px;}
+	
 }
