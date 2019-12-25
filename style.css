@@ -5,7 +5,12 @@ Author URI :https://thepalefire.com/
 version:1.0
 */
 
-
+:root {
+  --gold-color: #ffd700;
+  --silver-color: #999999;
+  --bronze-color: #cd7f32;
+  --green-color: #01203D;;
+}
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Jomolhari&display=swap');
@@ -164,7 +169,7 @@ body {
 
 .bl-nav ul li:hover
 {
-    border-top: 2px solid #00D99F;
+    border-top: 2px solid var(--green-color);
 }
 
 .bl-header-image-sec
@@ -297,7 +302,7 @@ body {
 
 .bl-post-content-header-content a:hover
 {
-    color: #00D99F;
+    color: var(--green-color);
 }
 .bl-post-content-header-content span
 {
@@ -307,7 +312,7 @@ body {
 
 .bl-post-content-header-content span:hover
 {
-    color: #00D99F; cursor: pointer;
+    color: var(--green-color); cursor: pointer;
 }
 
 .bl-post-content-header-title
@@ -329,7 +334,7 @@ body {
 
 .bl-post-content-header-title h2 a:hover
 {
-    color: #00D99F;
+    color: var(--green-color);
 }
 
 .bl-content
@@ -374,7 +379,7 @@ span.dropcap
 
 .continue_reading a
 {
-    color: #00D99F;
+    color: var(--green-color);
     text-decoration: none;
 }
 
@@ -405,7 +410,7 @@ span.dropcap
     text-align: center;
     font-size: 22px;
     margin-bottom: 5px;
-    color: #00D99F;
+    color: var(--green-color);
     text-align: center;
     font-style: italic !important;
     font-weight: bold !important;
@@ -448,7 +453,7 @@ span.dropcap
 
 .bl-widget ul li a:hover
 {
-    color: #00D99F;
+    color: var(--green-color);
 }
 
 .bl-photo-holder

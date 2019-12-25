@@ -8,17 +8,17 @@
 .space80{width:100%; height:80px;}
 @import url('https://fonts.googleapis.com/css?family=Tomorrow:400,700,800&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap');
-
+/** before #00D99F **/
 :root {
   --gold-color: #ffd700;
   --silver-color: #999999;
   --bronze-color: #cd7f32;
-  --green-color: #00D99F;;
+  --green-color: #01203D;;
 }
 /** Header **/
 .bl-header .main-menu{width: 32px; height: 40px;position: absolute;right: 60px;top: 9px; cursor: pointer;}
 .bl-header .main-menu img{width: 100%; height: 100%;}
-.dark-header{height: 40px; background: #222222; width: 100%; position: relative;}
+.dark-header{height: 40px; background: var(--green-color); width: 100%; position: relative;}
 .dark-header .dark-header-social{position: absolute;top: 9px;left: 10px;}
 .dark-header .dark-header-social ul{}
 .dark-header .dark-header-social ul li{display: inline; margin-right: 10px;}
@@ -167,7 +167,7 @@ bottom:54px; left: 20px}
 .bl-widget .rel-post .rel-post-img img{width:100%; height: 100%}
 .bl-widget .rel-post .rel-post-header{position: absolute; top: 22px; left:100px;}
 .bl-widget .rel-post .rel-post-header h5{color: var(--green-color);}
-.bl-widget .rel-post .rel-post-content{position: absolute;left: 100px; bottom:25px; width:50%; }
+.bl-widget .rel-post .rel-post-content{position: absolute;left: 100px; bottom:25px; width:70%; }
 .bl-widget .rel-post .rel-post-content h2{text-align: left;}
 
 
@@ -175,24 +175,26 @@ bottom:54px; left: 20px}
 
 	/** Front page **/
 .left-layout{ width: 100%;  }
-.left-layout .blog-card{width: 90%; height: 300px; background:#fff; box-shadow: 0px 5px 20px rgba(0,0,0,0.15);}
+.left-layout .blog-card{width: 100%; height: 300px; background:#fff; transition: 500ms all;margin-bottom: 30px;}
+.left-layout .blog-card:hover{ box-shadow: 8px 5px 10px rgba(0,0,0,0.3);}
 .left-layout .blog-card .blog-card-header{width: 100%; height: 60px;position: relative;}
 .left-layout .blog-card .blog-card-header .blog-card-author{position: absolute;top:15px;left: 15px;}
 .left-layout .blog-card .blog-card-header .blog-card-author img{width: 30px; height: 30px; border-radius: 50%;}
 .left-layout .blog-card .blog-card-header .blog-card-author span{margin-left: 7px;text-transform: capitalize; font-weight: 700;}
 .left-layout .blog-card .blog-card-header .blog-card-author span a{color:var(--green-color); text-decoration: none;}
-.left-layout .blog-card .blog-card-header .blog-card-level{position: absolute; top: 15px; right: 150px}
+.left-layout .blog-card .blog-card-header .blog-card-level{position: absolute; top: 15px; right: 210px}
 .left-layout .blog-card .blog-card-header .blog-card-level img{width: 30px; height: 30px; border-radius: 50%;}
-.left-layout .blog-card .blog-card-header .blog-card-category{position: absolute;top: 15px; right: 15px}
+.left-layout .blog-card .blog-card-header .blog-card-category{position: absolute;top: 15px; right: 20px}
 .left-layout .blog-card .blog-card-header .blog-card-category p{color: var(--green-color); font-weight: 700; 
 	text-transform: uppercase; font-size: 22px;}
 .left-layout .blog-card .blog-card-header .blog-card-category p a{color: var(--green-color); text-decoration: none;}
 .left-layout .blog-card .blog-card-body{width: 100%; height:200px;position: relative;}
 .left-layout .blog-card .blog-card-body .blog-img{position: absolute;width: 220px; height: 150px;top:25px;left: 15px}
 .left-layout .blog-card .blog-card-body .blog-img img{width: 100%; height: 100%}
-.left-layout .blog-card .blog-card-body .blog-details{position: absolute;width: 375px; height: 150px;top:25px;right: 15px;}
-.left-layout .blog-card .blog-card-body .blog-details h1{font-size: 20px; line-height: 23px; font-weight: 700;}
-.left-layout .blog-card .blog-card-body .blog-details p{font-weight: 500; font-size: 14px; line-height: 17px; margin-top: 10px;}
+.left-layout .blog-card .blog-card-body .blog-details{position: absolute;width: 445px; height: 150px;top:25px;right: 15px;}
+.left-layout .blog-card .blog-card-body .blog-details h1{font-size: 20px; line-height: 23px; font-weight: 700; 
+	text-transform: capitalize;}
+.left-layout .blog-card .blog-card-body .blog-details p{font-weight: 500; font-size: 15px; line-height: 18px; margin-top: 10px;}
 .left-layout .blog-card .blog-card-body .blog-details p span{ font-size: 15px; font-weight: 700 }
 .left-layout .blog-card .blog-card-body .blog-details p span a{color: var(--green-color); text-decoration:none;}
 .left-layout .blog-card .blog-card-footer{width: 100%; height: 40px; position: relative;}
@@ -203,3 +205,5 @@ bottom:54px; left: 20px}
 .left-layout .blog-card .blog-card-footer .blog-card-likes span {}
 .left-layout .blog-card .blog-card-footer .blog-card-likes span i{color: #D1D1D1}
 .right-layout{}
+.right-layout .right-card{background: #fff; transition: 500ms all}
+.right-layout .right-card:hover{box-shadow: 8px 5px 10px rgba(0,0,0,0.3);}

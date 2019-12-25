@@ -24,6 +24,11 @@ get_header();
         $author_desc = get_the_author_meta( 'description', get_the_author_meta('ID') );
         $author_permalink = get_author_posts_url(get_the_author_meta('ID'));
 
+        setPostViews(get_the_ID()); 
+        //getPostViews(get_the_ID());
+        //echo getLikes(get_the_ID());
+        //echo getLevel(get_the_ID());
+
 		?>
 
 
@@ -64,6 +69,11 @@ get_header();
 
                                                 $like_style = '';
                                                 $data_exist = 'data-exist="no"';
+                                                // set no of likes in metakey
+                                                setLike( $post_id, $likeCount->found_posts );
+
+                                                // set levels in metakey
+                                                setLevel( $post_id, $likeCount->found_posts, getPostViews(get_the_ID()) );
 
                                                 if( is_user_logged_in() ){
                                                     $checklike = new WP_Query( array(

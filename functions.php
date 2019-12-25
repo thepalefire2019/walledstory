@@ -22,6 +22,141 @@ add_action('after_setup_theme','site_setup');
 
 
 
+// *** =================  levels ============== *** //
+function setLevel( $postID, $likesnum, $viewsnum ){
+  $level_key = 'blog_level';
+  //calculate level
+
+  if( $viewsnum < 10 ){
+    $view = 0;
+  }elseif( $viewsnum >= 10 AND $viewsnum < 150 ) {
+    $view = 1;
+  }elseif( $viewsnum >= 150 AND $viewsnum < 220 ){
+    $view = 2;
+  }elseif( $viewsnum >= 220 AND $viewsnum < 330 ){
+    $view = 3;
+  }elseif( $viewsnum >= 330 AND $viewsnum < 450 ){
+    $view = 4;
+  }elseif( $viewsnum >= 450 AND $viewsnum < 560 ){
+    $view = 5;
+  }elseif( $viewsnum >= 560 AND $viewsnum < 660 ){
+    $view = 6;
+  }elseif( $viewsnum >= 660 AND $viewsnum < 770 ){
+    $view = 7;
+  }elseif( $viewsnum >= 770 AND $viewsnum < 880 ){
+    $view = 8;
+  }elseif( $viewsnum >= 880 AND $viewsnum < 1000 ){
+    $view = 9;
+  }else{
+    $view = 10;
+  }
+
+  if( $likesnum < 1 ){
+    $like = 0;
+  }elseif( $likesnum >= 1 AND $likesnum < 15 ) {
+    $like = 1;
+  }elseif( $likesnum >= 15 AND $likesnum < 22 ){
+    $like = 2;
+  }elseif( $likesnum >= 22 AND $likesnum < 33 ){
+    $like = 3;
+  }elseif( $likesnum >= 33 AND $likesnum < 45 ){
+    $like = 4;
+  }elseif( $likesnum >= 45 AND $likesnum < 56 ){
+    $like = 5;
+  }elseif( $likesnum >= 56 AND $likesnum < 66 ){
+    $like = 6;
+  }elseif( $likesnum >= 66 AND $likesnum < 77 ){
+    $like = 7;
+  }elseif( $likesnum >= 77 AND $likesnum < 88 ){
+    $like = 8;
+  }elseif( $likesnum >= 88 AND $likesnum < 100 ){
+    $like = 9;
+  }else{
+    $like = 10;
+  }
+
+  $view_rating = 0.3 * $view;
+  $like_rating = 0.7 * $like;
+  $rating = $view_rating + $like_rating;
+  /** 
+    == LEVEL ==
+    0 -> Bronze
+    1 -> Silver
+    2 -> Gold
+  **/
+    if( $rating <= 2.5 ){ 
+    $level = 0; 
+  }elseif( $rating >2.5 AND $rating <=5.2 ){
+    $level = 1;
+  }else{
+    $level = 2;
+  }
+  //calculate level
+  $exits_blog_level = get_post_meta($postID, $level_key, true);
+  if( $exits_blog_level == '' ){
+    delete_post_meta($postID, $level_key);
+    add_post_meta($postID, $level_key, $level);
+  }else{
+    update_post_meta($postID, $level_key, $level);
+  }
+}
+
+function getLevel( $postID ){
+  $level_key = 'blog_level';
+  $level = get_post_meta($postID, $level_key, true);
+  return $level;
+}
+// Add level to a column in WP-Admin
+add_filter('manage_posts_columns', 'posts_column_levels');
+add_action('manage_posts_custom_column', 'posts_custom_column_levels',5,2);
+function posts_column_levels($defaults){
+    $defaults['post_levels'] = __('Level');
+    return $defaults;
+}
+function posts_custom_column_levels($column_name, $id){
+ if($column_name === 'post_levels'){
+         $level = getLevel(get_the_ID());
+         if( $level == 0 ){
+          echo '<div style="width:20px; height:20px;border-radius:50%; background:#cd7f32" ></div>';
+         }elseif ($level == 1) {
+           echo '<div style="width:20px; height:20px;border-radius:50%; background:#999999" ></div>';
+         }else{
+          echo '<div style="width:20px; height:20px;border-radius:50%; background:#ffd700" ></div>';
+         }
+
+    }
+}
+// *** =================  Likes ============== *** //
+function setLike( $postID, $no_of_like ){
+  $like_key = 'blog_like_count';
+  $like_count = get_post_meta($postID, $like_key, true);
+  if( $like_count == '' ){
+    delete_post_meta($postID, $like_key);
+    add_post_meta($postID, $like_key, $no_of_like);
+  }else{
+     update_post_meta($postID, $like_key, $no_of_like);
+  }
+}
+function getLikes( $postID ){
+   $like_key = 'blog_like_count';
+   $no_of_like = get_post_meta($postID, $like_key, true);
+    if($no_of_like==''){
+        return "0";
+    }
+   return $no_of_like;
+}
+// Add like to a column in WP-Admin
+add_filter('manage_posts_columns', 'posts_column_likes');
+add_action('manage_posts_custom_column', 'posts_custom_column_likes',5,2);
+function posts_column_likes($defaults){
+    $defaults['post_likes'] = __('Likes');
+    return $defaults;
+}
+function posts_custom_column_likes($column_name, $id){
+ if($column_name === 'post_likes'){
+         echo getLikes(get_the_ID());
+    }
+}
 // *** =================  Views ============== *** //
 function getPostViews($postID){
     $count_key = 'post_views_count';
@@ -29,7 +164,7 @@ function getPostViews($postID){
     if($count==''){
         delete_post_meta($postID, $count_key);
         add_post_meta($postID, $count_key, '0');
-        return "0 View";
+        return "0";
     }
     return $count;
 }
