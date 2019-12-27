@@ -9,7 +9,9 @@ version:1.0
   --gold-color: #ffd700;
   --silver-color: #999999;
   --bronze-color: #cd7f32;
-  --green-color: #01203D;;
+  --theme-color-dark: #01203D;
+  --theme-color-medium: #B5D43B;
+  --theme-color-light: #D9EF82;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
@@ -43,7 +45,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     box-sizing:         border-box;
 }
 body {
-    background: #E8E8E8;
+    background: #F7F7F7;
     overflow: auto;
 }
 
@@ -169,7 +171,7 @@ body {
 
 .bl-nav ul li:hover
 {
-    border-top: 2px solid var(--green-color);
+    border-top: 2px solid var(--theme-color-medium);
 }
 
 .bl-header-image-sec
@@ -302,7 +304,7 @@ body {
 
 .bl-post-content-header-content a:hover
 {
-    color: var(--green-color);
+    color: var(--theme-color-medium);
 }
 .bl-post-content-header-content span
 {
@@ -312,7 +314,7 @@ body {
 
 .bl-post-content-header-content span:hover
 {
-    color: var(--green-color); cursor: pointer;
+    color: var(--theme-color-medium); cursor: pointer;
 }
 
 .bl-post-content-header-title
@@ -334,7 +336,7 @@ body {
 
 .bl-post-content-header-title h2 a:hover
 {
-    color: var(--green-color);
+    color: var(--theme-color-medium);
 }
 
 .bl-content
@@ -379,7 +381,7 @@ span.dropcap
 
 .continue_reading a
 {
-    color: var(--green-color);
+    color: var(--theme-color-medium);
     text-decoration: none;
 }
 
@@ -410,7 +412,7 @@ span.dropcap
     text-align: center;
     font-size: 22px;
     margin-bottom: 5px;
-    color: var(--green-color);
+    color: var(--theme-color-medium);
     text-align: center;
     font-style: italic !important;
     font-weight: bold !important;
@@ -453,7 +455,7 @@ span.dropcap
 
 .bl-widget ul li a:hover
 {
-    color: var(--green-color);
+    color: var(--theme-color-medium);
 }
 
 .bl-photo-holder
