@@ -11,14 +11,15 @@
 /** 
 before #00D99F 
 saikat #01203D
+babu trial: medium 1 -> #B5D43B;;
 **/
 :root {
   --gold-color: #ffd700;
   --silver-color: #999999;
   --bronze-color: #cd7f32;
-  --theme-color-dark: #434738;
-  --theme-color-medium: #B5D43B;
-  --theme-color-light: #D9EF82;
+  --theme-color-dark: #ffb6c1;
+  --theme-color-medium: #ffbdc7;
+  --theme-color-light: #ffc4cd;
 }
 /** Header **/
 .bl-header .main-menu{width: 32px; height: 40px;position: absolute;right: 60px;top: 9px; cursor: pointer;}
@@ -27,8 +28,8 @@ saikat #01203D
 .dark-header .dark-header-social{position: absolute;top: 9px;left: 10px;}
 .dark-header .dark-header-social ul{}
 .dark-header .dark-header-social ul li{display: inline; margin-right: 10px;}
-.dark-header .dark-header-social ul li a{color: #fff}
-.dark-header .dark-header-social ul li a:hover{color: var(--theme-color-light)}
+.dark-header .dark-header-social ul li a{color: #000}
+.dark-header .dark-header-social ul li a:hover{color: red}
 .dark-header .dark-header-profile{position: absolute;right: 0; top: 6px; }
 .dark-header .dark-header-profile .profile-btn{color: #fff; text-decoration: none; text-transform: capitalize;}
 .dark-header .dark-header-profile .profile-btn span{ width: 25px; height: 25px; margin-right: 10px; }
@@ -186,13 +187,13 @@ bottom:54px; left: 20px}
 .left-layout .blog-card .blog-card-header .blog-card-author{position: absolute;top:15px;left: 15px;}
 .left-layout .blog-card .blog-card-header .blog-card-author img{width: 30px; height: 30px; border-radius: 50%;}
 .left-layout .blog-card .blog-card-header .blog-card-author span{margin-left: 7px;text-transform: capitalize; font-weight: 700;}
-.left-layout .blog-card .blog-card-header .blog-card-author span a{color:var(--theme-color-medium); text-decoration: none;}
+.left-layout .blog-card .blog-card-header .blog-card-author span a{color:var(--theme-color-dark); text-decoration: none;}
 .left-layout .blog-card .blog-card-header .blog-card-level{position: absolute; top: 15px; right: 210px}
 .left-layout .blog-card .blog-card-header .blog-card-level img{width: 30px; height: 30px; border-radius: 50%;}
 .left-layout .blog-card .blog-card-header .blog-card-category{position: absolute;top: 15px; right: 20px}
 .left-layout .blog-card .blog-card-header .blog-card-category p{color: var(--theme-color-medium); font-weight: 700; 
 	text-transform: uppercase; font-size: 22px;}
-.left-layout .blog-card .blog-card-header .blog-card-category p a{color: var(--theme-color-medium); text-decoration: none;}
+.left-layout .blog-card .blog-card-header .blog-card-category p a{color: var(--theme-color-dark); text-decoration: none;}
 .left-layout .blog-card .blog-card-body{width: 100%; height:200px;position: relative;}
 .left-layout .blog-card .blog-card-body .blog-img{position: absolute;width: 220px; height: 150px;top:25px;left: 15px}
 .left-layout .blog-card .blog-card-body .blog-img img{width: 100%; height: 100%}
