@@ -94,9 +94,14 @@ get_header();
                                                 }
                                                  
 
-                                                
+                                                if( is_user_logged_in() ){
                                                ?>
                                                 <span class="like-box" <?php echo $data_exist; ?> data-blog="<?php echo get_the_ID(); ?>" data-like="<?php if( isset( $checklike->posts[0]->ID ) ){echo $checklike->posts[0]->ID;} ?>">
+                                                <?php 
+                                                }else{
+                                                ?>
+                                                <span class="logout-like-box" >
+                                                <?php }?>
                                             		<i class="fas fa-heart" <?php echo $like_style;?> >
                                             			
                                             		</i>

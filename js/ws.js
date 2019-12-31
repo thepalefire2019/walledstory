@@ -5,7 +5,7 @@
 		$(".click-follow").on('click', function(e){
 			var author_id = $(this).data('author_id');
 			var follow_id = $(this).data('follow_id');
-			var old_followers_no = $('.js-followers').html();
+			var old_followers_no = parseInt($('.js-followers').html(), 10);
 
 			//alert(old_followers_no);
 			if( $(this).attr('data-followexist') == 'yes' ){
@@ -52,7 +52,7 @@
 						$('.click-follow').html('Unfollow');
 						$('.click-follow').css('background', 'var(--theme-color-dark)');
 						$('.click-follow').css('color', '#fff');
-						$('.js-followers').html(new_followers_no.replace('0',''));
+						$('.js-followers').html(new_followers_no);
 					},
 					error : function ( response ){console.log( response )}
 				});
@@ -64,6 +64,11 @@
 	jQuery(document).ready(function($){
 		$(".click-follow-logged-off").on('click', function(e){
 			alert("Please Log in To Follow");
+		});
+	})
+	jQuery(document).ready(function($){
+		$(".logout-like-box").on('click', function(e){
+			alert("Please Log in To Like");
 		});
 	})
 	// follow button

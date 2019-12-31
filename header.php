@@ -43,7 +43,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="bottom-start">
-                                <a class="dropdown-item" href="#"> <i class="fas fa-user"></i>&nbsp My Profile</a>
+                                <a class="dropdown-item" href="<?php echo site_url('/my-profile') ?>"> <i class="fas fa-user"></i>&nbsp My Profile</a>
                                 <a class="dropdown-item" href="<?php echo wp_logout_url(); ?>">  <i class="fas fa-sign-out-alt"></i> &nbsp;Logout</a>
                                
                             </div>

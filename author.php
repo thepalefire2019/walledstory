@@ -65,6 +65,16 @@ $avatar_url = get_the_author_meta( 'profile_picture', $author_id ) ;
                                 $follow = "Unfollow";
                              }
                         }
+                        $following = new WP_Query( array(
+                            'author'        => $author_id,
+                            'post_type'     => 'follow'
+                            ) );
+
+
+
+                        if( get_current_user_id() == $author_id ){
+                        	echo '';
+                        }else{
                          if( is_user_logged_in() ){
 						?>
 						<div class="author-follow">
@@ -74,17 +84,21 @@ $avatar_url = get_the_author_meta( 'profile_picture', $author_id ) ;
 						<div class="author-follow">
 							<p class="click-follow-logged-off" >Follow</p>
 						</div>
-						<?php } ?>
+						<?php }// logged in check
+						}// current user = the author check ?>
+
+
+
 						<div class="space30"></div>
 						<div class="author-followers">
 							<div class="followers">
 								
 								<h5>Follwers</h5>
-								<p class="js-followers"><?php echo sprintf("%02d",$followCount->found_posts); ?></p>
+								<p class="js-followers"><?php echo $followCount->found_posts; ?></p>
 							</div>
 							<div class="followering">
 								<h5>Following</h5>
-								<p>67</p>
+								<p><?php echo $following->found_posts; ?></p>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -135,7 +149,7 @@ $avatar_url = get_the_author_meta( 'profile_picture', $author_id ) ;
 		                        <div class="bl-header-images-date">
 		                            <h3><?php echo get_the_time('F d, Y'); ?> in <?php echo $category[0]->name; ?></h3>
 		                            <div class="bl-header-images-content">
-		                                <a href="#"><p class="sarasij-p"><?php echo get_the_title(); ?></p></a>
+		                                <a href="<?php the_permalink(); ?>"><p class="sarasij-p"><?php echo get_the_title(); ?></p></a>
 		                            </div>
 		                        </div>
 		                    </div>
