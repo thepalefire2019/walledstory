@@ -238,8 +238,10 @@ get_header();
                                 'posts_per_page'    =>4
                             ));
                     while( $rel_post_auth->have_posts() ){
-                        $rel_auth_post_id = get_the_ID();
+                       
                         $rel_post_auth->the_post();
+
+                        $rel_auth_post_id = get_the_ID();
                         $rel_auth_category = get_the_terms($post_id, 'blog_category');
                         $get_img = get_the_post_thumbnail_url($rel_auth_post_id,'ws-regular');
                         ?>

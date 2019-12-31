@@ -1,3 +1,73 @@
+
+
+	// follow button
+	jQuery(document).ready(function($){
+		$(".click-follow").on('click', function(e){
+			var author_id = $(this).data('author_id');
+			var follow_id = $(this).data('follow_id');
+			var old_followers_no = $('.js-followers').html();
+
+			//alert(old_followers_no);
+			if( $(this).attr('data-followexist') == 'yes' ){
+				//unfollow
+				//alert(follow_id);
+				$.ajax({
+					beforeSend : function(xhr){
+						xhr.setRequestHeader( 'X-WP-NONCE', wsdata.nonce );
+					},
+					url : wsdata.root_url +'/wp-json/ws/V1/follow',
+					data : {
+						'follow_id' : follow_id
+					},
+					type : 'DELETE',
+					success : function( response ){
+						var new_followers_no = old_followers_no-1;
+						$('.js-followers').html(new_followers_no);
+						$('.click-follow').attr("data-followexist", 'no');
+						$('.click-follow').removeAttr("data-follow_id");
+						$('.click-follow').html('Follow');
+						$('.click-follow').css('background', '#fff');
+						$('.click-follow').css('color', '#000');
+					},
+					error : function ( response ){console.log( response )}
+
+				});
+			}else{
+				//follow
+				$.ajax({
+					beforeSend : function(xhr){
+						xhr.setRequestHeader( 'X-WP-NONCE', wsdata.nonce );
+					},
+					url : wsdata.root_url +'/wp-json/ws/V1/follow',
+					type : 'POST',
+					data :{
+						'author_id' : author_id
+					},
+					success : function( response ){
+						var new_followers_no = old_followers_no+1;
+						//alert(new_followers_no);
+						console.log(response);
+						$('.click-follow').attr("data-followexist", 'yes');
+						$('.click-follow').attr("data-follow_id", response);
+						$('.click-follow').html('Unfollow');
+						$('.click-follow').css('background', 'var(--theme-color-dark)');
+						$('.click-follow').css('color', '#fff');
+						$('.js-followers').html(new_followers_no.replace('0',''));
+					},
+					error : function ( response ){console.log( response )}
+				});
+			}
+		});
+	});
+
+	//if not logged in
+	jQuery(document).ready(function($){
+		$(".click-follow-logged-off").on('click', function(e){
+			alert("Please Log in To Follow");
+		});
+	})
+	// follow button
+
 	// like button
 	jQuery(document).ready(function($){
 		$(".like-box").on('click', function(e){

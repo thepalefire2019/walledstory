@@ -66,5 +66,15 @@
 	.left-layout .blog-card .blog-card-footer{margin-top: 33px;}
 	.left-layout .blog-card .blog-card-body .blog-img img{border-radius: 7px;}
 
-	
+	/** author page **/
+
+	.author-bio .author-img{display: none;}
+	.mobile-author-img{display: block; width: 100%; height: 300px;}
+	.mobile-author-img img{width: 100%; height: 100%;}
+	.author-bio .author-desc .author-title{margin-top: 10px;}
+	.author-bio .author-desc .author-follow p{margin-left: 50%; transform: translateX(-50%);}
+	.author-bio .author-desc .author-follow p{padding: 6px 23px;}
+	.author-bio .author-desc .author-followers{width: 90%;}
+	.bl-header-images-date{bottom:15%;}
+	.bl-header-images-content .sarasij-p{font-size: 1.5em}
 }

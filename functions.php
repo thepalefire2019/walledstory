@@ -6,6 +6,7 @@ require get_template_directory(). '/inc/custom_function.php';
 require get_template_directory(). '/bengali/register.php';
 require get_template_directory(). '/blog/register.php';
 require get_template_directory(). '/like/register.php';
+require get_template_directory(). '/follow/register.php';
 
 
 
