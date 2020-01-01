@@ -59,7 +59,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 </div>
 	<!------------ Header --------------->
     <?php if( is_front_page() ){ ?>
-    <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.5), rgba(255,255,255,1)), url('<?php echo get_stylesheet_directory_uri()."/img/front-back.jpeg" ?>') ;">  
+    <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.7), rgba(255,255,255,1)), url('<?php echo get_stylesheet_directory_uri()."/img/front-back.jpeg" ?>') ;">  
     <?php 
     }else{
     ?>
@@ -76,7 +76,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                         </ul> -->
                         <div class="hd-menu">
-                            <img src="<?php echo get_stylesheet_directory_uri()?>/img/svg/menu.svg">
+                            <img src="<?php echo get_stylesheet_directory_uri()?>/img/svg/menuwhite.svg">
                         </div>
                     </div>
                    
@@ -85,7 +85,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                     </div>
                     <div class="col-lg-2">
                         <div class="main-menu">
-                            <img src="<?php echo get_stylesheet_directory_uri()?>/img/svg/menu.svg">
+                            <img src="<?php echo get_stylesheet_directory_uri()?>/img/svg/menuwhite.svg">
                         </div>
                     </div>
 
