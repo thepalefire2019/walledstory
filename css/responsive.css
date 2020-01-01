@@ -60,11 +60,12 @@
 	.abt-content p::first-letter{font-size:300%;}
 
 	/** front page **/
-	.left-layout .blog-card{width: 100%;height: 535px;border-radius: 7px;}
+	.left-layout .blog-card{width: 100%;height: 560px;border-radius: 7px; box-shadow: 8px 5px 10px rgba(0,0,0,0.3);}
 	.left-layout .blog-card .blog-card-body .blog-details{top: 290px;width: 90%;}
 	.left-layout .blog-card .blog-card-body .blog-img{width: 90%;height: 200px;}
 	.left-layout .blog-card .blog-card-footer{margin-top: 33px;}
 	.left-layout .blog-card .blog-card-body .blog-img img{border-radius: 7px;}
+	.left-layout .blog-card:hover{transform: unset;}
 
 	/** author page **/
 
@@ -82,5 +83,12 @@
 	.tax-parent .tax-container{top:15px;}
 	.tax-parent .tax-container h1{font-size: 55px;}
 	.space-custom-tax{height: 1360px;}
-	.tax-parent .tax-container .pop-tax-box:hover{transform: unset;box-shadow: none;}}
+	.tax-parent .tax-container .pop-tax-box:hover{transform: unset;box-shadow: none;}
+
+	/** Single  page **/
+	.bl-main-content-row{margin-left: 0px; margin-right: 0px;}
+	.bl-main-content-row{padding-left: 0px; padding-right: 0px;}
+	.bl-post-image img{height: 250px;}
+	.bl-post-content-header-content{font-size: 9px;line-height: 20px;}
+	.bl-post-content-header-title h2 a{font-size: 35px; line-height: 42px;}
 }
