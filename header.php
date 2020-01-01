@@ -17,46 +17,55 @@ $avatar_url = get_the_author_meta( 'profile_picture', $current_user->ID ) ;
 $user_fname = get_the_author_meta( 'first_name', $current_user->ID );
 $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 ?>
-	<!------------ Header --------------->
-        <header>
-            <div class="dark-header">
-                <div class="row">
-                    <div class="col-md-4 col-4 dark-header-social">
-                         <ul>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        </ul> 
-                    </div>
-                    <div class="col-md-4 col-4 dark-header-add-post" >
-                        <?php if( is_user_logged_in() ){ ?>
-                        <p data-toggle="modal" data-target="#exampleModalLong">
-                        Create Blog
-                        </p>
-                        <?php } ?>
-                    </div>
-                    <div class="col-md-3 col-3 dark-header-profile">
-                        <?php  if(is_user_logged_in()){ ?>
-                        <div class="dropdown">
-                            <a class="profile-btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span> <img src="<?php echo $avatar_url; ?>"></span><?php echo $user_fname; ?>
-                            </a>
 
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="bottom-start">
-                                <a class="dropdown-item" href="<?php echo site_url('/my-profile') ?>"> <i class="fas fa-user"></i>&nbsp My Profile</a>
-                                <a class="dropdown-item" href="<?php echo wp_logout_url(); ?>">  <i class="fas fa-sign-out-alt"></i> &nbsp;Logout</a>
-                               
-                            </div>
-                        </div>
-                        <?php }else{ ?>
-                        <div class="col-md-3 col-3 dark-header-profile-login">
-                            <a href="<?php echo wp_login_url(); ?>" class="login">Login</a>
-                        </div>
-                        <?php } ?>
-                    </div>
-                    <div class="col-md-1 col-1"></div>
+<!------------Dark Header --------------->
+<div class="dark-header">
+    <div class="row">
+        <div class="col-md-4 col-4 dark-header-social">
+             <ul>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            </ul> 
+        </div>
+        <div class="col-md-4 col-4 dark-header-add-post" >
+            <?php if( is_user_logged_in() ){ ?>
+            <p data-toggle="modal" data-target="#exampleModalLong">
+            Create Blog
+            </p>
+            <?php } ?>
+        </div>
+        <div class="col-md-3 col-3 dark-header-profile">
+            <?php  if(is_user_logged_in()){ ?>
+            <div class="dropdown">
+                <a class="profile-btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span> <img src="<?php echo $avatar_url; ?>"></span><?php echo $user_fname; ?>
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="bottom-start">
+                    <a class="dropdown-item" href="<?php echo site_url('/my-profile') ?>"> <i class="fas fa-user"></i>&nbsp My Profile</a>
+                    <a class="dropdown-item" href="<?php echo wp_logout_url(); ?>">  <i class="fas fa-sign-out-alt"></i> &nbsp;Logout</a>
+                   
                 </div>
             </div>
+            <?php }else{ ?>
+            <div class="col-md-3 col-3 dark-header-profile-login">
+                <a href="<?php echo wp_login_url(); ?>" class="login">Login</a>
+            </div>
+            <?php } ?>
+        </div>
+        <div class="col-md-1 col-1"></div>
+    </div>
+</div>
+	<!------------ Header --------------->
+    <?php if( is_front_page() ){ ?>
+    <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.5), rgba(255,255,255,1)), url('<?php echo get_stylesheet_directory_uri()."/img/front-back.jpeg" ?>') ;">  
+    <?php 
+    }else{
+    ?>
+    <div class="front-page-background" > 
+    <?php }?>
+        <header>
             <div class="container-fluid bl-header">
                 <div class="row">
                     <div class="col-lg-2 bl-header-social">

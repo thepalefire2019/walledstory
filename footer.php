@@ -1,4 +1,6 @@
+
 </div><!-- Director -->
+</div>
 <footer>
 	<div class="container">
 		<div class="row foot">

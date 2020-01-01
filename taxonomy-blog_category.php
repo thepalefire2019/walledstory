@@ -45,7 +45,7 @@ $taxonomy_name = $taxonomy->name;
 					<a href="<?php the_permalink(); ?>">
 						<div class="pop-tax-box">
 							<div class="pop-auth-img">
-								<a href="<?php echo $author_permalink ?>"><img src="<?php echo $avatar_url; ?>"></a>
+								<img src="<?php echo $avatar_url; ?>">
 							</div>
 							<div class="tax-box-img">
 								<img src="<?php echo $get_img; ?>">
@@ -53,7 +53,7 @@ $taxonomy_name = $taxonomy->name;
 							<div class="pop-tax-desc">
 								<h3><?php echo wp_trim_words( get_the_title(), 10 ); ?></h3>
 								<h5><?php echo wp_trim_words( get_the_content(), 10 ); ?>...</h5>
-								<p>By <?php  echo $author_first_name.' '; ?><?php echo get_the_author_meta('last_name')[0] ?>. <span>on</span> <?php echo get_the_time('d F, Y'); ?></p>
+								<p>By <a href="<?php echo $author_permalink; ?>"><?php  echo $author_first_name.' '; ?><?php echo get_the_author_meta('last_name')[0] ?>.</a> <span>on</span> <?php echo get_the_time('d F, Y'); ?></p>
 							</div>
 						</div>
 					</a>

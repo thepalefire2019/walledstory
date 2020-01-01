@@ -82,4 +82,5 @@
 	.tax-parent .tax-container{top:15px;}
 	.tax-parent .tax-container h1{font-size: 55px;}
 	.space-custom-tax{height: 1360px;}
+	.tax-parent .tax-container .pop-tax-box:hover{transform: unset;box-shadow: none;}}
 }
