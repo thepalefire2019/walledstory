@@ -190,10 +190,7 @@ body {
 
 .bl-header-images
 {
-    width: 100%;
-    filter: gray; /* IE5+ */
-      -webkit-filter: grayscale(1); /* Webkit Nightlies & Chrome Canary */
-      -webkit-transition: all ease-in-out;
+    width: 100%;filter: gray;-webkit-filter: grayscale(1);-webkit-transition: all ease-in-out;height: 100%;
 }
 
 .bl-header-images:hover

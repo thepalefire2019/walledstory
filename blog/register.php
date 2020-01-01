@@ -1,9 +1,9 @@
 <?php
 
 //  ======================================= Register English post type===============================
-add_action( 'init', 'english_post_type' );
+add_action( 'init', 'blog_post_type' );
 
-function english_post_type(){
+function blog_post_type(){
 	$labels = array(
     'name'                => _x( 'Blog', 'post type general name', 'your-plugin-textdomain'),
     'singular_name'       => _x( 'Blog', 'post type singular name', 'your-plugin-textdomain' ), 
@@ -73,7 +73,7 @@ function create_eng_cat_tax(){
                         'menu_name' => 'Category',
                         'not_found' =>'No category found',
                         ) ,
-            'rewrite' => array( 'slug' => 'english-category'),
+            'rewrite' => array( 'slug' => 'blog-category'),
             'hierarchical' => true,
             'show_ui'       => true,
             'show_admin_column' =>true,

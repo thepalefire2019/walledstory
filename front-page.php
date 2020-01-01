@@ -19,6 +19,7 @@ get_header();
 			        $current_user_id = get_current_user_id();
 			       
 			        $category = get_the_terms($blog_id, 'blog_category');
+			        $category_permalink = get_term_link( $category[0] );
 			        $blog_level = getLevel(get_the_ID());
 
 			        //author
@@ -43,6 +44,7 @@ get_header();
                                 ) );
 			        $no_of_likes = $likeCount->found_posts;
 			        $no_of_views = getPostViews(get_the_ID());
+			        //print_r($category);
 			?>
 			<div class="blog-card">
 				<div class="blog-card-header">
@@ -70,7 +72,7 @@ get_header();
 						
 					</div>		
 					<div class="blog-card-category">
-						<p><a href="#"><?php echo $category[0]->name; ?></a></p>
+						<p><a href="<?php echo $category_permalink; ?>"><?php echo $category[0]->name; ?></a></p>
 					</div>		
 				</div>
 				<div class="blog-card-body">

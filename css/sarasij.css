@@ -182,8 +182,8 @@ bottom:54px; left: 20px}
 
 	/** Front page **/
 .left-layout{ width: 100%;  }
-.left-layout .blog-card{width: 100%; height: 300px; background:#fff; transition: 400ms all;margin-bottom: 30px;}
-.left-layout .blog-card:hover{ box-shadow: 8px 5px 10px rgba(0,0,0,0.3);margin: 5px 0 35px 0;}
+.left-layout .blog-card{width: 100%; height: 300px; background:#fff; transition: 400ms all;margin-bottom: 30px; margin: 30px auto;}
+.left-layout .blog-card:hover{ box-shadow: 8px 5px 10px rgba(0,0,0,0.3);transform: scale(1.05);}
 .left-layout .blog-card .blog-card-header{width: 100%; height: 60px;position: relative;}
 .left-layout .blog-card .blog-card-header .blog-card-author{position: absolute;top:15px;left: 15px;}
 .left-layout .blog-card .blog-card-header .blog-card-author img{width: 30px; height: 30px; border-radius: 50%;}
@@ -212,8 +212,8 @@ bottom:54px; left: 20px}
 .left-layout .blog-card .blog-card-footer .blog-card-likes span {}
 .left-layout .blog-card .blog-card-footer .blog-card-likes span i{color: #D1D1D1}
 .right-layout{}
-.right-layout .right-card{background: #fff; transition: 500ms all}
-.right-layout .right-card:hover{box-shadow: 8px 5px 10px rgba(0,0,0,0.3);}
+.right-layout .right-card{background: #fff; transition: 500ms all;margin: 0px auto;}
+.right-layout .right-card:hover{box-shadow: 8px 5px 10px rgba(0,0,0,0.3);transform: scale(1.03);}
 
 
 
@@ -245,3 +245,34 @@ bottom:54px; left: 20px}
 .author-blogs h1 span{ font-weight: 800; color: var(--theme-color-dark) }
 .author-blogs .underline{border-top: 4px solid var(--theme-color-dark); width:105px; margin-left: 7%; margin-bottom: 20px;}
 .bl-header-images-content .sarasij-p{font-size: .97em}
+
+
+
+/** Taxoonomy blog category page **/
+.space-custom-tax{width: 100%; height: 200px;}
+.tax-parent{width: 100%; height: auto; background: red; position: relative;}
+.tax-parent .tax-parent-img{width: 100%; height: 75vh; }
+.tax-parent .tax-parent-img:after{width: 100%; height: 75vh;background: rgba(0,0,0,0.3);content: ""; position: absolute;
+	top: 0;left: 0 }
+.tax-parent .tax-parent-img img{width: 100%; height: 100%; -webkit-filter: blur(5px);filter: blur(5px);}
+.tax-parent .tax-container{width: 90%; height: auto; background: transparent; position: absolute;top: 70px;margin-left: 50%; 
+	transform: translateX(-50%);}
+.tax-parent .tax-container a{text-decoration: none; color: #000}
+.tax-parent .tax-container h1{font-size: 115px;text-transform: uppercase;font-weight: 900; color: #fff; text-align: center;
+	 -webkit-text-fill-color: transparent; -webkit-text-stroke-width: 3px;-webkit-text-stroke-color: #fff;}
+.tax-parent .tax-container .pop-tax-box{width:99%; height: 410px; background: #fff; transition: all 0.3s; margin: 0 auto;}
+.tax-parent .tax-container .pop-tax-box:hover{transform: scale(1.1);box-shadow: 2px 5px 10px rgba(0,0,0,0.3);}
+.tax-parent .tax-container .pop-tax-box .pop-auth-img{width: 70px; height: 70px; position: absolute;top:13px;left: 30px; 
+	border:4px solid #000; border-radius: 50%;transition: all 0.3s}
+.tax-parent .tax-container .pop-tax-box .pop-auth-img img{width: 100%; height: 100%;border-radius:50%; padding: 5px;filter: 
+	brightness(110%);}
+.tax-parent .tax-container .pop-tax-box .tax-box-img{width: 100%;height: 60%;}
+.tax-parent .tax-container .pop-tax-box .tax-box-img img{width: 100%; height: 100%;}
+.tax-parent .tax-container .pop-tax-box .pop-tax-desc{padding: 15px;}
+.tax-parent .tax-container .pop-tax-box .pop-tax-desc h3{display: block;font-size: 18px;font-weight: bold;padding-bottom: 0;
+    margin-top: 0;margin-bottom: 10px;line-height: 140%;letter-spacing: 0;text-align: left;}
+.tax-parent .tax-container .pop-tax-box .pop-tax-desc h5{font-weight: 400;font-size: 16px;display: block;margin-top: 3px;
+    letter-spacing: 0;font-style: normal !important;color: #555;line-height: 130%;text-align: left;}
+.tax-parent .tax-container .pop-tax-box .pop-tax-desc p{ border-top: 1px solid #f3f3f3;font-size: 14px;color: #6e6e6e;
+	padding-top: 7px;font-weight: 400;margin: 0;letter-spacing: 0; text-transform: capitalize;}
+.tax-parent .tax-container .pop-tax-box .pop-tax-desc p span{text-transform: lowercase;}
