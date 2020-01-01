@@ -77,4 +77,9 @@
 	.author-bio .author-desc .author-followers{width: 90%;}
 	.bl-header-images-date{bottom:15%;}
 	.bl-header-images-content .sarasij-p{font-size: 1.5em}
+
+	/** Taxoonomy blog category page **/
+	.tax-parent .tax-container{top:15px;}
+	.tax-parent .tax-container h1{font-size: 55px;}
+	.space-custom-tax{height: 1360px;}
 }
