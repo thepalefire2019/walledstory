@@ -17,6 +17,7 @@ version:1.0
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Jomolhari&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:200,400,700,900&display=swap');/* 'Work Sans', sans-serif; */
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -301,7 +302,7 @@ body {
 
 .bl-post-content-header-content a:hover
 {
-    color: var(--theme-color-medium);
+    color: var(--theme-color-dark);
 }
 .bl-post-content-header-content span
 {
@@ -311,7 +312,7 @@ body {
 
 .bl-post-content-header-content span:hover
 {
-    color: var(--theme-color-medium); cursor: pointer;
+    color: var(--theme-color-dark); cursor: pointer;
 }
 
 .bl-post-content-header-title
@@ -333,7 +334,7 @@ body {
 
 .bl-post-content-header-title h2 a:hover
 {
-    color: var(--theme-color-medium);
+    color: var(--theme-color-dark);
 }
 
 .bl-content
@@ -353,6 +354,7 @@ body {
     color: #545454;
     line-height: 26px;
 }
+.bl-entry-content::first-letter{font-size:400%; font-weight: 800}
 
 span.dropcap
 {
@@ -378,7 +380,7 @@ span.dropcap
 
 .continue_reading a
 {
-    color: var(--theme-color-medium);
+    color: var(--theme-color-dark);
     text-decoration: none;
 }
 
@@ -414,6 +416,7 @@ span.dropcap
     font-style: italic !important;
     font-weight: bold !important;
 }
+.bl-widget h3 a{color: var(--theme-color-dark); }
 .bl-widget ul
 {
     list-style: none;
@@ -452,7 +455,7 @@ span.dropcap
 
 .bl-widget ul li a:hover
 {
-    color: var(--theme-color-medium);
+    color: var(--theme-color-dark);
 }
 
 .bl-photo-holder

@@ -1,4 +1,9 @@
 <?php
+  /*
+  Template Name: Sports
+  Template Post Type: post
+  */
+
 get_header();
 ?>
 	
@@ -75,6 +80,69 @@ get_header();
                             <p>
                                 My name is John Snow. I’m a blogger based in Melbourne. I spend a lot of time to talk to strangers and try to understand global culture...
                             </p>
+                        </aside>
+
+                        <aside class="bl-widget">
+                        	<h3>Scorecard</h3>
+                        	<div class="row">
+                        		<div class="col-md-6 scorecard">
+                        			<h2>Arsenal</h2>
+                        			<h3>2</h3>
+                        			<p>Pepe(13'), Socrates(45')</p>
+                        		</div>
+                        		<div class="col-md-6 scorecard">
+                        			<h2>Man Utd</h2>
+                        			<h3>0</h3>
+                        			<p></p>
+                        		</div>
+                        	</div>	
+                        	<div class="row">
+                        		<div class="col-md-12 scorecard">
+                        			<h1>Man Of the Match : <span>Pepe</span></h1>
+                        		</div>
+                        	</div>
+                        </aside>
+
+                        <aside class="bl-widget">
+                        	<h3>Squad</h3>
+                        	<div class="squad-parent">
+	                        	<div class="row">
+	                        		<div class="col-md-6 squad">
+	                        			<h3>Arsenal</h3>
+	                        			<ul>
+	                        				<?php
+	                        				$i = 0;
+	                        				while( $i<10 ){
+	                        				 ?>
+			                                <li>
+			                                    <a href="#">Leno</a>
+			                                </li>
+			                                <?php 
+			                                $i++;
+			                            	}
+			                                ?>
+			                               
+			                            </ul>
+	                        		</div>
+	                        		<div class="col-md-6 squad">
+	                        			<h3>Man Utd</h3>
+	                        			<ul style="text-align: right">
+	                        				<?php
+	                        				$j = 0;
+	                        				while( $j<10 ){
+	                        				 ?>
+			                                <li >
+			                                    <a href="#">De Gea</a>
+			                                </li>
+			                                <?php 
+			                                $j++;
+			                            	}
+			                                ?>
+			                               
+			                            </ul>
+	                        		</div>
+	                        	</div>
+                        	</div>
                         </aside>
                     </div>
                 </div><!-- bl-side-sec -->

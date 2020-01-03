@@ -125,7 +125,7 @@ get_header();
                             </div>
                         </article>
                     </div>
-                </div>
+                </div><!-- bl-post-sec -->
 
 
 
@@ -222,9 +222,10 @@ get_header();
 
                         </aside>
                     </div>
-                </div>
-            </div>
-        </div>
+                </div><!-- bl-side-sec -->
+            </div><!-- bl-main-content-row -->
+        </div><!-- bl-main-content -->
+
 
         <!-- Related posts -->
         <header>
@@ -255,13 +256,14 @@ get_header();
                         <div class="bl-header-images-date">
                             <h3><?php echo get_the_time('F d, Y'); ?> in <?php echo $rel_auth_category[0]->name; ?></h3>
                             <div class="bl-header-images-content">
-                                <a href="<?php the_permalink(); ?>"><p><?php the_title(); ?></p></a>
+                                <a href="<?php the_permalink(); ?>"><p><?php echo wp_trim_words( get_the_title(), 9 ); ?></p></a>
                             </div>
                         </div>
                     </div>
                     <?php 
                     $rel_author_post++;
                     }// end of while
+                    wp_reset_postdata();
                     ?>
 
                 </div>

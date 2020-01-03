@@ -16,7 +16,7 @@ $taxonomy_name = $taxonomy->name;
 				$args = array(
 		          'post_type' 		=> 'ws_blog',
 		          'posts_per_page' 	=> 4,
-			       'tax_query' 		=> array(
+			      'tax_query' 		=> array(
 					                      array (
 					                          'taxonomy' => 'blog_category',
 					                          'field' => 'slug',
@@ -85,7 +85,7 @@ $taxonomy_name = $taxonomy->name;
                         <div class="bl-header-images-date">
                             <h3><?php echo get_the_time('d F, Y'); ?></h3>
                             <div class="bl-header-images-content">
-                                <p><?php echo wp_trim_words( get_the_title(), 10 ); ?></p>
+                                <p><?php echo wp_trim_words( get_the_title(), 9 ); ?></p>
                             </div>
                         </div>
                     </div>

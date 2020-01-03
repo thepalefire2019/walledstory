@@ -112,51 +112,9 @@ bottom:54px; left: 20px}
 
 /** post Page design **/
 
+/**about  design **/
 
-/**my account design **/
-/**
- green : #00D99F;
- light grey: #E8E8E8;
- dark grey : #c9c9c9;
-**/
-.account-body{width:100%; height: 100vh; background: #E8E8E8;}
-.mobile-account-body{ display: none; }
-.account-body .acc-parent-box{position: relative; margin-left: 50%; transform: translateX(-50%); width:60%; 
-	height:80vh;box-shadow: 0px 5px 20px rgba(0,0,0,0.5); background:#fff; }
-.account-body .acc-parent-box .acc-parent-box-back-border{position: absolute; top:0; left: 0; width: 100%; 
-	height:100%; border-bottom:0px solid #F7F7F7; border-right: 808px solid transparent; 
-	border-top: 500px solid #F7F7F7;}
-.account-body .acc-parent-box .acc-parent-box-gradient{position: absolute; bottom: 0; width: 100%; height: 80px; 
-	background:linear-gradient(180deg, #E8E8E8, rgba(0, 217, 159, 0.3)); border-bottom: 2px solid #00D99F}
-.account-body .acc-parent-box .acc-child-img-box{width:52%; height: 75vh; position:absolute;
-	left:-150px;top:-23px; box-shadow: 0px 5px 20px rgba(0,0,0,0.6);}
-.account-body .acc-parent-box .acc-child-img-box img{width: 100%; height: 100%;}
-.account-body .acc-parent-box .acc-child-img-box-shadow{width:52% ; height:75vh; 
-	position:absolute;left:-150px;top:-23px; background: rgba(0,0,0,0.5)}
-.account-body .acc-parent-box .acc-child-header{ position: absolute; left:300px; top: 10vh;}
-.account-body .acc-parent-box .acc-child-header h1{color: #696969; font-size: 48px; text-transform: capitalize; 
-	letter-spacing:6px;font-weight: 800; line-height: 52px; font-family: 'Ubuntu', sans-serif;}
-.account-body .acc-parent-box .acc-child-header h1:last-child{padding-left: 36px;}
-.account-body .acc-parent-box .acc-child-edit-btn{position: absolute;right: 46px; top: 16vh;}
-.account-body .acc-parent-box .acc-child-edit-btn button{background: transparent;border:1px solid #00D99F;
-	padding: 5px; color: #00D99F;}
-.account-body .acc-parent-box .acc-child-details{position: absolute; right:92px; width:44%;height: 12vh; 
-	bottom:191px;}
-.account-body .acc-parent-box .acc-child-details h2{text-align: center; font-weight: 800; font-size:38px;}
-.account-body .acc-parent-box .acc-child-details p{text-align: center; font-size:13px; line-height: 13px; 
-	font-weight: 600; text-transform: uppercase;}
-.account-body .acc-parent-box .acc-child-details .acc-child-details-border{border-right:1px solid #000;}
-.account-body .acc-parent-box .acc-child-details .acc-child-details-border:last-child{border:none;}
-.account-body .acc-parent-box .acc-child-about{position: absolute; bottom: 47px; right: 63px; width:50%;}
-.account-body .acc-parent-box .acc-child-about h3{color:#00D99F; font-weight: 600; font-size: 16px; 
-	text-transform:uppercase; margin-bottom: 6px; margin-left: 14px;}
-.account-body .acc-parent-box .acc-child-about p{ font-size: 13px; line-height: 15px; }
 
-/**about Page design **/
-
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&display=swap');
-
-/*header{box-shadow: 0px 2px rgba(0,0,0,0.2)}*/
 .about-article{line-height: 26px; color: #545454; font-size: 16px; margin-top: 20px; width: 100%;
 	font-family: 'Playfair Display', serif;}
 .fea-about-img{ width: auto;display: inline-block; width:100%; }
@@ -184,7 +142,7 @@ bottom:54px; left: 20px}
 
 
 	/** Front page **/
-.front-page-background{width:100%; }
+.front-page-background{width:100%; font-family: 'Work Sans', sans-serif;}
 .left-layout{ width: 100%;  }
 .left-layout .blog-card{width: 100%; height: 300px; background:#fff; transition: 400ms all;margin-bottom: 30px; margin: 30px auto;}
 .left-layout .blog-card:hover{ box-shadow: 8px 5px 10px rgba(0,0,0,0.3);transform: scale(1.05);}
@@ -280,3 +238,20 @@ bottom:54px; left: 20px}
 .tax-parent .tax-container .pop-tax-box .pop-tax-desc p{ border-top: 1px solid #f3f3f3;font-size: 14px;color: #6e6e6e;
 	padding-top: 7px;font-weight: 400;margin: 0;letter-spacing: 0; text-transform: capitalize;}
 .tax-parent .tax-container .pop-tax-box .pop-tax-desc p span{text-transform: lowercase;}
+
+
+
+
+/**sports type attribute  design **/
+.scorecard{}
+.scorecard h1{font-size: 18px; text-align: center; padding-top: 20px;}
+.scorecard h1 span{color: var(--theme-color-dark); font-weight: 700}
+.scorecard h2{font-size: 25px;}
+.scorecard h3{}
+.scorecard p{text-align: center;margin-top: 2px;}
+.squad-parent{margin-left: 15%; }
+.squad{}
+.squad ul{margin-left: 30%;transform: translateX(-30%);}
+.squad h3{color: #000; text-align: left;}
+
+
