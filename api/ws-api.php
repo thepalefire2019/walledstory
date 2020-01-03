@@ -95,6 +95,7 @@ function ws_api_blog_result( $data ){
 		} //while
 		$array = array(
 			'code' =>1,
+			'message' => 'Succes',
 			'data'=>$data
 		);
 		return $array;
