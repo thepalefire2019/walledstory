@@ -32,9 +32,10 @@
 		padding: 5px; color: #00D99F;}
 	/** header **/
 	header{box-shadow:unset;}
+	.bl-header{padding-top: 2.5vh; margin-bottom: 0}
 	.bl-header-search{display: none;}
-	.hd-menu{display: block; position: absolute; right:21px; top:-22px; width: 32px; height:70px;}
-	.hd-menu img{ width: 100%; height: 100% }
+	.hd-menu{display: block;  width: 32px; height:70px;}
+	.hd-menu img{ width: 100%; }
 	.bl-header .main-menu{display: none}
 	.bl-header-logo h2{font-size: 1.5em;}
 	.dark-header .dark-header-add-post{right: 130px;}
@@ -91,4 +92,22 @@
 	.bl-post-image img{height: 250px;}
 	.bl-post-content-header-content{font-size: 9px;line-height: 20px;}
 	.bl-post-content-header-title h2 a{font-size: 35px; line-height: 42px;}
+
+	/** search  **/
+	.dark-header .dark-header-search{display: none}
+	.mobile-search{display: block}
+	.mobile-search img{height: 30px ; width: 30px;}
+	.mobile-search .mobile-search-img-close{display: none}
+	.mobile-search-screen{position: absolute; width:100%; height:10vh; background-color: transparent;z-index: 2000;
+		display:none; top: 154px; left:1px;}
+
+	.mobile-search-screen form{border:none;}
+	.mobile-search-screen label{}
+	.mobile-search-screen label img{height: 20px; height: 20px;}
+	.mobile-search-screen form [type=text]{ border:1px solid #fff; background: transparent;border-radius:20px; width:350px;
+		padding: 3px 20px; height: 30px; color: #fff}
+	.mobile-search-screen form [type=text]:focus{outline:none;}
+	.mobile-search-screen form [type=text]::placeholder{color: #fff;}
+	.mobile-search-screen form [type=submit]{background: none; border:1px solid #fff; display: none;}
+	.mobile-search-screen form [type=submit]:focus{border:none;}
 }

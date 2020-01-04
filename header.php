@@ -21,14 +21,19 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 <!------------Dark Header --------------->
 <div class="dark-header">
     <div class="row">
-        <div class="col-md-4 col-4 dark-header-social">
+        <div class="col-md-2 col-4 dark-header-social">
              <ul>
                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
             </ul> 
         </div>
-        <div class="col-md-4 col-4 dark-header-add-post" >
+
+        <div class="col-md-4 col-1 dark-header-search">
+            <?php get_search_form() ?>
+        </div>
+
+        <div class="col-md-3 col-4 dark-header-add-post" >
             <?php if( is_user_logged_in() ){ ?>
             <p data-toggle="modal" data-target="#exampleModalLong">
             Create Blog
@@ -54,7 +59,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
             </div>
             <?php } ?>
         </div>
-        <div class="col-md-1 col-1"></div>
+       
     </div>
 </div>
 	<!------------ Header --------------->
@@ -68,25 +73,24 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
         <header>
             <div class="container-fluid bl-header">
                 <div class="row">
-                    <div class="col-lg-2 bl-header-social">
-                       <!--  <h4>Follow us on</h4>
-                        <ul>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        </ul> -->
+                    <div class="col-lg-2 col-2 bl-header-social">
+                       
                         <div class="hd-menu">
                             <img src="<?php echo get_stylesheet_directory_uri()?>/img/svg/menuwhite.svg">
                         </div>
                     </div>
                    
-                    <div class="col-lg-8 bl-header-logo">
+                    <div class="col-lg-8 col-8 bl-header-logo">
                         <h2><a href="<?php echo site_url(); ?>">Walledstory</a></h2>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 col-2">
                         <div class="main-menu">
                             <img src="<?php echo get_stylesheet_directory_uri()?>/img/svg/menuwhite.svg">
                         </div>
+                        <div class="mobile-search">
+                           <img class="mobile-search-img" src="<?php echo get_stylesheet_directory_uri() ?>/img/svg/search.svg">
+                           <img class="mobile-search-img-close" src="<?php echo get_stylesheet_directory_uri() ?>/img/svg/delete.svg">
+                       </div>
                     </div>
 
                    <!--  <div class="col-lg-2 bl-header-search">
@@ -181,5 +185,11 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
           
         </div>
 
+        <div class="mobile-search-screen">
+            <div class="container">
+                 <?php get_search_form() ?>
+            </div>
+           
+        </div>
         <div class="director">
 

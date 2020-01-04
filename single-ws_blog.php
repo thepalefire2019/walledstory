@@ -7,13 +7,14 @@ get_header();
     <div class="container-fluid bl-main-content">
         <div class="row bl-main-content-row">
 <?php
-	while(have_posts()){
+	while(have_posts()):
 		the_post();
         $post_id = get_the_ID();
         $post_user_id = get_the_author_meta('ID');
         $current_user_id = get_current_user_id();
         $like = get_like_num( $post_id );
         $category = get_the_terms($post_id, 'blog_category');
+        $get_img = get_the_post_thumbnail_url( get_the_ID());
 
         //author
         $author_id = get_the_author_meta('ID');
@@ -55,6 +56,7 @@ get_header();
                                                 <span>posted in</span>
                                                 <a href="#"><?php echo $category[0]->name; ?></a>
                                             </div>
+
                                             <div class="col-lg-4 col-xs-12 text-right">
                                                <?php 
                                                 $likeCount = new WP_Query( array(
@@ -112,6 +114,26 @@ get_header();
                                                 </span>
                                             </div>
                                         </div>
+
+                                        <?php 
+                                        if( is_user_logged_in() ){
+                                            if( $author_id == get_current_user_id() ){ 
+                                        ?>
+                                        <div class="row">
+                                             <div class="col-md-6 blog-edit">
+                                                <p data-toggle="modal" data-target="#exampleModalLongedit">Edit</p>
+                                            </div>
+                                            <div class="col-md-6 blog-delete">
+                                                <p id="delete-blog" data-id="<?php the_ID(); ?>">Delete</p>
+                                            </div>
+                                        </div>
+                                        <?php 
+                                            } //check if user_id and author of the post is same
+                                        }// check if logged in for edit delete
+                                         ?>
+
+
+
                                     </div>
                                     <div class="bl-post-content-header-title">
                                         <h2><a href="#"><?php echo get_the_title(); ?></a></h2>
@@ -127,14 +149,67 @@ get_header();
                     </div>
                 </div><!-- bl-post-sec -->
 
+                    <!-- Edit Modal -->
+                <div class="modal fade" id="exampleModalLongedit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Edit Blog</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                             </div>
+                        <div class="modal-body">
+                            <input type="hidden" id="blog_id" value="<?php the_ID() ?>">
+                            <div class="form-group">
+                                <label for="post-title">Title of Post</label>
+                                <input type="text" class="form-control" id="post-title-edit" placeholder="Enter The Title" value="<?php echo get_the_title(); ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="post-category">Select Category</label>
+                                <select class="form-control" id="post-category-edit">
+                                    <?php 
+                                    $eng_cats = get_terms([
+                                        'taxonomy' => 'blog_category',
+                                        'hide_empty' => false,
+                                    ]);
+                
+                                    foreach( $eng_cats as $eng_cat ){
+                                    ?>
+                                    <option value="<?php echo $eng_cat->term_id; ?>" <?php if( $category[0]->term_id == $eng_cat->term_id ){ echo 'selected'; } ?>><?php echo $eng_cat->name; ?></option>
+                                    
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="post-content">Post Content</label>
+                                <textarea class="form-control" id="post-content-edit" rows="3" required=""><?php echo wp_strip_all_tags( get_the_content() ); ?></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="post-content">Select Featured Image</label>
+                                <input  type="hidden" class="img_url_1" id="post-img-id-edit" value="<?php echo get_post_thumbnail_id(); ?>">
+                                <span class="btn btn-secondary select-image-1" id="select-image-1">Select Image</span>
+                                <img class="pro_img_1"  height="50" width="50" src="<?php echo $get_img ?>">
+                            </div>
+                        
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="edit-post">Edit Blog</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
 
+
+             <!-- Edit Modal -->
 
          
 		
 
 		<?php
 
-	}//end of while
+	endwhile;//end of main while loop
 
 	?>
 
@@ -271,7 +346,20 @@ get_header();
         </div>
 	</header>
 	<div class="space30"></div>
-	<?php
 
 
+
+
+
+
+
+
+
+<?php
 get_footer();
+
+
+
+
+
+

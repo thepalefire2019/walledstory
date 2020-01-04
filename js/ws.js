@@ -136,31 +136,35 @@
 
 	//delete
 	jQuery(document).ready(function($){
-		$('.delete').click( function(e){
-			$('.delete').removeClass('delete-this-one');
+		$('#delete-blog').click( function(e){
+			$('#delete-blog').removeClass('delete-this-one');
 			$(this).addClass( 'delete-this-one' );
 			var id = $(this).data('id');
-			if( $('.delete').hasClass( 'delete-this-one' ) ){
-				$.ajax({
-					beforeSend : function(xhr){
-						xhr.setRequestHeader( 'X-WP-NONCE', wsdata.nonce );
-					},
-					url: wsdata.root_url + '/wp-json/wp/V2/ws_blog/'+ id,
-					type : 'DELETE',
-					success : function( response ){
-						console.log( 'Success' );
-						console.log( response );
-					},
-					error : function( response ){
-						console.log( response );
-					}
-				});
+			if( $('#delete-blog').hasClass( 'delete-this-one' ) ){
+				if( confirm( 'Are You Sure, you want to delete?' ) ){
+					$.ajax({
+						beforeSend : function(xhr){
+							xhr.setRequestHeader( 'X-WP-NONCE', wsdata.nonce );
+						},
+						url: wsdata.root_url + '/wp-json/wp/V2/ws_blog/'+ id,
+						type : 'DELETE',
+						success : function( response ){
+							console.log( 'Success' );
+							console.log( response );
+							window.location = wsdata.root_url;
+						},
+						error : function( response ){
+							console.log( response );
+						}
+					}); //ajax
+				} // confirm
+				
 			}
 		});
 
 	});
 
-	//create
+	//create blog
 
 	jQuery(document).ready(function($){
 		$('#save-post').click( function(e){
@@ -191,8 +195,43 @@
 					error : function( response ){
 						console.log( response );
 					}
-				});
+				}); //ajax
 		} );
+	});
+
+	//edit blog
+
+	jQuery(document).ready(function($){
+		$('#edit-post').click( function(e){
+			var id 				= $('#blog_id').val();
+			var title 			= $('#post-title-edit').val();
+			var content 		= $('#post-content-edit').val();
+			var category 		= $('#post-category-edit').val();
+			var img 			= $('#post-img-id-edit').val();
+			var oureditpostobj 	= {
+				'title' 			: title,
+				'content'			: content,
+				'status'			: 'publish',
+				'blog_category' 	:[category],
+				'featured_media' 	: img 
+			};
+			$.ajax({
+					beforeSend : function(xhr){
+						xhr.setRequestHeader( 'X-WP-NONCE', wsdata.nonce );
+					},
+					url: wsdata.root_url + '/wp-json/wp/V2/ws_blog/'+ id,
+					type : 'POST',
+					data : oureditpostobj,
+					success : function( response ){
+						console.log( 'Success' );
+						console.log( response );
+						location.reload();
+					},
+					error : function( response ){
+						console.log( response );
+					}
+				}); // ajax
+		});
 	});
 
 	// CRUD operation 
@@ -332,6 +371,27 @@ jQuery(document).ready(function($){
 			$('.main-menu-screen').show(500);
 			$(this).addClass('main-menu-active');
 			$('.director').hide(500);
+		}
+	});
+});
+
+
+
+//mobile-search
+jQuery(document).ready(function($){
+	$('.mobile-search').on('click', function(){
+		// $('.mobile-search').removeClass('.mobile-search-active');
+		
+		if( $(this).hasClass('mobile-search-active') ){
+			$('.mobile-search-screen').hide(500);
+			$(this).removeClass('mobile-search-active');
+			$('.mobile-search-img').show(500);
+			$('.mobile-search-img-close').hide(500)
+		}else{
+			$('.mobile-search-screen').show(500);
+			$(this).addClass('mobile-search-active');
+			$('.mobile-search-img').hide(500);
+			$('.mobile-search-img-close').show(500)
 		}
 	});
 });

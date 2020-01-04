@@ -443,3 +443,24 @@ return $query;
 }
 
 add_filter( 'ajax_query_attachments_args', 'only_show_user_images' ); 
+
+
+
+
+
+function wpse_29570_where_filter($where){
+        global $wpdb;
+        if( is_search() ) {
+            $search= get_query_var('s');
+            $query=$wpdb->prepare("SELECT user_id  FROM $wpdb->usermeta WHERE ( meta_key='first_name' AND meta_value LIKE '%%%s%%' ) or ( meta_key='last_name' AND meta_value LIKE '%%%s%%' )", $search ,$search);
+            $authorID= $wpdb->get_var( $query );
+
+            if($authorID){
+                $where .= "  AND  ( wp_posts.post_author = {$authorID} ) ";
+            }
+
+         }
+         return $where;
+    }
+
+    // add_filter('posts_where','wpse_29570_where_filter');

@@ -237,6 +237,7 @@ body {
     padding-right: 4vw;
     padding-left: 4vw;
 }
+.bl-header-images-content a{text-decoration: none;}
 
 .bl-main-content
 {
