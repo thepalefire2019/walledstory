@@ -96,15 +96,15 @@
 	/** search  **/
 	.dark-header .dark-header-search{display: none}
 	.mobile-search{display: block}
-	.mobile-search img{height: 30px ; width: 30px;}
+	.mobile-search img{height: 30px ; }
 	.mobile-search .mobile-search-img-close{display: none}
 	.mobile-search-screen{position: absolute; width:100%; height:10vh; background-color: transparent;z-index: 2000;
-		display:none; top: 154px; left:1px;}
+		display:none; top: 104px; left:5px;}
 
 	.mobile-search-screen form{border:none;}
 	.mobile-search-screen label{}
-	.mobile-search-screen label img{height: 20px; height: 20px;}
-	.mobile-search-screen form [type=text]{ border:1px solid #fff; background: transparent;border-radius:20px; width:350px;
+	.mobile-search-screen label img{height: 24px; margin-left: 7px;}
+	.mobile-search-screen form [type=text]{ border:1px solid #fff; background: transparent;border-radius:20px; width:320px;
 		padding: 3px 20px; height: 30px; color: #fff}
 	.mobile-search-screen form [type=text]:focus{outline:none;}
 	.mobile-search-screen form [type=text]::placeholder{color: #fff;}
