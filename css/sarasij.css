@@ -14,17 +14,18 @@ saikat #01203D
 babu trial: medium 1 -> #B5D43B;;
 sohini : #B3C951 & #4d1933;
 **/
-:root {
+/*:root {
   --gold-color: #ffd700;
   --silver-color: #999999;
   --bronze-color: #cd7f32;
   --theme-color-dark: #739900;
   --theme-color-medium: #ffbdc7;
   --theme-color-light: #ffc4cd;
-}
+}*/
 /** Header **/
 .bl-header .main-menu{width: 32px; height: 40px;position: absolute;right: 60px;top: 9px; cursor: pointer;}
 .bl-header .main-menu img{width: 100%; height: 100%;}
+.bl-header .main-menu .main-menu-close{display: none}
 .dark-header{height: 40px; background: var(--theme-color-dark); width: 100%; position: relative;}
 .dark-header .dark-header-social{position: absolute;top: 9px;left: 10px;}
 .dark-header .dark-header-social ul{}

@@ -7,6 +7,16 @@
  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
  	<link rel="pingback" href="<?php esc_url(bloginfo( 'pingback_url' )); ?>">
  	<link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
+    <style type="text/css">
+        :root {
+          --gold-color: #ffd700;
+          --silver-color: #999999;
+          --bronze-color: #cd7f32;
+          --theme-color-dark:<?php echo get_option('theme_color'); ?>;
+          --theme-color-medium: #ffbdc7;
+          --theme-color-light: #ffc4cd;
+        }
+    </style>
  	<?php wp_head(); ?>
 </head>
 
@@ -64,7 +74,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 </div>
 	<!------------ Header --------------->
     <?php if( is_front_page() ){ ?>
-    <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.7), rgba(255,255,255,1)), url('<?php echo get_stylesheet_directory_uri()."/img/front-back.jpeg" ?>') ;">  
+    <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.7), rgba(255,255,255,1)), url('<?php echo get_stylesheet_directory_uri()."/img/front-back1.jpeg" ?>') ;">  
     <?php 
     }else{
     ?>
@@ -85,7 +95,8 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                     </div>
                     <div class="col-lg-2 col-2">
                         <div class="main-menu">
-                            <img src="<?php echo get_stylesheet_directory_uri()?>/img/svg/menuwhite.svg">
+                            <img class="main-menu-img" src="<?php echo get_stylesheet_directory_uri()?>/img/svg/menuwhite.svg">
+                            <img class="main-menu-close" src="<?php echo get_stylesheet_directory_uri()?>/img/svg/delete.svg">
                         </div>
                         <div class="mobile-search">
                            <img class="mobile-search-img" src="<?php echo get_stylesheet_directory_uri() ?>/img/svg/search.svg">

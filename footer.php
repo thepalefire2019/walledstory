@@ -56,13 +56,21 @@
 				<?php } ?>
 			</select>
 		</div>
+			<div class="form-group">
+			<label for="post-category">Select Template</label>
+			<select class="form-control" id="post-template">
+				<option value="0"> Default</option>
+				<option value="1"> Poem</option>
+				<option value="2"> Sports</option>
+			</select>
+		</div>
 		 <div class="form-group">
 			<label for="post-content">Post Content</label>
 			<textarea class="form-control" id="post-content" rows="3" required=""></textarea>
 		</div>
 		<div class="form-group">
 			<label for="post-content">Select Featured Image</label>
-			<input type="hidden"  class="img_url_1" id="post-img-id">
+			<input type="hidden"  class="img_url_1" id="post-img-id" value="134">
 			<span class="btn btn-secondary select-image-1" id="select-image-1">Select Image</span>
 			<img class="pro_img_1"  height="50" width="50">
 		</div>

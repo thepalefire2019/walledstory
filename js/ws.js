@@ -172,12 +172,28 @@
 			var content 		= $('#post-content').val();
 			var category 		= $('#post-category').val();
 			var img 			= $('#post-img-id').val();
+			var template 		= $('#post-template').val();
+
+			if( img == null ){
+				var img = '134';
+			}
+			if( template ==0 ){
+				temp_val = null;
+			}
+			if( template == 1 ){
+				temp_val = 'post-template/poem.php'
+			}
+			if( template == 2 ){
+				temp_val = 'post-template/sports.php'
+			}
+
 			var ournewpostobj 	= {
 				'title' 			: title,
 				'content'			: content,
 				'status'			: 'publish',
-				'blog_category' 	:[category],
-				'featured_media' 	: img 
+				'blog_category' 	: [category],
+				'featured_media' 	: img,
+				'template'			: temp_val
 			}
 
 			$.ajax({
@@ -367,10 +383,14 @@ jQuery(document).ready(function($){
 			$('.main-menu-screen').hide(500);
 			$(this).removeClass('main-menu-active');
 			$('.director').show(500);
+			$('.main-menu-img').show(500);
+			$('.main-menu-close').hide();
 		}else{
 			$('.main-menu-screen').show(500);
 			$(this).addClass('main-menu-active');
 			$('.director').hide(500);
+			$('.main-menu-img').hide(500);
+			$('.main-menu-close').show();
 		}
 	});
 });

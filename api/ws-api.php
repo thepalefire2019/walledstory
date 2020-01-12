@@ -57,11 +57,13 @@ function ws_api_blog_result( $data ){
 		    //$author_link = get_author_posts_url($author_id);
 		    $fname = get_the_author_meta('first_name');
 		    $lname = get_the_author_meta('last_name');
+		    $author_img =  get_avatar(get_the_author_meta('ID'));
 		    $author = array(
 		        'author_id'   => $author_id,
 		        //'author_link' => $author_link,
 		        'first_name'  => $fname,
-		        'last_lname'  => $lname
+		        'last_lname'  => $lname,
+		        'author_img'  => $author_img
 		    );
 		    //post author
 
@@ -77,6 +79,27 @@ function ws_api_blog_result( $data ){
 		    );
 		    //post image
 
+
+		    //post like
+		    $likeCount = new WP_Query( array(
+                            'post_type'     => 'like',
+                            'meta_query'    => array(
+                                array(
+                                    'key'       => 'liked_blog_id',
+                                    'compare'   => '=',
+                                    'value'     => $post_id
+                                ))
+                        ) );
+		    $no_of_likes = $likeCount->found_posts;
+		    //post like
+
+
+		    //post views
+		    $no_of_views = getPostViews(get_the_ID());
+		    //post views
+
+		    $no_of_views = getPostViews(get_the_ID());
+
 			$data[$count] = array(
 	    		'id'           => $post_id, 
 		      	'date'         => $date,
@@ -85,7 +108,9 @@ function ws_api_blog_result( $data ){
 		      	'categories'   => $post_category,
 		      	'image'        => $img,
 		      	'content'      => $content,
-		      	'excerpt'      => $excerpt
+		      	'excerpt'      => $excerpt,
+		      	'like_count'   => $no_of_likes,
+		      	'view_count'   => $no_of_views	
 		    );
 
 		    $count++;
@@ -95,8 +120,10 @@ function ws_api_blog_result( $data ){
 		} //while
 		$array = array(
 			'code' =>1,
-			'message' => 'Succes',
+			'message' => 'Success',
+			'theme_color'=>get_option('theme_color'),
 			'data'=>$data
+			
 		);
 		return $array;
 		//echo json_encode($array);

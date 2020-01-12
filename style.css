@@ -5,14 +5,14 @@ Author URI :https://thepalefire.com/
 version:1.0
 */
 
-:root {
+/*:root {
   --gold-color: #ffd700;
   --silver-color: #999999;
   --bronze-color: #cd7f32;
   --theme-color-dark: #01203D;
   --theme-color-medium: #B5D43B;
   --theme-color-light: #D9EF82;
-}
+}*/
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Jomolhari&display=swap');

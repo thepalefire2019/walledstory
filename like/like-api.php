@@ -27,6 +27,8 @@ function ws_like_post_routes( $data ){
 			                    ))
 			                ) );
 		if( $checklike->found_posts == 0 AND get_post_type($blog_id) == 'ws_blog' ){
+
+			
 			$like_id = wp_insert_post(array(
 				'post_type' => 'like',
 				'post_status' => 'publish',

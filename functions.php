@@ -397,6 +397,54 @@ function nosubsadminbar(){
 //  =================================//hide admin top menu bar=====================
 
 
+//  =================================//Theme color in the settings=====================
+
+add_action('admin_init', 'my_general_section');  
+function my_general_section() {  
+    add_settings_section(  
+        'my_settings_section', // Section ID 
+        'My Themes Option', // Section Title
+        'my_section_options_callback', // Callback
+        'general' // What Page?  This makes the section show up on the General Settings Page
+    );
+
+    add_settings_field( // Option 1
+        'theme_color', // Option ID
+        'Theme Color', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed (General Settings)
+        'my_settings_section', // Name of our section
+        array( // The $args
+            'theme_color' // Should match Option ID
+        )  
+    ); 
+
+    // add_settings_field( // Option 2
+    //     'option_2', // Option ID
+    //     'Option 2', // Label
+    //     'my_textbox_callback', // !important - This is where the args go!
+    //     'general', // Page it will be displayed
+    //     'my_settings_section', // Name of our section (General Settings)
+    //     array( // The $args
+    //         'option_2' // Should match Option ID
+    //     )  
+    // ); 
+
+    register_setting('general','theme_color', 'esc_attr');
+    //register_setting('general','option_2', 'esc_attr');
+}
+
+function my_section_options_callback() { // Section Callback
+    echo '<p>Custom Theme Options</p>';  
+}
+
+function my_textbox_callback($args) {  // Textbox Callback
+    $option = get_option($args[0]);
+    echo '<input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
+}
+//  =================================//Theme color in the settings=====================
+
+
 //  =================================//Customize login page=====================
 add_filter('login_headerurl', 'ourheaderurl');
 
@@ -464,3 +512,31 @@ function wpse_29570_where_filter($where){
     }
 
     // add_filter('posts_where','wpse_29570_where_filter');
+
+
+
+
+    /**
+ * Custom register email
+ */
+//add_filter( 'wp_new_user_notification_email', 'custom_wp_new_user_notification_email', 10, 3 );
+function custom_wp_new_user_notification_email( $wp_new_user_notification_email, $user, $blogname ) {
+ 
+    $user_login = stripslashes( $user->user_login );
+    $user_email = stripslashes( $user->user_email );
+    $login_url  = wp_login_url();
+    $message  = __( 'Hi there,' ) . "/r/n/r/n";
+    $message .= sprintf( __( "Welcome to %s! Here's how to log in:" ), get_option('blogname') ) . "/r/n/r/n";
+    $message .= wp_login_url() . "/r/n";
+    $message .= sprintf( __('Username: %s'), $user_login ) . "/r/n";
+    $message .= sprintf( __('Email: %s'), $user_email ) . "/r/n";
+    $message .= __( 'Password: The one you entered in the registration form. (For security reason, we save encripted password)' ) . "/r/n/r/n";
+    $message .= sprintf( __('If you have any problems, please contact me at %s.'), get_option('admin_email') ) . "/r/n/r/n";
+    $message .= __( 'bye!' );
+ 
+    $wp_new_user_notification_email['subject'] = sprintf( '[%s] Your credentials.', $blogname );
+    $wp_new_user_notification_email['headers'] = array('Content-Type: text/html; charset=UTF-8');
+    $wp_new_user_notification_email['message'] = $message;
+ 
+    return $wp_new_user_notification_email;
+}
