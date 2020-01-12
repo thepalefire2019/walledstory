@@ -74,7 +74,8 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 </div>
 	<!------------ Header --------------->
     <?php if( is_front_page() ){ ?>
-    <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.7), rgba(255,255,255,1)), url('<?php echo get_stylesheet_directory_uri()."/img/front-back1.jpeg" ?>') ;">  
+    <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.7), rgba(255,255,255,1)), url('<?php echo get_stylesheet_directory_uri()."/img/front-back2.jpeg" ?>') ;">  
+    <!-- <div class="front-page-background" style="background: #F1C1BD">  -->
     <?php 
     }else{
     ?>
