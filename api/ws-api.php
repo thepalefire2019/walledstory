@@ -121,7 +121,7 @@ function ws_api_blog_result( $data ){
 		$array = array(
 			'code' =>1,
 			'message' => 'Success',
-			'theme_color'=>get_option('theme_color'),
+			'theme_color'=>array('theme_color'=>get_option('theme_color'), 'headline_color'=>get_option('headline_color')),
 			'data'=>$data
 			
 		);

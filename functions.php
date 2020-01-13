@@ -411,7 +411,7 @@ function my_general_section() {
     add_settings_field( // Option 1
         'theme_color', // Option ID
         'Theme Color', // Label
-        'my_textbox_callback', // !important - This is where the args go!
+        'my_theme_color_callback', // !important - This is where the args go!
         'general', // Page it will be displayed (General Settings)
         'my_settings_section', // Name of our section
         array( // The $args
@@ -419,28 +419,69 @@ function my_general_section() {
         )  
     ); 
 
-    // add_settings_field( // Option 2
-    //     'option_2', // Option ID
-    //     'Option 2', // Label
-    //     'my_textbox_callback', // !important - This is where the args go!
-    //     'general', // Page it will be displayed
-    //     'my_settings_section', // Name of our section (General Settings)
-    //     array( // The $args
-    //         'option_2' // Should match Option ID
-    //     )  
-    // ); 
+    add_settings_field( // Option 2
+        'headline_color', // Option ID
+        'Headlines Color', // Label
+        'my_headline_color_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed
+        'my_settings_section', // Name of our section (General Settings)
+        array( // The $args
+            'headline_color' // Should match Option ID
+        )  
+    ); 
+
+    add_settings_field( // Option 2
+        'background_color', // Option ID
+        'Background Color', // Label
+        'my_background_color_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed
+        'my_settings_section', // Name of our section (General Settings)
+        array( // The $args
+            'background_color' // Should match Option ID
+        )  
+    ); 
+
+    add_settings_field( // Option 2
+        'background_image', // Option ID
+        'Background Image', // Label
+        'my_background_image_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed
+        'my_settings_section', // Name of our section (General Settings)
+        array( // The $args
+            'background_image' // Should match Option ID
+        )  
+    );
 
     register_setting('general','theme_color', 'esc_attr');
-    //register_setting('general','option_2', 'esc_attr');
+    register_setting('general','headline_color', 'esc_attr');
+    register_setting('general','background_color', 'esc_attr');
+    register_setting('general','background_image', 'esc_attr');
 }
 
 function my_section_options_callback() { // Section Callback
     echo '<p>Custom Theme Options</p>';  
 }
 
-function my_textbox_callback($args) {  // Textbox Callback
+function my_theme_color_callback($args) {  // Textbox Callback
     $option = get_option($args[0]);
     echo '<input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
+}
+function my_headline_color_callback($args) {  // Textbox Callback
+    $option = get_option($args[0]);
+    echo '<input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
+}
+function my_background_color_callback($args) {  // Textbox Callback
+    $option = get_option($args[0]);
+    echo '<input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
+}
+function my_background_image_callback($args) {  // Textbox Callback
+  if( $option = get_option($args[0]) ){
+    $checked = 'checked';
+  }else{
+    $checked ='';
+  }
+    
+    echo '<input type="checkbox" id="'. $args[0] .'" name="'. $args[0] .'" '.$checked.' value="1" />';
 }
 //  =================================//Theme color in the settings=====================
 

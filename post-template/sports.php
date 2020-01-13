@@ -14,7 +14,8 @@ get_header();
 	while(have_posts()):
 		the_post();
         $post_id = get_the_ID();
-        $category = get_the_category( $post_id );
+        $category = get_the_terms($post_id, 'blog_category');
+        //print_r($category);
         $author_id = get_the_author_meta('ID');
 		?>
 

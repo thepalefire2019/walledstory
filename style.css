@@ -48,6 +48,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 body {
     background: #F7F7F7;
     overflow: auto;
+    
 }
 
 .bl-header
@@ -107,7 +108,7 @@ body {
 .bl-header-logo h2 a
 {
     text-decoration: none;
-    color: var(--theme-color-dark);
+    color: var(--font-head-color);
 }
 
 .bl-header-logo h2
@@ -303,7 +304,7 @@ body {
 
 .bl-post-content-header-content a:hover
 {
-    color: var(--theme-color-dark);
+    color: var(--theme-color);
 }
 .bl-post-content-header-content span
 {
@@ -313,7 +314,7 @@ body {
 
 .bl-post-content-header-content span:hover
 {
-    color: var(--theme-color-dark); cursor: pointer;
+    color: var(--theme-color); cursor: pointer;
 }
 
 .bl-post-content-header-title
@@ -335,7 +336,7 @@ body {
 
 .bl-post-content-header-title h2 a:hover
 {
-    color: var(--theme-color-dark);
+    color: var(--theme-color);
 }
 
 .bl-content
@@ -381,7 +382,7 @@ span.dropcap
 
 .continue_reading a
 {
-    color: var(--theme-color-dark);
+    color: var(--theme-color);
     text-decoration: none;
 }
 
@@ -412,12 +413,12 @@ span.dropcap
     text-align: center;
     font-size: 22px;
     margin-bottom: 5px;
-    color: var(--theme-color-dark);
+    color: var(--font-head-color);
     text-align: center;
     font-style: italic !important;
     font-weight: bold !important;
 }
-.bl-widget h3 a{color: var(--theme-color-dark); }
+.bl-widget h3 a{color: var(--theme-color); }
 .bl-widget ul
 {
     list-style: none;
@@ -456,7 +457,7 @@ span.dropcap
 
 .bl-widget ul li a:hover
 {
-    color: var(--theme-color-dark);
+    color: var(--theme-color);
 }
 
 .bl-photo-holder
