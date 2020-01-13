@@ -452,10 +452,22 @@ function my_general_section() {
         )  
     );
 
+    add_settings_field( // Option 2
+        'background_image_url', // Option ID
+        'Background Image Url', // Label
+        'my_background_image_url_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed
+        'my_settings_section', // Name of our section (General Settings)
+        array( // The $args
+            'background_image_url' // Should match Option ID
+        )  
+    );
+
     register_setting('general','theme_color', 'esc_attr');
     register_setting('general','headline_color', 'esc_attr');
     register_setting('general','background_color', 'esc_attr');
     register_setting('general','background_image', 'esc_attr');
+    register_setting('general','background_image_url', 'esc_attr');
 }
 
 function my_section_options_callback() { // Section Callback
@@ -482,6 +494,10 @@ function my_background_image_callback($args) {  // Textbox Callback
   }
     
     echo '<input type="checkbox" id="'. $args[0] .'" name="'. $args[0] .'" '.$checked.' value="1" />';
+}
+function my_background_image_url_callback($args) {  // Textbox Callback
+    $option = get_option($args[0]);
+    echo '<input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" style="width:80%"/>';
 }
 //  =================================//Theme color in the settings=====================
 

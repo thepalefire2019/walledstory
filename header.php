@@ -80,7 +80,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
         if( get_option('background_image') ==1 ){
 
     ?>
-    <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.7), rgba(255,255,255,1)), url('<?php echo get_stylesheet_directory_uri()."/img/front-back3.jpeg" ?>') ;">  
+    <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.7), rgba(255,255,255,1)), url('<?php echo get_option('background_image_url') ?>') ;">  
     <?php }else{ ?>
     <div class="front-page-background" style="background: var(--background-color)"> 
     <?php 
