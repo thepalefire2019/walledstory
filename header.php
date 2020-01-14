@@ -67,7 +67,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
             </div>
             <?php }else{ ?>
             <div class="col-md-3 col-3 dark-header-profile-login">
-                <a href="<?php echo wp_login_url(); ?>" class="login">Login</a>
+                <a href="<?php echo site_url('/login') ?>" class="login">Login</a>
             </div>
             <?php } ?>
         </div>
@@ -81,6 +81,33 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 
     ?>
     <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.7), rgba(255,255,255,1)), url('<?php echo get_option('background_image_url') ?>') ;">  
+    <?php }else{ ?>
+    <div class="front-page-background" style="background: var(--background-color)"> 
+    <?php 
+    }
+        }elseif( is_page('gold') ){
+            if( get_option('background_image') ==1 ){
+
+    ?>
+    <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.7), rgba(255,255,255,1)), url('<?php echo get_option('background_image_url_gold') ?>') ;">  
+    <?php }else{ ?>
+    <div class="front-page-background" style="background: var(--background-color)"> 
+    <?php 
+    }
+        }elseif( is_page('silver') ){
+            if( get_option('background_image') ==1 ){
+
+    ?>
+    <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.7), rgba(255,255,255,1)), url('<?php echo get_option('background_image_url_silver') ?>') ;">  
+    <?php }else{ ?>
+    <div class="front-page-background" style="background: var(--background-color)"> 
+    <?php 
+    }
+        }elseif( is_page('bronze') ){
+            if( get_option('background_image') ==1 ){
+
+    ?>
+    <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.7), rgba(255,255,255,1)), url('<?php echo get_option('background_image_url_bronze') ?>') ;">  
     <?php }else{ ?>
     <div class="front-page-background" style="background: var(--background-color)"> 
     <?php 
@@ -188,7 +215,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                     <li class=""><a href="<?php echo wp_logout_url(); ?>">Logout</a></li>
                     <?php }else{ ?>
                     <li class=""><a href="<?php echo wp_registration_url() ; ?>">Register</a></li>
-                    <li class=""><a href="<?php echo wp_login_url(); ?>">Login</a></li>
+                    <li class=""><a href="<?php echo site_url('/login'); ?>">Login</a></li>
                     <?php } ?>
                 </ul> 
 

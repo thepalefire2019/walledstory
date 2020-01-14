@@ -87,9 +87,9 @@ function setLevel( $postID, $likesnum, $viewsnum ){
     1 -> Silver
     2 -> Gold
   **/
-    if( $rating <= 2.5 ){ 
+    if( $rating <= 0.9 ){ 
     $level = 0; 
-  }elseif( $rating >2.5 AND $rating <=5.2 ){
+  }elseif( $rating >0.9 AND $rating <=5.2 ){
     $level = 1;
   }else{
     $level = 2;
@@ -463,11 +463,47 @@ function my_general_section() {
         )  
     );
 
+    add_settings_field( // Option 2
+        'background_image_url_gold', // Option ID
+        'Background Image Url Gold', // Label
+        'my_background_image_url_gold_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed
+        'my_settings_section', // Name of our section (General Settings)
+        array( // The $args
+            'background_image_url_gold' // Should match Option ID
+        )  
+    );
+
+    add_settings_field( // Option 2
+        'background_image_url_silver', // Option ID
+        'Background Image Url Silver', // Label
+        'my_background_image_url_silver_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed
+        'my_settings_section', // Name of our section (General Settings)
+        array( // The $args
+            'background_image_url_silver' // Should match Option ID
+        )  
+    );
+
+    add_settings_field( // Option 2
+        'background_image_url_bronze', // Option ID
+        'Background Image Url Bronze', // Label
+        'my_background_image_url_bronze_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed
+        'my_settings_section', // Name of our section (General Settings)
+        array( // The $args
+            'background_image_url_bronze' // Should match Option ID
+        )  
+    );
+
     register_setting('general','theme_color', 'esc_attr');
     register_setting('general','headline_color', 'esc_attr');
     register_setting('general','background_color', 'esc_attr');
     register_setting('general','background_image', 'esc_attr');
     register_setting('general','background_image_url', 'esc_attr');
+    register_setting('general','background_image_url_gold', 'esc_attr');
+    register_setting('general','background_image_url_silver', 'esc_attr');
+    register_setting('general','background_image_url_bronze', 'esc_attr');
 }
 
 function my_section_options_callback() { // Section Callback
@@ -496,6 +532,18 @@ function my_background_image_callback($args) {  // Textbox Callback
     echo '<input type="checkbox" id="'. $args[0] .'" name="'. $args[0] .'" '.$checked.' value="1" />';
 }
 function my_background_image_url_callback($args) {  // Textbox Callback
+    $option = get_option($args[0]);
+    echo '<input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" style="width:80%"/>';
+}
+function my_background_image_url_gold_callback($args) {  // Textbox Callback
+    $option = get_option($args[0]);
+    echo '<input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" style="width:80%"/>';
+}
+function my_background_image_url_silver_callback($args) {  // Textbox Callback
+    $option = get_option($args[0]);
+    echo '<input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" style="width:80%"/>';
+}
+function my_background_image_url_bronze_callback($args) {  // Textbox Callback
     $option = get_option($args[0]);
     echo '<input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" style="width:80%"/>';
 }

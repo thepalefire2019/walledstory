@@ -1,7 +1,7 @@
 <?php
   /*
   Template Name: Sports
-  Template Post Type: post, ws_blog
+  Template Post Type: post
   */
 
 get_header();
