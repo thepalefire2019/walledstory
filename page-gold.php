@@ -48,7 +48,7 @@ get_header();
 				        //print_r($category);
 				?>
 				<div class="blog-card">
-					<div class="blog-card-header">
+					<div class="blog-card-header <?php  if( $blog_level == 0 ){ echo 'bronze';}elseif( $blog_level ==1 ){echo 'silver';}else{echo 'gold';}?>">
 						<div class="blog-card-author">
 							<img src="<?php echo $avatar_url; ?>">
 							<span><a href="<?php echo $author_permalink; ?>"><?php echo  $author_nick_name; ?></a></span>
@@ -57,15 +57,15 @@ get_header();
 							<?php 
 								if( $blog_level == 0 ){
 									?>
-									<img src="<?php echo get_stylesheet_directory_uri().'/img/bronze.png' ?>">
+									<!-- <p class="bronze">Bronze</p> -->
 									<?php
-								}elseif( $blog_level == 0 ){
+								}elseif( $blog_level == 1 ){
 									?>
-									<img src="<?php echo get_stylesheet_directory_uri().'/img/silver.png' ?>">
+									<!-- <p class="silver">SILVER</p> -->
 									<?php
 								}else{
 									?>
-									<img src="<?php echo get_stylesheet_directory_uri().'/img/gold.png' ?>">
+									<!-- <p class="gold">GOLD</p> -->
 									<?php
 								}
 

@@ -240,3 +240,10 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
         </div>
         <div class="director">
 
+            <div class="sidebar-left">
+                <p>Something</p>
+            </div>
+
+            <div class="sidebar-right">
+                
+            </div>

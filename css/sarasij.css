@@ -6,6 +6,17 @@
 .space60{width:100%; height:60px;}
 .space70{width:100%; height:70px;}
 .space80{width:100%; height:80px;}
+.gold{ background:-moz-linear-gradient(-72deg,#ffde45,#ffffff 16%,#ffde45 21%,#ffffff 24%,#452100 27%,
+    #ffde45 36%,#ffffff 45%,#ffffff 60%,#ffde45 72%,#ffffff 80%,#ffde45 84%,#452100);
+ 	background:-webkit-linear-gradient(-72deg,#ffde45,#ffffff 16%,#ffde45 21%,#ffffff 24%,#452100 27%,#ffde45 36%,#ffffff 45%,
+    #ffffff 60%,#ffde45 72%,#ffffff 80%,#ffde45 84%,#452100);background:-o-linear-gradient(-72deg,#ffde45,#ffffff 16%,#ffde45 21%,
+    #ffffff 24%,#452100 27%,#ffde45 36%,#ffffff 45%,#ffffff 60%,#ffde45 72%,#ffffff 80%,#ffde45 84%,#452100);background:
+  	linear-gradient(-72deg,#ffde45,#ffffff 16%,#ffde45 21%,#ffffff 24%,#452100 27%,#ffde45 36%,#ffffff 45%,#ffffff 60%,#ffde45 72%,
+    #ffffff 80%,#ffde45 84%,#452100);}
+.silver{background:linear-gradient(-72deg,#dedede,#ffffff 16%,#dedede 21%,#ffffff 24%,#454545 27%,#dedede 36%,
+ 	#ffffff 45%,#ffffff 60%,#dedede 72%,#ffffff 80%,#dedede 84%,#a1a1a1);}
+.bronze{ background:linear-gradient(-72deg,#ca7345,#ffdeca 16%,#ca7345 21%,#ffdeca 24%,#a14521 27%,#ca7345 36%,
+    #ffdeca 45%,#ffdeca 60%,#ca7345 72%,#ffdeca 80%,#ca7345 84%,#732100);}
 
 /** 
 before #00D99F 
@@ -25,7 +36,7 @@ sohini : #B3C951 & #4d1933;
 .bl-header .main-menu{width: 32px; height: 40px;position: absolute;right: 60px;top: 9px; cursor: pointer;}
 .bl-header .main-menu img{width: 100%; height: 100%;}
 .bl-header .main-menu .main-menu-close{display: none}
-.dark-header{height: 40px; background: var(--theme-color); width: 100%; position: relative;}
+.dark-header{height: 40px; background: var(--theme-color); width: 100%; position: fixed; z-index: 1000}
 .dark-header .dark-header-social{position: absolute;top: 9px;left: 10px;}
 .dark-header .dark-header-social ul{}
 .dark-header .dark-header-social ul li{display: inline; margin-right: 10px;}
@@ -161,9 +172,10 @@ bottom:54px; left: 20px}
 
 
 	/** Front page **/
-.front-page-background{width:100%; font-family: 'Work Sans', sans-serif;}
+.front-page-background{width:100%; font-family: 'Work Sans', sans-serif; padding-top: 40px;}
 .left-layout{ width: 100%;  }
-.left-layout .blog-card{width: 100%; height: 300px; background:#fff; transition: 400ms all;margin-bottom: 30px; margin: 30px auto;}
+.left-layout .blog-card{width: 100%; height: 300px; background:#fff; transition: 400ms all;margin-bottom: 30px; margin: 30px auto;
+	border: 15px solid #000}
 .left-layout .blog-card:hover{ box-shadow: 8px 5px 10px rgba(0,0,0,0.3);transform: scale(1.05);}
 .left-layout .blog-card .blog-card-header{width: 100%; height: 60px;position: relative;}
 .left-layout .blog-card .blog-card-header .blog-card-author{position: absolute;top:15px;left: 15px;}
@@ -171,6 +183,8 @@ bottom:54px; left: 20px}
 .left-layout .blog-card .blog-card-header .blog-card-author span{margin-left: 7px;text-transform: capitalize; font-weight: 700;}
 .left-layout .blog-card .blog-card-header .blog-card-author span a{color:var(--font-head-color); text-decoration: none;}
 .left-layout .blog-card .blog-card-header .blog-card-level{position: absolute; top: 15px; right: 210px}
+.left-layout .blog-card .blog-card-header .blog-card-level p{color: black; padding: 4px 7px;text-transform: uppercase;
+	font-size: 14px; }
 .left-layout .blog-card .blog-card-header .blog-card-level img{width: 30px; height: 30px; border-radius: 50%;}
 .left-layout .blog-card .blog-card-header .blog-card-category{position: absolute;top: 15px; right: 20px}
 .left-layout .blog-card .blog-card-header .blog-card-category p{color: var(--theme-color); font-weight: 700; 
@@ -308,3 +322,15 @@ bottom:54px; left: 20px}
 a .terms{padding: none; color: var(--font-head-color); border:none; }
 .login-box .right-box .right-box-details form label{font-size: 14px;}
 .login-box .right-box .right-box-details form label a{color: var(--font-head-color)}
+
+
+/** sidebar **/
+.sidebar-left{width:140px; height: 100vh; position: fixed; left: 0; top:40px; background: transparent; }
+
+.sidebar-right{width:140px; height: 100vh; position: fixed; right: 0; top:40px; background: transparent;}
+
+
+
+
+
+

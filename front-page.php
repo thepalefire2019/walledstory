@@ -18,6 +18,7 @@ get_header();
 						$blog_id = get_the_ID();
 				        $post_user_id = get_the_author_meta('ID');
 				        $current_user_id = get_current_user_id();
+				        $get_img = get_the_post_thumbnail_url( get_the_ID(), 'ws-regular' );
 				       
 				        $category = get_the_terms($blog_id, 'blog_category');
 				        $category_permalink = get_term_link( $category[0] );
@@ -47,7 +48,7 @@ get_header();
 				        $no_of_views = getPostViews(get_the_ID());
 				        //print_r($category);
 				?>
-				<div class="blog-card">
+				<div class="blog-card" style="background: linear-gradient(rgba(0,0,0,.7), rgba(255,255,255,1)), url('<?php echo $get_img; ?>') ;">
 					<div class="blog-card-header">
 						<div class="blog-card-author">
 							<img src="<?php echo $avatar_url; ?>">
