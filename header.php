@@ -239,15 +239,16 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
            
         </div>
         <div class="director">
-
+            <?php if( is_front_page() OR is_page('gold') OR is_page('silver') OR is_page('bronze') ){ ?>
             <div class="sidebar-left">
                 <a href="<?php echo site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/img/logows.png' ?>"></a>
-                <a href="#"><p>WS Gold</p></a>
-                <a href="#"></a><p>Ws Silver</p></a>
-                <a href="#"></a><p>Ws Bronze</p></a>
-                <a href="#"></a><p>Something</p></a>
+                <a href="<?php echo site_url('about') ?>"><p>About</p></a>
+                <a href="<?php echo site_url('gold') ?>"><p>WS Gold</p></a>
+                <a href="<?php echo site_url('silver') ?>"></a><p>Ws Silver</p></a>
+                <a href="<?php echo site_url('bronze') ?>"></a><p>Ws Bronze</p></a>
+                
             </div>
-
+            <?php } ?>
            <!--  <div class="sidebar-right">
                 
             </div> -->
