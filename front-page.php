@@ -58,15 +58,18 @@ get_header();
 							<?php 
 								if( $blog_level == 0 ){
 									?>
-									<img src="<?php echo get_stylesheet_directory_uri().'/img/bronze.png' ?>">
+									<!-- <img src="<?php echo get_stylesheet_directory_uri().'/img/bronze.png' ?>"> -->
+									<a href="#"><p class="bronze">Bronze</p></a>
 									<?php
-								}elseif( $blog_level == 0 ){
+								}elseif( $blog_level == 1 ){
 									?>
-									<img src="<?php echo get_stylesheet_directory_uri().'/img/silver.png' ?>">
+									<!-- <img src="<?php echo get_stylesheet_directory_uri().'/img/silver.png' ?>"> -->
+									<a href="#"><p class="silver">Silver</p></a>
 									<?php
 								}else{
 									?>
-									<img src="<?php echo get_stylesheet_directory_uri().'/img/gold.png' ?>">
+									<!-- <img src="<?php echo get_stylesheet_directory_uri().'/img/gold.png' ?>"> -->
+									<a href="#"><p class="gold">Gold</p></a>
 									<?php
 								}
 

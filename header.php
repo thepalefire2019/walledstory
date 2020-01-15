@@ -127,7 +127,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                     </div>
                    
                     <div class="col-lg-8 col-8 bl-header-logo">
-                        <h2><a href="<?php echo site_url(); ?>">Walledstory</a></h2>
+                        <!-- <h2><a href="<?php echo site_url(); ?>">Walledstory</a></h2> -->
                     </div>
                     <div class="col-lg-2 col-2">
                         <div class="main-menu">
@@ -241,9 +241,13 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
         <div class="director">
 
             <div class="sidebar-left">
-                <p>Something</p>
+                <a href="<?php echo site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/img/logows.png' ?>"></a>
+                <a href="#"><p>WS Gold</p></a>
+                <a href="#"></a><p>Ws Silver</p></a>
+                <a href="#"></a><p>Ws Bronze</p></a>
+                <a href="#"></a><p>Something</p></a>
             </div>
 
-            <div class="sidebar-right">
+           <!--  <div class="sidebar-right">
                 
-            </div>
+            </div> -->

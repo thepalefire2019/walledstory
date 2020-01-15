@@ -141,7 +141,7 @@ get_header();
                                 </header>
                                 <div class="bl-content">
                                    <div class="bl-entry-content">
-                                        <?php echo get_the_content(); ?>                     
+                                        <?php the_content(); ?>                     
                                    </div>
                                 </div>
                             </div>
