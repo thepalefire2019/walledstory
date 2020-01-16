@@ -70,7 +70,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
             </div>
             <?php }else{ ?>
             <div class="col-md-3 col-3 dark-header-profile-login">
-                <a href="<?php echo site_url('/login') ?>" class="login">Login</a>
+                <a href="<?php echo wp_login_url(); ?>" class="login">Login</a>
             </div>
             <?php } ?>
         </div>

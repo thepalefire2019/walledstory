@@ -26,6 +26,12 @@ if( !$user_ID ){
 			$verify_user = wp_signon( $login_array, false );
 			if( !is_wp_error( $verify_user ) ){
 				 echo '<script>window.location = "'.site_url('wp-admin').'"</script>';
+				 // wp_set_auth_cookie( $user->ID, true, is_ssl() );
+				 $userID = $user->ID;
+
+				wp_set_current_user( $userID, $user_login );
+				wp_set_auth_cookie( $userID, true, false );
+				do_action( 'wp_login', $user_login );
 			}else{
 				echo '<script>alert("Invalid Credentials")</script>';
 			}
