@@ -188,16 +188,16 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                         <h2>Walled Story Levels</h2>
                         <ul style="left:120px;">
                             <li><a href="">Palefire Black</a></li>
-                            <li><a href="">Palefire Gold</a></li>
-                            <li><a href="">Palefire Silver</a></li>
-                            <li><a href="">Palefire Bronze</a></li>
+                            <li><a href="<?php echo site_url('/gold'); ?>">Palefire Gold</a></li>
+                            <li><a href="<?php echo site_url('/silver'); ?>">Palefire Silver</a></li>
+                            <li><a href="<?php echo site_url('/bronze'); ?>">Palefire Bronze</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4 main-menu-column-column">
                         <h2 style="text-align: right;">Please Visit Us</h2>
                         <ul  style="text-align: right;right: 18px;">
-                            <li><a href="">Palefire Technology</a></li>
-                            <li><a href="">Palefire Books</a></li>
+                            <li><a href="#">Palefire Technology</a></li>
+                            <li><a href="#">Palefire Books</a></li>
                         </ul>
                     </div>
                 </div>
@@ -214,8 +214,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                     <li class=""><a href="#">Blog</a></li>
                     <li class=""><a href="#">Contact</a></li>
                     <?php if( is_user_logged_in() ){ ?>
-                    <li class=""><a href="<?php echo site_url('/my-account'); ?>">Account</a></li>
-                    <li class=""><a href="<?php echo site_url('/my-post'); ?>">My Post</a></li>
+                    <li class=""><a href="<?php echo site_url('/my-profile'); ?>">Profile</a></li>
                     <li class=""><a href="<?php echo wp_logout_url(); ?>">Logout</a></li>
                     <?php }else{ ?>
                     <li class=""><a href="<?php echo wp_registration_url() ; ?>">Register</a></li>
@@ -224,13 +223,12 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                 </ul> 
 
                 <ul class="mob-nav-bar-extra-list">
-                    <li><a href="#">Dummy Extra</a></li>
-                    <li><a href="#">Dummy Extra</a></li>
-                    <li><a href="#">Dummy Extra</a></li>
-                    <li><a href="#">Dummy Extra</a></li>
-                    <li><a href="#">Dummy Extra</a></li>
-                    <li><a href="#">Dummy Extra</a></li>
-                    <li><a href="#">Dummy Extra</a></li>
+                    <li><a href="<?php echo site_url('/gold'); ?>">Walledstory Gold</a></li>
+                    <li><a href="<?php echo site_url('/silver') ?>">Walledstory Silver</a></li>
+                    <li><a href="<?php echo site_url('/bronze') ?>">Walledstory Bronze</a></li>
+                    <li><a href="#">Palefire Books</a></li>
+                    <li><a href="#">Palefire Tech</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
                 </ul>
             </div>
           
@@ -259,7 +257,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                 <a href="<?php echo site_url('silver') ?>"><p>Walledstory Silver</p></a>
                 <a href="<?php echo site_url('bronze') ?>"><p>Walledstory Bronze</p></a>
                 <a href="<?php echo site_url('about') ?>"><p>About</p></a>
-                <a href="<?php echo wp_logout_url(); ?>"></a><p>Logout</p></a>
+                <a href="<?php echo wp_logout_url(); ?>"><p>Logout</p></a>
                 
             </div>
             <?php } ?>

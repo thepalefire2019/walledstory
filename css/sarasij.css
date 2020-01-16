@@ -60,7 +60,7 @@ sohini : #B3C951 & #4d1933;
 .dark-header .dark-header-profile .profile-btn{color: #fff; text-decoration: none; text-transform: capitalize;}
 .dark-header .dark-header-profile .profile-btn span{ width: 25px; height: 25px; margin-right: 10px; }
 .dark-header .dark-header-profile .profile-btn span img{width: 20px; height: 20px; border-radius:50%;}
-.dark-header .dark-header-profile-login{position: absolute;right: 35px; top: 3px;}
+.dark-header .dark-header-profile-login{position: absolute;right: 140px; top: 3px;}
 .dark-header .dark-header-profile-login .login{color: #fff; margin-right: 30px; border:1px solid #fff; padding: 2px 8px; 
 	border-radius: 5px; text-decoration: none;}
 .dark-header .dark-header-profile-login .login:hover{ color: var(--theme-color); border:1px solid var(--theme-color); }
