@@ -33,7 +33,10 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 <!------------Dark Header --------------->
 <div class="dark-header">
     <div class="row">
-        <div class="col-md-2 col-4 dark-header-social">
+        <div class="col-md-1 col-1 dark-header-logo">
+             <a href="<?php echo site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/img/logows.png' ?>"></a>
+        </div>
+        <div class="col-md-1 col-4 dark-header-social">
              <ul>
                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
@@ -116,22 +119,23 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
     ?>
     <div class="front-page-background" > 
     <?php }?>
-        <header>
+        <header style="">
             <div class="container-fluid bl-header">
                 <div class="row">
                     <div class="col-lg-2 col-2 bl-header-social">
                        
                         <div class="hd-menu">
-                            <img src="<?php echo get_stylesheet_directory_uri()?>/img/svg/menuwhite.svg">
+                            <img src="<?php echo get_stylesheet_directory_uri()?>/img/svg/menu.svg">
                         </div>
                     </div>
                    
                     <div class="col-lg-8 col-8 bl-header-logo">
                         <!-- <h2><a href="<?php echo site_url(); ?>">Walledstory</a></h2> -->
+                        <!-- <img src="<?php  echo get_stylesheet_directory_uri()?>/img/Walledstorylong.svg?>"> -->
                     </div>
                     <div class="col-lg-2 col-2">
                         <div class="main-menu">
-                            <img class="main-menu-img" src="<?php echo get_stylesheet_directory_uri()?>/img/svg/menuwhite.svg">
+                            <img class="main-menu-img" src="<?php echo get_stylesheet_directory_uri()?>/img/svg/menu.svg">
                             <img class="main-menu-close" src="<?php echo get_stylesheet_directory_uri()?>/img/svg/delete.svg">
                         </div>
                         <div class="mobile-search">
@@ -239,13 +243,23 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
            
         </div>
         <div class="director">
-            <?php if( is_front_page() OR is_page('gold') OR is_page('silver') OR is_page('bronze') ){ ?>
+            <?php if( is_front_page() OR is_page('gold') OR is_page('silver') OR is_page('bronze') OR is_author() OR is_page('my-profile')){ ?>
             <div class="sidebar-left">
+                <?php if( is_user_logged_in() ){ ?>
+                    <?php if( $avatar_url != '' ){ ?>
+                <a href="<?php echo site_url('my-profile'); ?>"><img src="<?php echo $avatar_url; ?>"></a>
+                  <?php }else{ ?>
+                <a href="<?php echo site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/img/no_avatar.png' ?>"></a>
+                <?php } ?>
+                <?php }else{?>
                 <a href="<?php echo site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/img/logows.png' ?>"></a>
+                <?php } ?>
+                <a href="<?php echo site_url('my-profile') ?>"><p >My Profile</p></a>
+                <a href="<?php echo site_url('gold') ?>"><p >Walledstory Gold</p></a>
+                <a href="<?php echo site_url('silver') ?>"><p>Walledstory Silver</p></a>
+                <a href="<?php echo site_url('bronze') ?>"><p>Walledstory Bronze</p></a>
                 <a href="<?php echo site_url('about') ?>"><p>About</p></a>
-                <a href="<?php echo site_url('gold') ?>"><p>WS Gold</p></a>
-                <a href="<?php echo site_url('silver') ?>"></a><p>Ws Silver</p></a>
-                <a href="<?php echo site_url('bronze') ?>"></a><p>Ws Bronze</p></a>
+                <a href="<?php echo wp_logout_url(); ?>"></a><p>Logout</p></a>
                 
             </div>
             <?php } ?>

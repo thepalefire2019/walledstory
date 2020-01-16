@@ -415,3 +415,13 @@ jQuery(document).ready(function($){
 		}
 	});
 });
+
+
+//Front page like pop up
+jQuery(document).ready(function($){
+	$('#front-like').on('click', function(){
+		var permalink = $(this).data('link');
+		alert('Read The Full Blog To Like');
+		window.location = permalink;
+	});
+});

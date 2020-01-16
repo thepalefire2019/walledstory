@@ -39,6 +39,7 @@ $taxonomy_name = $taxonomy->name;
 			        $author_first_name = get_the_author_meta( 'first_name', get_the_author_meta('ID') );
 			        $author_last_name = get_the_author_meta( 'last_name', get_the_author_meta('ID') );
 			        $author_permalink = get_author_posts_url(get_the_author_meta('ID'));
+			        $author_nick_name = get_the_author_meta( 'user_nicename', get_the_author_meta('ID') );
 				?>
 
 				<div class="col-md-3">
@@ -53,7 +54,7 @@ $taxonomy_name = $taxonomy->name;
 							<div class="pop-tax-desc">
 								<h3><?php echo wp_trim_words( get_the_title(), 10 ); ?></h3>
 								<h5><?php echo wp_trim_words( get_the_content(), 10 ); ?>...</h5>
-								<p>By <a href="<?php echo $author_permalink; ?>"><?php  echo $author_first_name.' '; ?><?php echo get_the_author_meta('last_name')[0] ?>.</a> <span>on</span> <?php echo get_the_time('d F, Y'); ?></p>
+								<p>By <a href="<?php echo $author_permalink; ?>"><?php  if( $author_first_name AND $author_last_name ){echo $author_first_name.' '. get_the_author_meta('last_name')[0];}else{ echo $author_nick_name; } ?>.</a> <span>on</span> <?php echo get_the_time('d F, Y'); ?></p>
 							</div>
 						</div>
 					</a>

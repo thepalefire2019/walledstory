@@ -8,6 +8,7 @@ require get_template_directory(). '/blog/register.php';
 require get_template_directory(). '/like/register.php';
 require get_template_directory(). '/follow/register.php';
 require get_template_directory(). '/post-meta/metabox.php';
+require get_template_directory(). '/post-meta/save-metabox.php';
 require get_template_directory(). '/api/ws-api.php';
 
 

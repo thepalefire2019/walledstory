@@ -2,10 +2,11 @@
 </div><!-- Director -->
 </div>
 <footer>
-	<div class="container">
+	<div class="container" <?php if( !is_page('about') OR !is_tax('blog_category') ){echo 'style="margin-right: unset"';} ?>>
 		<div class="row foot">
-			<div class="space30"></div>
+			
 			<div class="col-md-3 bl-footer-logo">
+				<div class="space20"></div>
 				<h2><a href="<?php echo site_url(); ?>">Walledstory</a></h2>
 			
 				<div class="space40"></div>
@@ -14,9 +15,100 @@
 				</div>
 				<div class="space40"></div>
 			</div>
-			<div class="col-md-3"></div>
-			<div class="col-md-3"></div>
-			<div class="col-md-3"></div>
+			<div class="col-md-3 menus">
+				<div class="space20"></div>
+				<h2>Menus</h2>
+				<div class="space20"></div>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Terms and Condition</a></li>
+					<li><a href="#">Disclaimer</a></li>
+					<li><a href="#">Palefire Tech</a></li>
+					<li><a href="#">Palefire Books</a></li>
+					<li><a href="#">About Us</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3 pop-post">
+				<div class="space20"></div>
+				<h2>Pouplar Posts</h2>
+				<div class="space20"></div>
+				<?php 
+					$blog_pop= new WP_Query( array(
+	                            'post_type'         => 'ws_blog',
+	                            'posts_per_page'	=> 3 ,
+	                            'orderby' 			=> 'meta_value_num',
+						        'meta_key' 			=> 'post_views_count',
+						        'order' 			=> 'DESC' 
+	                            ));
+					
+					while( $blog_pop->have_posts() ){
+						$blog_pop->the_post();
+						$get_img = get_the_post_thumbnail_url( get_the_ID(), 'ws-regular' );
+					?>
+					<a href="<?php the_permalink() ?>">
+						<div class="ul">
+							<div class="li">
+								<?php if( has_post_thumbnail() ){ ?>
+								<img src="<?php echo $get_img ?>">
+								<h3><?php echo wp_trim_words( get_the_title(), 12 ) ?></h2>
+								<?php 
+								}else{
+								?>
+								<h3 style="width: 100%;"><?php echo wp_trim_words( get_the_title(), 12 ) ?></h2>
+								<?php } ?>
+							</div>
+						</div>
+					</a>
+					<hr>
+					<?php
+						
+					} //while
+					wp_reset_postdata();
+				?>
+			</div>
+			<div class="col-md-3 img">
+				<div class="space20"></div>
+				<h2>Photos</h2>
+				<div class="space20"></div>
+				<!-- caroisel -->
+				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+						<?php 
+							$blog_img = new WP_Query( array(
+			                            'post_type'         => 'ws_blog',
+			                            'posts_per_page'	=> -1   
+			                            ));
+							$img_counter = 0;
+							while( $blog_img->have_posts() ){
+								$blog_img->the_post();
+								$get_img = get_the_post_thumbnail_url( get_the_ID(), 'ws-regular' );
+								if( has_post_thumbnail() ){
+						?>
+									<div class="carousel-item <?php if( $img_counter == 0 ){ echo 'active' ;} ?>">
+										<img class="d-block w-100" src="<?php echo $get_img; ?>" >
+									</div>
+						<?php 
+									$img_counter++;
+								}
+							} //while
+							wp_reset_postdata();
+						
+						?>
+						
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+
+				<!-- caroisel -->
+			</div>
 		</div>
 	</div>
 </footer>

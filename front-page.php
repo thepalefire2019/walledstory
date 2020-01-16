@@ -3,7 +3,7 @@ get_header();
 	
 ?>
 <!-- <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.5), rgba(255,255,255,1)), url('<?php echo get_stylesheet_directory_uri()."/img/front-back.jpeg" ?>') ;">  --> 
-	<div class="container">
+	<div class="container" style="margin-right: unset">
 		<div class="row">
 			<div class="col-md-8 left-layout">
 				<?php 
@@ -48,64 +48,65 @@ get_header();
 				        $no_of_views = getPostViews(get_the_ID());
 				        //print_r($category);
 				?>
-				<div class="blog-card" style="background: linear-gradient(rgba(0,0,0,.7), rgba(255,255,255,1)), url('<?php echo $get_img; ?>') ;">
-					<div class="blog-card-header">
-						<div class="blog-card-author">
-							<img src="<?php echo $avatar_url; ?>">
-							<span><a href="<?php echo $author_permalink; ?>"><?php echo  $author_nick_name; ?></a></span>
-						</div>	
-						<div class="blog-card-level">
-							<?php 
-								if( $blog_level == 0 ){
-									?>
-									<!-- <img src="<?php echo get_stylesheet_directory_uri().'/img/bronze.png' ?>"> -->
-									<a href="#"><p class="bronze">Bronze</p></a>
-									<?php
-								}elseif( $blog_level == 1 ){
-									?>
-									<!-- <img src="<?php echo get_stylesheet_directory_uri().'/img/silver.png' ?>"> -->
-									<a href="#"><p class="silver">Silver</p></a>
-									<?php
-								}else{
-									?>
-									<!-- <img src="<?php echo get_stylesheet_directory_uri().'/img/gold.png' ?>"> -->
-									<a href="#"><p class="gold">Gold</p></a>
-									<?php
-								}
-
-							?>
+				<div class="blog-card" >
+					<?php  if( has_post_thumbnail() ){ ?>
+					<div class="row">
+						<div class="col-md-6 left-blog-card">
+							<?php the_post_thumbnail('ws-regular')?>
+							<a href="<?php echo $category_permalink; ?>"><p><?php echo $category[0]->name; ?></p></a>
+						</div>
+						<div class="col-md-6 right-blog-card">
+							<div class="blog-card-header">
+								<div class="blog-card-author">
+									<span><a href="<?php echo $author_permalink; ?>"><?php echo  $author_nick_name; ?></a></span>
+									<img src="<?php echo $avatar_url; ?>">
+								</div>
+							</div>
+							<div class="blog-card-title">
+								<h3><?php echo wp_trim_words( get_the_title(), 15 ); ?></h3>
+								<p><?php echo wp_trim_words( get_the_content(), 18 ); ?></p>
+							</div>
+							<div class="credential">
+								<span><i class="fas fa-eye"></i>&nbsp; <?php echo $no_of_views; ?></span>
+								<span id="front-like" data-link="<?php the_permalink(); ?>"><i class="fas fa-heart" style="<?php if( $no_of_likes >0 ){ echo 'color:#ed4956;';  } ?>"></i> &nbsp;<?php echo $no_of_likes; ?></span>
+							</div>
+							<div class="rd-more">
+								<a href="<?php the_permalink() ?>"><p>Read More</p></a>
+							</div>
 							
-						</div>		
-						<div class="blog-card-category">
-							<p><a href="<?php echo $category_permalink; ?>"><?php echo $category[0]->name; ?></a></p>
-						</div>		
-					</div>
-					<div class="blog-card-body">
-						<div class="blog-img">
-							 <?php 
-	                            if( has_post_thumbnail() ){
-	                                the_post_thumbnail('ws-regular');
-	                            }
-	                        ?>
-						</div>
-						<div class="blog-details">
-							<h1><?php echo wp_trim_words( get_the_title(), 15 ); ?></h1>
-							<p><?php echo wp_trim_words( get_the_content(), 48 ); ?><span><a href="<?php the_permalink(); ?>"> Read More</a></span></p>
 						</div>
 					</div>
-					<div class="blog-card-footer">
-						<div class="blog-card-views">
-							<span><i class="fas fa-eye"></i>&nbsp; <?php echo $no_of_views; ?></span>
-						</div>
-						<div class="blog-card-likes">
-							<span><i class="fas fa-heart" style="<?php if( $no_of_likes >0 ){ echo 'color:red;';  } ?>"></i> &nbsp;<?php echo $no_of_likes; ?></span>
+					<?php }else{ ?>
+					<div class="row">
+						<div class="col-md-12 full-card">
+							<div class="blog-card-header">
+								<div class="blog-card-author">
+									<span><a href="<?php echo $author_permalink; ?>"><?php echo  $author_nick_name; ?></a></span>
+									<img src="<?php echo $avatar_url; ?>">
+								</div>
+								<a href="<?php echo $category_permalink; ?>"><p><?php echo $category[0]->name; ?></p></a>
+							</div>
+							<div class="blog-card-title">
+								<h3><?php echo wp_trim_words( get_the_title(), 25 ); ?></h3>
+								<p><?php echo wp_trim_words( get_the_content(), 65 ); ?></p>
+							</div>
+							<div class="credential">
+								<span><i class="fas fa-eye"></i>&nbsp; <?php echo $no_of_views; ?></span>
+								<span id="front-like" data-link="<?php the_permalink(); ?>"><i class="fas fa-heart" style="<?php if( $no_of_likes >0 ){ echo 'color:#ed4956;';  } ?>"></i> &nbsp;<?php echo $no_of_likes; ?></span>
+							</div>
+							<div class="rd-more">
+								<a href="<?php the_permalink(); ?>"><p>Read More</p></a>
+							</div>
 						</div>
 					</div>
+					<?php } ?>
+					
 					
 				</div><!-- Blog-card -->
 				<?php 
 					$loop_counter++;
-				endwhile; //end of the while fro blog cart in left layout
+				endwhile; //end of the while for blog card in left layout
+				wp_reset_postdata();
 				?>
 				<div class="space20"></div>
 				
@@ -116,26 +117,51 @@ get_header();
 				<div class="right-card">
 					<div class="col-lg-12 bl-side-content">
 						<aside class="bl-widget">
-			                <h3>Related Posts</h3>
+			                <h3>Walledstory Sports</h3>
+
+
+			                <?php 
+			                $sports = new WP_Query( array(
+		                            'post_type'         => 'post',
+		                            'posts_per_page'	=> 4,
+		                            'category_name'		=> 'sports'  
+		                            ));
+			                while( $sports->have_posts() ):
+			                	$sports->the_post();
+			                 ?>
+
 			                <div class="rel-post">
 			                    <div class="rel-post-img">
-			                    	<img src="<?php echo get_stylesheet_directory_uri().'/img/2.jpg' ?>">
-			                        <?php // the_post_thumbnail('ws-regular'); ?>
+			                    	<!-- <img src="<?php echo get_stylesheet_directory_uri().'/img/2.jpg' ?>"> -->
+			                        <?php  the_post_thumbnail('ws-regular'); ?>
 			                    </div>
-			                    <div class="rel-post-header"><h5><?php //echo get_the_time('F d, Y'); ?>December 9, 2019</h5></div>
-			                    <a href="<?php// the_permalink() ?>">
+			                    <div class="rel-post-header"><h5><?php echo get_the_time('F d, Y'); ?></h5></div>
+			                    <a href="<?php the_permalink() ?>">
 			                        <div class="rel-post-content">
-			                            <h2><?php// the_title(); ?>Est ante in nibh mauris cursus mattis molestie a iaculis.</h2>
+			                            <h2><?php echo wp_trim_words(get_the_title(),6); ?></h2>
 			                        </div>
 			                    </a>
 			                </div>
+			                <?php 
+			            	endwhile;
+			            	wp_reset_postdata();
+			                ?>
+
 			            </aside>
 			        </div>
 		        </div><!-- Right Card -->
 		        <div class="space30"></div>
-		        <div class="right-card">
-			        <div class="col-lg-12 bl-side-content">
-						<aside class="bl-widget">
+		        <div class="right-card" >
+			        <div class="col-lg-12 bl-side-content" style="padding:0 0">
+
+			        	<a href="https://thepalefire.com/palefire-books/">
+			        		<div class="pf-book-ad">
+			        			<h2>PALEFIRE <span>BOOKS</span></h2>
+			        			<h3>Visit Website</h3>
+			        			<p>Palefire Books is created by <span>THEPALEFIRE.COM</span>, where our aim is to make rare books affordable. The desire behind Palefire Books is to give access to those rare and beautiful people who still sit by the windows on rainy days, and read.</p>
+			        		</div>
+			        	</a>
+						<!-- <aside class="bl-widget">
 		                    <h3>Categories</h3>      
 		                    <ul>
 		                        <li>
@@ -163,7 +189,7 @@ get_header();
 		                            <a href="#">Travel</a><span>2</span>
 		                        </li>
 		                    </ul>
-		                </aside>
+		                </aside> -->
 					</div>
 				</div> <!-- Right Card -->
 			</div><!-- right layout -->

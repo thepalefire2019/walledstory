@@ -14,10 +14,9 @@ version:1.0
   --theme-color-light: #D9EF82;
 }*/
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Jomolhari&display=swap');
+
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Work+Sans:200,400,700,900&display=swap');/* 'Work Sans', sans-serif; */
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -104,6 +103,7 @@ body {
 {
     text-align: center;
 }
+.bl-header-logo img{height: 70px;width: 160px;}
 
 .bl-header-logo h2 a
 {

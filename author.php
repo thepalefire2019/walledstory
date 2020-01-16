@@ -7,7 +7,7 @@ $avatar_url = get_the_author_meta( 'profile_picture', $author_id ) ;
 ?>
 <div class="author-full-page">
 	<div class="space40"></div>
-	<div class="container ">
+	<div class="container" style="margin-right: unset">
 		<div class="author-bio">
 			<div class="row">
 				<div class="col-md-6">
