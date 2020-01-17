@@ -33,9 +33,9 @@ sohini : #B3C951 & #4d1933;
   --theme-color-light: #ffc4cd;
 }*/
 /** Header **/
-.bl-header .main-menu{width: 32px; height: 40px;position: absolute;right: 60px;top: 9px; cursor: pointer; z-index: 2500}
+.bl-header .main-menu{width: 32px; height: 40px;position: absolute;right: 60px;top: 9px; cursor: pointer; z-index: 2500;}
 .bl-header .main-menu img{width: 100%; height: 100%;}
-.bl-header .main-menu .main-menu-close{margin-top: -160px}
+.bl-header .main-menu .main-menu-close{margin-top: -60px}
 
 .bl-header .main-menu .main-menu-close{display: none}
 .dark-header{height: 40px; background: var(--theme-color); width: 100%; position: fixed; z-index: 1000}
@@ -71,9 +71,13 @@ sohini : #B3C951 & #4d1933;
 .dark-header .dark-header-add-post{position: absolute; top: 6px;right: 135px;}
 .dark-header .dark-header-add-post p{color: #fff; border:1px solid #D1D1D1; padding:2px 8px; width: 100px;border-radius: 5px;
 	cursor: pointer;font-size: 14px; text-align: center;}
+
+
+/** Main Menu Screen **/
+
 .main-menu-screen{position: absolute; width:100%; height:100vh; background-color: #E8E8E8;z-index: 2000;
 		display: none; top: 0}
-.main-menu-screen .main-menu-column-column{position: relative;}
+.main-menu-screen .main-menu-column-column{position: relative; height: calc(100vh - 40px);  }
 .main-menu-screen .main-menu-column-column h2{ text-align: left; font-weight: 700; font-size: 25px; color: var(--theme-color); 
 	text-transform:uppercase;  }
 .main-menu-screen .main-menu-column-column ul{list-style: none; position: absolute;top:50px;}
@@ -156,7 +160,7 @@ bottom:54px; left: 20px}
 .sa-content p{text-align: center; margin-top: 20px; padding:10px; background-color: #227A6C; color:#fff; 
 	margin-left:15%; margin-right: 15%; border-radius: 15px;cursor: pointer;}	
 
-/** post Page design **/
+
 
 /**about  design **/
 

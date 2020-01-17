@@ -175,7 +175,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
             <div class="space20"></div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 main-menu-column-column">
+                    <div class="col-md-4 main-menu-column-column " >
                         <h2>Main Menus</h2>
                         <ul>
                             <li><a href="<?php echo site_url('/') ?>">Home</a></li>
@@ -184,7 +184,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                             <li><a href="#">Contact Us</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-4 main-menu-column-column">
+                    <div class="col-md-4 main-menu-column-column ">
                         <h2>Walled Story Levels</h2>
                         <ul style="left:120px;">
                             <li><a href="">Palefire Black</a></li>
@@ -193,7 +193,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                             <li><a href="<?php echo site_url('/bronze'); ?>">Palefire Bronze</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-4 main-menu-column-column">
+                    <div class="col-md-4 main-menu-column-column ">
                         <h2 style="text-align: right;">Please Visit Us</h2>
                         <ul  style="text-align: right;right: 18px;">
                             <li><a href="#">Palefire Technology</a></li>
