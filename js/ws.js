@@ -425,3 +425,53 @@ jQuery(document).ready(function($){
 		window.location = permalink;
 	});
 });
+
+
+
+//Load More
+jQuery(document).ready(function($){
+	$('.load-more-btn').on('click', function(){
+		// $('.loading').show(500);
+		var that = $(this);
+		var ajaxurl = that.data('url');
+		var page = that.data('page');
+		var newPage = page+1;
+
+		$.ajax({
+			beforeSend : function(){
+				$('.loading').show(500);
+				$('.load-more-btn-btn').hide(500);
+			},
+	    	url : ajaxurl,
+	    	type : 'post',
+	    	data : {
+	    		page : page,
+	        	action : 'ws_load_more', 
+	      	},
+	    	error : function (response){
+	        	console.log(response);
+	      	},
+	    	success : function(response){
+	    		console.log(response)
+	        	if( response == 0 ){   
+	        		setTimeout(function(){ 
+	        			$('.loadnewpost').append('<div class="text-center new-post"><h3>No more posts to load.</h3></div>');
+	        			$('.loading').hide(500);
+	        		}, 2000)   
+	        		
+	        	}else{
+
+	            	setTimeout(function(){ 
+	            		$('.load-more-block').append(response);
+	            		$('.loading').hide(500);
+	            		$('.load-more-btn-btn').show(500);
+	            		that.data('page',newPage);
+	            	}, 2000 );
+	      		}
+	      		
+	    	}
+
+	      
+	    });// ajax
+	});
+});

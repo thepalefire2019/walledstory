@@ -6,10 +6,11 @@ get_header();
 	<div class="container" style="margin-right: unset">
 		<div class="row">
 			<div class="col-md-8 left-layout">
+				<div class="load-more-block">
 				<?php 
 					$blog = new WP_Query( array(
 	                            'post_type'         => 'ws_blog',
-	                            'posts_per_page'	=> 12   
+	                            'posts_per_page'	=> 2   
 	                            ));
 					$loop_counter = 0;
 
@@ -48,6 +49,9 @@ get_header();
 				        $no_of_views = getPostViews(get_the_ID());
 				        //print_r($category);
 				?>
+
+
+				
 				<div class="blog-card" >
 					<?php  if( has_post_thumbnail() ){ ?>
 					<div class="row">
@@ -103,12 +107,28 @@ get_header();
 					
 					
 				</div><!-- Blog-card -->
+			
 				<?php 
 					$loop_counter++;
 				endwhile; //end of the while for blog card in left layout
 				wp_reset_postdata();
 				?>
+				</div><!-- load-more-block -->
 				<div class="space20"></div>
+
+				<div class="loadnewpost">
+					
+				</div>
+
+
+				<div class="load-more-button-div">
+					<a class="load-more-btn" data-url="<?php echo admin_url('admin-ajax.php') ?>" data-page="1">
+						<button class="load-more-btn-btn">Load More...</button>
+						<div class="loading">
+							<img src="<?php echo get_stylesheet_directory_uri().'/img/load-more-2.gif' ?>">
+						</div>
+					</a>
+				</div>
 				
 			</div><!-- left layout -->
 

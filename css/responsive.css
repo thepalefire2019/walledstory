@@ -77,6 +77,8 @@
 	.left-layout .blog-card .full-card{height: 550px;}
 	.left-layout .blog-card .full-card .credential span:first-child{margin-left: 152px;}
 	.left-layout .blog-card .right-blog-card .credential span:first-child{margin-left: 152px;}
+	.load-more-button-div .load-more-btn .load-more-btn-btn{margin-left: 25px;}
+	.load-more-button-div .load-more-btn .loading{margin-left: -7%;}
 	/** author page **/
 
 	.author-bio .author-img{display: none;}
