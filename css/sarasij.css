@@ -123,7 +123,13 @@ text-transform: uppercase;}
 .foot .img{}
 .foot .img h2{font-size: 18px; text-transform: uppercase; border-bottom: 1px solid var(--font-head-color);width: 90%;
 	font-weight: 700;margin-left: 30px;color: var(--font-head-color)}
-.final-footer{width:100%; height:60px; background-color: #101010;}
+.final-footer{width:100%; height:60px; background-color: #101010; color: #D1D1D1;}
+.final-footer .left-final-footer{}
+.final-footer .left-final-footer h3{}
+.final-footer .middle-final-footer{}
+.final-footer .middle-final-footer h3{}
+.final-footer .right-final-footer{}
+.final-footer .right-final-footer h3{}
 
 /** post Page design **/
 
@@ -222,13 +228,20 @@ bottom:54px; left: 20px}
 	color: var(--font-head-color); line-height: 25px;}
 .left-layout .blog-card .right-blog-card .blog-card-title p{text-align: justify;font-size: 15px;line-height: 18px; 
 	padding-top: 5px;}
-.left-layout .blog-card .right-blog-card .credential{width: 100%; height: 40px; position: absolute; bottom: 65px;left: 46%;
+.left-layout .blog-card .right-blog-card .credential{width: 100%; height: 40px; position: absolute; bottom: 65px;left: 41%;
 	transform: translateX(-30px);}
 .left-layout .blog-card .right-blog-card .credential span{font-size: 20px; color: var(--font-head-color)}
 .left-layout .blog-card .right-blog-card .credential span:first-child{margin-right: 16px;}
+.left-layout .blog-card .right-blog-card .credential span:last-child{margin-left: 16px;}
 .left-layout .blog-card .right-blog-card .credential span i{}
 .left-layout .blog-card .right-blog-card .rd-more{position: absolute;bottom: 10px; width: 50%; margin-left: 50%; 
 	transform: translateX(-50%); }
+.left-layout .blog-card .right-blog-card .share{ position: absolute;width: 30%; height: 7vh; bottom: 36px; 
+	background: #fff;right: 37px;z-index:2000; box-shadow: 10px 5px 10px rgba(0,0,0,0.3); display: none}
+.left-layout .blog-card .right-blog-card .share ul{list-style: none; margin-left: 17px; margin-top: 2px;}
+.left-layout .blog-card .right-blog-card .share ul li{display: inline; margin-left: 10px;margin-top: 20px;}
+.left-layout .blog-card .right-blog-card .share ul li a{font-size: 26px;}
+.left-layout .blog-card .right-blog-card .share ul li a i{}
 .left-layout .blog-card .right-blog-card .rd-more p{background: var(--theme-color); color:#000; font-size: 18px; padding: 10px 12px;
 	border-radius: 20px; text-align: center;}
 .left-layout .blog-card .full-card{ width: 100%; height: 320px; position: relative;  }
@@ -253,7 +266,13 @@ bottom:54px; left: 20px}
 	transform: translateX(-30px);}
 .left-layout .blog-card .full-card .credential span{font-size: 20px; color: var(--font-head-color)}
 .left-layout .blog-card .full-card .credential span:first-child{margin-right: 16px; }
+.left-layout .blog-card .full-card .credential span:last-child{margin-left: 16px; }
 .left-layout .blog-card .full-card .credential span i{}
+.left-layout .blog-card .full-card .share{position: absolute;width: 15%; height: 7vh; bottom: 36px; 
+	background: #fff;right: 220px;z-index:2000; box-shadow: 10px 5px 10px rgba(0,0,0,0.3); display: none;}
+.left-layout .blog-card .full-card .share ul{list-style: none; margin-left: 17px; margin-top: 2px;}	
+.left-layout .blog-card .full-card .share ul li{display: inline; margin-left: 10px;margin-top: 20px;}	
+.left-layout .blog-card .full-card .share ul li a{font-size: 26px;}	
 .left-layout .blog-card .full-card .rd-more{position: absolute;bottom: 10px; width: 50%; margin-left: 50%; 
 	transform: translateX(-50%); }
 .left-layout .blog-card .full-card .rd-more p{background: var(--theme-color); color:#000; font-size: 18px; padding: 10px 12px;

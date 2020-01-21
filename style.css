@@ -227,7 +227,7 @@ body {
     font-family: 'Jomolhari', serif;
     font-weight: 400;
 }
-
+.bl-header-images-content{height: 65px;}
 .bl-header-images-content p
 {
     cursor: pointer;

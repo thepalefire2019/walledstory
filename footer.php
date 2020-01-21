@@ -113,7 +113,21 @@
 	</div>
 </footer>
 <div class="final-footer">
-	
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4 left-final-footer">
+			<h3>A Palefire Private Limited Brand</h3>
+			
+		</div>
+		<div class="col-md-4 middle-final-footer">
+			<h3>&copy; Walledstory 2020. All Rights Reserved. </h3>
+		</div>
+		<div class="col-md-4 right-final-footer">
+			<h3>Email: contact@walledstory.com</h3>
+			<h3>Conatct No : +91 1234567891</h3>
+		</div>
+	</div>
+	</div>
 </div>
 
 

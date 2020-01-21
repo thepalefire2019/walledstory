@@ -46,6 +46,7 @@ get_header();
                                 ?>
                                 
                             </div>
+                            <a rel="nofollow" href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>" onclick="return fbs_click()" target="_blank" >FB</a>
                             <div class="bl-post-content">
                                 <header class="bl-post-content-header">
                                     <div class="bl-post-content-header-content">
@@ -228,35 +229,7 @@ get_header();
                             </p>
                         </aside>
 
-                       <!--  <aside class="bl-widget">
-                            <h3>Categories</h3>      
-                            <ul>
-                                <li>
-                                    <a href="#">Advertising</a><span>1</span>
-                                </li>
-                                <li>
-                                    <a href="#">Creative</a><span>1</span>
-                                </li>
-                                <li>
-                                    <a href="#">Inspiration</a><span>1</span>
-                                </li>
-                                <li>
-                                    <a href="#">Life</a><span>3</span>
-                                </li>
-                                <li>
-                                    <a href="#">Music</a><span>2</span>
-                                </li>
-                                <li>
-                                    <a href="#">Photography</a><span>1</span>
-                                </li>
-                                <li>
-                                    <a href="#">readolog</a><span>6</span>
-                                </li>
-                                <li>
-                                    <a href="#">Travel</a><span>2</span>
-                                </li>
-                            </ul>
-                        </aside> -->
+                  
 
                         <aside class="bl-widget">
                             <h3>Related Posts</h3>
@@ -327,7 +300,11 @@ get_header();
                         $get_img = get_the_post_thumbnail_url($rel_auth_post_id,'ws-regular');
                         ?>
                     <div class="col-lg-3 bl-header-image-div">
+                        <?php if( has_post_thumbnail() ){?> 
                         <img class="bl-header-images img-responsive" src="<?php echo $get_img; ?>">
+                    <?php }else{?>
+                         <img class="bl-header-images img-responsive" src="<?php echo get_stylesheet_directory_uri().'/img/black.jpg' ?>" >
+                    <?php } ?>
                         <div class="bl-header-images-date">
                             <h3><?php echo get_the_time('F d, Y'); ?> in <?php echo $rel_auth_category[0]->name; ?></h3>
                             <div class="bl-header-images-content">

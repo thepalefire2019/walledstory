@@ -7,6 +7,11 @@ function ws_api_post(){
       'methods' => 'POST',
       'callback' => 'ws_api_blog_result'
     ));
+
+  register_rest_route('ws/v1', 'users', array(
+      'methods' => 'POST',
+      'callback' => 'ws_api_users'
+    ));
 }
 
 function ws_api_blog_result( $data ){
@@ -57,7 +62,7 @@ function ws_api_blog_result( $data ){
 		    //$author_link = get_author_posts_url($author_id);
 		    $fname = get_the_author_meta('first_name');
 		    $lname = get_the_author_meta('last_name');
-		    $author_img =  get_avatar(get_the_author_meta('ID'));
+		    $author_img =  get_the_author_meta( 'profile_picture',  get_the_author_meta('ID') ) ;
 		    $author = array(
 		        'author_id'   => $author_id,
 		        //'author_link' => $author_link,
@@ -143,4 +148,63 @@ function ws_api_blog_result( $data ){
 	//return $all_data->apicredential->apiuser;
 	// $s = array('a' => 'sarsij', 'b' => $data['sutki']);
 	// echo json_encode($s);
-}
+} // function
+
+
+function ws_api_users( $data ){
+
+	$apicredential = array(
+			'apiuser' 	=> 'sarasij94',
+			'apipass'	=> '123' 
+	);
+	$all_data_json = file_get_contents('php://input');
+	//{"apicredential":{"apiuser":"", "apipass": ""}, "users_id": "1" }
+	$all_data = ( isset( $all_data_json ) && $all_data_json != "" )? json_decode( $all_data_json ) : "";
+
+	if( $all_data->apicredential->apiuser == $apicredential['apiuser'] AND $all_data->apicredential->apipass == $apicredential['apipass']){
+		$user_id = $all_data->users_id;
+		
+		$avatar_url = get_the_author_meta( 'profile_picture', $user_id ) ;
+		$followCount = new WP_Query( array(
+	                'post_type'     => 'follow',
+	                'meta_query'    => array(
+	                    array(
+	                        'key'       => 'followed_blog_id',
+	                        'compare'   => '=',
+	                        'value'     => $user_id
+	                    ))
+	            ) );
+
+
+	    $following = new WP_Query( array(
+	        'author'        => $user_id,
+	        'post_type'     => 'follow'
+	        ) );
+
+		$data = array(
+			'first_name'	=> get_the_author_meta( 'first_name', $user_id ),
+			'last_lname'	=> get_the_author_meta( 'last_name', $user_id ),
+			'description'	=> get_the_author_meta( 'description', $user_id ),
+			'user_img'		=> $avatar_url,
+			'followers'		=> $followCount->found_posts,
+			'following'		=> $following->found_posts,
+			'facebook'		=> get_the_author_meta( 'facebook', $user_id )
+		);
+
+		$array = array(
+			'code' =>1,
+			'message' => 'Success',
+			'data'=>$data
+			
+		);
+		return $array;
+
+	}else{
+		$array = array(
+			"code" => 0,
+			"message" => 'Invalid API Credential'
+		);
+		echo json_encode($array);
+	} // if
+
+} //function

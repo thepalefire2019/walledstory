@@ -73,6 +73,13 @@ get_header();
 							<div class="credential">
 								<span><i class="fas fa-eye"></i>&nbsp; <?php echo $no_of_views; ?></span>
 								<span id="front-like" data-link="<?php the_permalink(); ?>"><i class="fas fa-heart" style="<?php if( $no_of_likes >0 ){ echo 'color:#ed4956;';  } ?>"></i> &nbsp;<?php echo $no_of_likes; ?></span>
+								<span class="share-btn"><i class="fas fa-share-alt"></i></span>
+							</div>
+							<div class="share">
+								<ul>
+									<li><a rel="nofollow" href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>" onclick="return fbs_click()" target="_blank" ><i class="fab fa-facebook-square"></i></a></li>
+									<li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+								</ul>
 							</div>
 							<div class="rd-more">
 								<a href="<?php the_permalink() ?>"><p>Read More</p></a>
@@ -97,6 +104,13 @@ get_header();
 							<div class="credential">
 								<span><i class="fas fa-eye"></i>&nbsp; <?php echo $no_of_views; ?></span>
 								<span id="front-like" data-link="<?php the_permalink(); ?>"><i class="fas fa-heart" style="<?php if( $no_of_likes >0 ){ echo 'color:#ed4956;';  } ?>"></i> &nbsp;<?php echo $no_of_likes; ?></span>
+								<span class="share-btn"><i class="fas fa-share-alt"></i></span>
+							</div>
+							<div class="share">
+								<ul>
+									<li><a rel="nofollow" href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>" onclick="return fbs_click()" target="_blank" ><i class="fab fa-facebook-square"></i></a></li>
+									<li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+								</ul>
 							</div>
 							<div class="rd-more">
 								<a href="<?php the_permalink(); ?>"><p>Read More</p></a>

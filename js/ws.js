@@ -475,3 +475,27 @@ jQuery(document).ready(function($){
 	    });// ajax
 	});
 });
+
+
+// front page ahare button
+jQuery(document).ready(function($){
+	$(".load-more-block").on('click','.share-btn', function(){
+		// alert('sarasij')
+		// $(".share-btn").removeClass('active-share');
+		var that = $(this);
+
+		
+
+		if( that.hasClass('active-share') ){
+			// close the share divc
+			that.removeClass('active-share');
+			that.parent().siblings('.share').hide(700);
+		}else{
+			//open the share div
+			//
+			that.addClass('active-share');
+			// $('.share').show();
+			 that.parent().siblings('.share').show(700);
+		}
+	});
+});
