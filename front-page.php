@@ -2,6 +2,9 @@
 get_header();
 	
 ?>
+ <script>
+  function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}
+</script>
 <!-- <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.5), rgba(255,255,255,1)), url('<?php echo get_stylesheet_directory_uri()."/img/front-back.jpeg" ?>') ;">  --> 
 	<div class="container" style="margin-right: unset">
 		<div class="row">

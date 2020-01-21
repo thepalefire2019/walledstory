@@ -46,7 +46,7 @@ get_header();
                                 ?>
                                 
                             </div>
-                            <a rel="nofollow" href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>" onclick="return fbs_click()" target="_blank" >FB</a>
+                           
                             <div class="bl-post-content">
                                 <header class="bl-post-content-header">
                                     <div class="bl-post-content-header-content">
