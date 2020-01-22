@@ -3,11 +3,52 @@ add_action('wp_ajax_nopriv_ws_load_more','ws_load_more');
 add_action('wp_ajax_ws_load_more','ws_load_more');
 function ws_load_more(){
 $paged = $_POST["page"]+1;
-$query = new WP_Query( array(
-                'post_type'         => 'ws_blog',
-                'posts_per_page'  => 2 ,
-                'paged'     =>$paged,  
-                ));   
+$league = $_POST["league"];
+if( $league == 'front' ){
+  $args = array(
+        'post_type'         => 'ws_blog',
+        'posts_per_page'  => 2 ,
+        'paged'     =>$paged,  
+);  
+}elseif( $league == 'gold' ){
+  $args = array(
+            'post_type'         => 'ws_blog',
+            'posts_per_page'  => 2 ,
+            'paged'     =>$paged,
+            'meta_query'    => array(
+                                    array(
+                                        'key'       => 'blog_level',
+                                        'compare'   => '=',
+                                        'value'     => 2
+                                    ))    
+);
+}elseif( $league == 'silver' ){
+  $args = array(
+            'post_type'         => 'ws_blog',
+            'posts_per_page'  => 2 ,
+            'paged'     =>$paged, 
+            'meta_query'    => array(
+                                    array(
+                                        'key'       => 'blog_level',
+                                        'compare'   => '=',
+                                        'value'     => 1
+                                    ))     
+);
+}elseif( $league == 'bronze' ){
+  $args = array(
+            'post_type'         => 'ws_blog',
+            'posts_per_page'  => 2 ,
+            'paged'     =>$paged,
+            'meta_query'    => array(
+                                      array(
+                                          'key'       => 'blog_level',
+                                          'compare'   => '=',
+                                          'value'     => 0
+                                      ))    
+);
+}
+
+$query = new WP_Query( $args );   
 while($query->have_posts()):
       $query->the_post();
       $blog_id = get_the_ID();
@@ -67,11 +108,12 @@ while($query->have_posts()):
               <span class="share-btn"><i class="fas fa-share-alt"></i></span>
             </div>
             <div class="share">
-              <ul>
-                <li><a rel="nofollow" href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>" onclick="return fbs_click()" target="_blank" ><i class="fab fa-facebook-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-              </ul>
-            </div>
+                <ul>
+                  <li><a rel="nofollow" href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>" onclick="return fbs_click()" target="_blank" ><i class="fab fa-facebook-square"></i></a></li>
+                  <li><a href="https://twitter.com/share?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>&via=palefire16" onclick="window.open(this.href, 'mywin',
+                                            'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" ><i class="fab fa-twitter-square"></i></a></li>
+                </ul>
+              </div>
             <div class="rd-more">
               <a href="<?php the_permalink() ?>"><p>Read More</p></a>
             </div>

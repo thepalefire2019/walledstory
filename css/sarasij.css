@@ -33,7 +33,7 @@ sohini : #B3C951 & #4d1933;
   --theme-color-light: #ffc4cd;
 }*/
 /** Header **/
-.bl-header .main-menu{width: 32px; height: 40px;position: absolute;right: 60px;top: 9px; cursor: pointer; z-index: 2500;}
+.bl-header .main-menu{width: 23px; height: 40px;position: absolute;right: 7px;top: -23px; cursor: pointer; z-index: 2500;}
 .bl-header .main-menu img{width: 100%; height: 100%;}
 .bl-header .main-menu .main-menu-close{margin-top: -60px}
 
@@ -41,7 +41,7 @@ sohini : #B3C951 & #4d1933;
 .dark-header{height: 40px; background: var(--theme-color); width: 100%; position: fixed; z-index: 1000}
 .dark-header .dark-header-logo{position: absolute;top: 5px;left: 10px;}
 .dark-header .dark-header-logo img{width: 30px; height: 30px; border-radius: 50%;}
-.dark-header .dark-header-social{position: absolute;top: 9px;right: 10px;}
+.dark-header .dark-header-social{position: absolute;top: 9px;right: 25px;}
 .dark-header .dark-header-social ul{}
 .dark-header .dark-header-social ul li{display: inline; margin-right: 10px;}
 .dark-header .dark-header-social ul li a{color: #000}
@@ -182,7 +182,7 @@ bottom:54px; left: 20px}
 .abt-content p{font-size:16px; text-align: justify}
 .abt-content p::first-letter{font-size:400%; font-weight: 800}
 
-/**english Single  Page design **/
+/**blog Single  Page design **/
 .bl-widget .rel-post{position: relative; width: 90%; height:100px; border-bottom: 1px solid #D1D1D1;}
 .bl-widget .rel-post:last-child{border:none;}
 .bl-widget .rel-post a{color: #000; }
@@ -201,11 +201,16 @@ bottom:54px; left: 20px}
 	cursor: pointer;position: absolute;right: 35px; color: red;}
 .blog-delete p:hover{background: var(--theme-color); color: #fff}
 
-
-
+.share-single{}
+.share-single h2{font-size: 17px; font-weight: 700; border-top:1px solid #000; padding-top: 10px;}
+.share-single ul{list-style: none;}
+.share-single ul li{display: inline; margin-right: 20px;}
+.share-single ul li:last-child{ margin-right: 0px;}
+.share-single ul li a{font-size: 40px;}
+.share-single ul li a:hover{text-decoration: none;}
 
 	/** Front page **/
-.front-page-background{width:100%; font-family: 'Work Sans', sans-serif; padding-top: 40px;}
+.front-page-background{width:100%; font-family: 'Work Sans', sans-serif; padding-top: 0px;}
 .left-layout{ width: 100%;  }
 .left-layout .blog-card{width: 100%; height: 320px; background:#fff; margin: 40px auto;box-shadow: 8px 5px 10px rgba(0,0,0,0.3);
 	border-radius: 10px;}
@@ -289,7 +294,7 @@ bottom:54px; left: 20px}
 .loadnewpost .new-post{}
 .loadnewpost .new-post h3{font-size: 28px; font-weight: 700; margin-bottom: 20px; padding: 7px 10px;background: #D1D1D1}
 
-
+.auth-name-fire{font-size: 20px; font-weight: 700; text-transform: uppercase; font-style: none; padding-top: 20px;}
 
 
 

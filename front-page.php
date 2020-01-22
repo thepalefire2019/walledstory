@@ -81,7 +81,8 @@ get_header();
 							<div class="share">
 								<ul>
 									<li><a rel="nofollow" href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>" onclick="return fbs_click()" target="_blank" ><i class="fab fa-facebook-square"></i></a></li>
-									<li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+									<li><a href="https://twitter.com/share?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>&via=palefire16" onclick="window.open(this.href, 'mywin',
+                                            'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" ><i class="fab fa-twitter-square"></i></a></li>
 								</ul>
 							</div>
 							<div class="rd-more">
@@ -139,7 +140,7 @@ get_header();
 
 
 				<div class="load-more-button-div">
-					<a class="load-more-btn" data-url="<?php echo admin_url('admin-ajax.php') ?>" data-page="1">
+					<a class="load-more-btn" data-url="<?php echo admin_url('admin-ajax.php') ?>" data-page="1" data-league="front">
 						<button class="load-more-btn-btn">Load More...</button>
 						<div class="loading">
 							<img src="<?php echo get_stylesheet_directory_uri().'/img/load-more-2.gif' ?>">

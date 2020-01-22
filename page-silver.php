@@ -2,10 +2,14 @@
 get_header();
 	
 ?>
+ <script>
+  function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}
+</script>
 <!-- <div class="front-page-background" style="background: linear-gradient(rgba(0,0,0,.5), rgba(255,255,255,1)), url('<?php echo get_stylesheet_directory_uri()."/img/front-back.jpeg" ?>') ;">  --> 
 	<div class="container" style="margin-right: unset">
 		<div class="row">
 			<div class="col-md-8 left-layout">
+				<div class="load-more-block">
 				<?php 
 					$blog = new WP_Query( array(
 	                            'post_type'         => 'ws_blog',
@@ -54,6 +58,9 @@ get_header();
 				        $no_of_views = getPostViews(get_the_ID());
 				        //print_r($category);
 				?>
+
+
+				
 				<div class="blog-card" >
 					<?php  if( has_post_thumbnail() ){ ?>
 					<div class="row">
@@ -75,6 +82,14 @@ get_header();
 							<div class="credential">
 								<span><i class="fas fa-eye"></i>&nbsp; <?php echo $no_of_views; ?></span>
 								<span id="front-like" data-link="<?php the_permalink(); ?>"><i class="fas fa-heart" style="<?php if( $no_of_likes >0 ){ echo 'color:#ed4956;';  } ?>"></i> &nbsp;<?php echo $no_of_likes; ?></span>
+								<span class="share-btn"><i class="fas fa-share-alt"></i></span>
+							</div>
+							<div class="share">
+								<ul>
+									<li><a rel="nofollow" href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>" onclick="return fbs_click()" target="_blank" ><i class="fab fa-facebook-square"></i></a></li>
+									<li><a href="https://twitter.com/share?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>&via=palefire16" onclick="window.open(this.href, 'mywin',
+                                            'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" ><i class="fab fa-twitter-square"></i></a></li>
+								</ul>
 							</div>
 							<div class="rd-more">
 								<a href="<?php the_permalink() ?>"><p>Read More</p></a>
@@ -99,6 +114,13 @@ get_header();
 							<div class="credential">
 								<span><i class="fas fa-eye"></i>&nbsp; <?php echo $no_of_views; ?></span>
 								<span id="front-like" data-link="<?php the_permalink(); ?>"><i class="fas fa-heart" style="<?php if( $no_of_likes >0 ){ echo 'color:#ed4956;';  } ?>"></i> &nbsp;<?php echo $no_of_likes; ?></span>
+								<span class="share-btn"><i class="fas fa-share-alt"></i></span>
+							</div>
+							<div class="share">
+								<ul>
+									<li><a rel="nofollow" href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>" onclick="return fbs_click()" target="_blank" ><i class="fab fa-facebook-square"></i></a></li>
+									<li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+								</ul>
 							</div>
 							<div class="rd-more">
 								<a href="<?php the_permalink(); ?>"><p>Read More</p></a>
@@ -109,12 +131,28 @@ get_header();
 					
 					
 				</div><!-- Blog-card -->
+			
 				<?php 
 					$loop_counter++;
 				endwhile; //end of the while for blog card in left layout
 				wp_reset_postdata();
 				?>
+				</div><!-- load-more-block -->
 				<div class="space20"></div>
+
+				<div class="loadnewpost">
+					
+				</div>
+
+
+				<div class="load-more-button-div">
+					<a class="load-more-btn" data-url="<?php echo admin_url('admin-ajax.php') ?>" data-page="1" data-league="silver">
+						<button class="load-more-btn-btn">Load More...</button>
+						<div class="loading">
+							<img src="<?php echo get_stylesheet_directory_uri().'/img/load-more-2.gif' ?>">
+						</div>
+					</a>
+				</div>
 				
 			</div><!-- left layout -->
 

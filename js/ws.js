@@ -436,6 +436,7 @@ jQuery(document).ready(function($){
 		var ajaxurl = that.data('url');
 		var page = that.data('page');
 		var newPage = page+1;
+		var league = that.data('league')
 
 		$.ajax({
 			beforeSend : function(){
@@ -447,6 +448,7 @@ jQuery(document).ready(function($){
 	    	data : {
 	    		page : page,
 	        	action : 'ws_load_more', 
+	        	league : league,
 	      	},
 	    	error : function (response){
 	        	console.log(response);

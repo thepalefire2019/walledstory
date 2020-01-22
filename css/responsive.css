@@ -79,6 +79,9 @@
 	.left-layout .blog-card .right-blog-card .credential span:first-child{margin-left: 152px;}
 	.load-more-button-div .load-more-btn .load-more-btn-btn{margin-left: 25px;}
 	.load-more-button-div .load-more-btn .loading{margin-left: -7%;}
+	.left-layout .blog-card .full-card .share{width: 25%; height: 6vh; bottom: 63px; right: 51px;}
+	.left-layout .blog-card .right-blog-card .share{height: 5vh; bottom: 37px;}
+	.left-layout .blog-card:first-child{margin-top: 0;}
 	/** author page **/
 
 	.author-bio .author-img{display: none;}
@@ -103,6 +106,7 @@
 	.bl-post-image img{height: 250px;}
 	.bl-post-content-header-content{font-size: 9px;line-height: 20px;}
 	.bl-post-content-header-title h2 a{font-size: 35px; line-height: 42px;}
+	.bl-post-content{margin: 0px 0px;}
 
 	/** search  **/
 	.dark-header .dark-header-search{display: none}

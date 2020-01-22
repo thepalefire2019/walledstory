@@ -121,10 +121,10 @@ get_header();
                                             if( $author_id == get_current_user_id() ){ 
                                         ?>
                                         <div class="row">
-                                             <div class="col-md-6 blog-edit">
+                                             <div class="col-md-6 col-6 blog-edit">
                                                 <p data-toggle="modal" data-target="#exampleModalLongedit">Edit</p>
                                             </div>
-                                            <div class="col-md-6 blog-delete">
+                                            <div class="col-md-6 col-6 blog-delete">
                                                 <p id="delete-blog" data-id="<?php the_ID(); ?>">Delete</p>
                                             </div>
                                         </div>
@@ -144,6 +144,25 @@ get_header();
                                    <div class="bl-entry-content">
                                         <?php the_content(); ?>                     
                                    </div>
+                                </div>
+                                <div class="share-single">
+                                    <h2>Share IN</h2>
+                                    <ul>
+                                         <script>
+                                          function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}
+                                        </script>
+                                        <li>
+                                            <a rel="nofollow" href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>" onclick="return fbs_click()" target="_blank" >
+                                                <i class="fab fa-facebook-square"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://twitter.com/share?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>&via=palefire16" onclick="window.open(this.href, 'mywin',
+                                            'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" >
+                                                <i class="fab fa-twitter-square"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </article>
@@ -224,6 +243,7 @@ get_header();
                                  <img src="<?php echo $avatar_url ?>"> 
                                 <!-- <?php echo $author_img; ?> -->
                             </div>
+                            <h1 class="auth-name-fire"><?php  echo the_author_meta( 'first_name', $author_id ) ?> <?php  echo the_author_meta( 'last_name', $author_id ) ?></h1>
                             <p>
                                 <?php echo $author_desc; ?>
                             </p>
@@ -280,7 +300,7 @@ get_header();
 		<div class="bl-header-image-sec">
             <div class="container-fluid">
                 <aside class="bl-widget">
-                    <h3><a href="<?php echo $author_permalink ?>">More Posts By The Author</a></h3>
+                    <h3><a href="<?php echo $author_permalink ?>">More Posts By <?php  echo the_author_meta( 'first_name', $author_id ) ?></a></h3>
                 </aside>
                 <div class="row">
 
