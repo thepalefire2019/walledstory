@@ -34,7 +34,8 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 <div class="dark-header">
     <div class="row">
         <div class="col-md-1 col-1 dark-header-logo">
-             <a href="<?php echo site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/img/logows.png' ?>"></a>
+             <a href="<?php echo site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/img/logows.jpeg' ?>"></a>
+            
         </div>
         <div class="col-md-1 col-4 dark-header-social">
              <ul>
@@ -46,9 +47,14 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 
         <div class="col-md-4 col-1 dark-header-search">
             <?php get_search_form() ?>
+
         </div>
 
-        <div class="col-md-3 col-4 dark-header-add-post" >
+        <div class="col-md-2  dark-head-ws-font" >
+             <a href="<?php echo site_url(); ?>"><p>WALLEDSTORY</p></a>
+        </div>
+        <div class="col-md-2 col-4 dark-header-add-post" >
+            
             <?php if( is_user_logged_in() ){ ?>
             <p data-toggle="modal" data-target="#exampleModalLong">
             Create Blog
@@ -241,17 +247,12 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
            
         </div>
         <div class="director">
-            <?php if( is_front_page() OR is_page('gold') OR is_page('silver') OR is_page('bronze') OR is_author() OR is_page('my-profile')){ ?>
+            
             <div class="sidebar-left">
-                <?php if( is_user_logged_in() ){ ?>
-                    <?php if( $avatar_url != '' ){ ?>
-                <a href="<?php echo site_url('my-profile'); ?>"><img src="<?php echo $avatar_url; ?>"></a>
-                  <?php }else{ ?>
-                <a href="<?php echo site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/img/no_avatar.png' ?>"></a>
-                <?php } ?>
-                <?php }else{?>
-                <a href="<?php echo site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/img/logows.png' ?>"></a>
-                <?php } ?>
+                <div class="arrow">
+                    <img src="<?php echo get_stylesheet_directory_uri()?>/img/svg/grid.svg">
+                </div>
+                
                 <a href="<?php echo site_url('my-profile') ?>"><p >My Profile</p></a>
                 <a href="<?php echo site_url('gold') ?>"><p >Walledstory Gold</p></a>
                 <a href="<?php echo site_url('silver') ?>"><p>Walledstory Silver</p></a>
@@ -260,7 +261,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                 <a href="<?php echo wp_logout_url(); ?>"><p>Logout</p></a>
                 
             </div>
-            <?php } ?>
+            
            <!--  <div class="sidebar-right">
                 
             </div> -->

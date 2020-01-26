@@ -34,15 +34,17 @@
 	header{box-shadow:unset;}
 	.bl-header{padding-top: 2.5vh; margin-bottom: 0}
 	.bl-header-search{display: none;}
-	.hd-menu{display: block;  width: 32px; height:70px;}
+	.hd-menu{display: block;  width: 32px; height:70px;padding-top: 30px;}
 	.hd-menu img{ width: 100%; }
 	.bl-header .main-menu{display: none}
 	.bl-header-logo h2{font-size: 1.5em;}
+	.dark-header{position: absolute;}
 	.dark-header .dark-header-add-post{right: 200px;}
 	.dark-header .dark-header-profile{right: 110px;}
 	.dropdown-menu{min-width: 6rem; font-size: 0.6rem;}
 	.dark-header .dark-header-profile .profile-btn{font-size: 14px;}
 	.dark-header .dark-header-social{right:-31px;}
+	.dark-header .dark-head-ws-font{left: 130px; top: 57px;}
 	
 	/** Menu Screen **/
 	.mobile-menu-screen{position: absolute; width:100%; height:100vh; background-color: #E8E8E8;z-index: 2000;

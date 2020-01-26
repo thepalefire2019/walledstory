@@ -2,7 +2,7 @@
 </div><!-- Director -->
 </div>
 <footer>
-	<div class="container" <?php if( !is_page('about') OR !is_tax('blog_category') ){echo 'style="margin-right: unset"';} ?>>
+	<div class="container" >
 		<div class="row foot">
 			
 			<div class="col-md-3 bl-footer-logo">
