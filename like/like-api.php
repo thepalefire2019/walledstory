@@ -37,7 +37,7 @@ function ws_like_post_routes( $data ){
 			if( $addlike ){
 				return $wpdb->insert_id;
 			}else{
-				die("Database Error");
+				die($wpdb->print_error());
 			}
 		}else{
 			die("You have already liked the Post");
