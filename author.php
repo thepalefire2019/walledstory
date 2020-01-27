@@ -3,6 +3,7 @@ get_header();
 global $current_user, $wp_roles;
 $author = get_user_by( 'slug', get_query_var( 'author_name' ) );
 $author_id = $author->ID;
+$follower_id = get_current_user_id();
 $avatar_url = get_the_author_meta( 'profile_picture', $author_id ) ;
 ?>
 <div class="author-full-page">
@@ -35,40 +36,20 @@ $avatar_url = get_the_author_meta( 'profile_picture', $author_id ) ;
 						<?php 
 						$data_exist = 'data-followexist="no"';
 						$follow = "Follow";
-						$followCount = new WP_Query( array(
-                                    'post_type'     => 'follow',
-                                    'meta_query'    => array(
-                                        array(
-                                            'key'       => 'followed_blog_id',
-                                            'compare'   => '=',
-                                            'value'     => $author_id
-                                        ))
-                                ) );
+						$followCount = followerscount( $author_id );
 
 
 						 if( is_user_logged_in() ){
-                            $checkfollow = new WP_Query( array(
-                            'author'        => get_current_user_id(),
-                            'post_type'     => 'follow',
-                            'meta_query'    => array(
-                                array(
-                                    'key'       => 'followed_blog_id',
-                                    'compare'   => '=',
-                                    'value'     => $author_id
-                                ))
-                            ) );
+                            $checkfollow = checkfollow( $author_id, $follower_id );
 
-                             if( $checkfollow->found_posts ){
+                             if( $checkfollow){
                                 //$like_style = 'style="color:red"';
 
-                                $data_exist = 'data-followexist="yes" style="background:var(--theme-color-dark);color:#fff"';
+                                $data_exist = 'data-followexist="yes" style="background:var(--theme-color);color:#fff"';
                                 $follow = "Unfollow";
                              }
                         }
-                        $following = new WP_Query( array(
-                            'author'        => $author_id,
-                            'post_type'     => 'follow'
-                            ) );
+                        $following = followingcount( $author_id );
 
 
 
@@ -78,7 +59,7 @@ $avatar_url = get_the_author_meta( 'profile_picture', $author_id ) ;
                          if( is_user_logged_in() ){
 						?>
 						<div class="author-follow">
-							<p class="click-follow" <?php echo $data_exist; ?> data-author_id="<?php echo $author_id; ?>"  <?php if( isset( $checkfollow->posts[0]->ID ) ){ echo 'data-follow_id ="'.$checkfollow->posts[0]->ID.'"'; } ?>> <?php echo $follow; ?> </p>
+							<p class="click-follow" <?php echo $data_exist; ?> data-author_id="<?php echo $author_id; ?>"  <?php if( isset( $checkfollow ) ){ echo 'data-follow_id ="'.$checkfollow.'"'; } ?> data-follower_id = <?php echo $follower_id; ?>> <?php echo $follow; ?> </p>
 						</div>
 						<?php }else{ ?>
 						<div class="author-follow">
@@ -93,12 +74,12 @@ $avatar_url = get_the_author_meta( 'profile_picture', $author_id ) ;
 						<div class="author-followers">
 							<div class="followers">
 								
-								<h5>Follwers</h5>
-								<p class="js-followers"><?php echo $followCount->found_posts; ?></p>
+								<h5>Followers</h5>
+								<p class="js-followers"><?php echo $followCount; ?></p>
 							</div>
 							<div class="followering">
 								<h5>Following</h5>
-								<p><?php echo $following->found_posts; ?></p>
+								<p><?php echo $following; ?></p>
 							</div>
 							<div class="clearfix"></div>
 						</div>

@@ -3,8 +3,9 @@
 	// follow button
 	jQuery(document).ready(function($){
 		$(".click-follow").on('click', function(e){
-			var author_id = $(this).data('author_id');
-			var follow_id = $(this).data('follow_id');
+			var author_id = $(this).attr('data-author_id');
+			var follow_id = $(this).attr('data-follow_id');
+			var follower_id = $(this).attr('data-follower_id');
 			var old_followers_no = parseInt($('.js-followers').html(), 10);
 
 			//alert(old_followers_no);
@@ -14,6 +15,7 @@
 				$.ajax({
 					beforeSend : function(xhr){
 						xhr.setRequestHeader( 'X-WP-NONCE', wsdata.nonce );
+						$('.ajax-req-like').show(1000);
 					},
 					url : wsdata.root_url +'/wp-json/ws/V1/follow',
 					data : {
@@ -28,6 +30,8 @@
 						$('.click-follow').html('Follow');
 						$('.click-follow').css('background', '#fff');
 						$('.click-follow').css('color', '#000');
+						console.log( response );
+						$('.ajax-req-like').hide(1000);
 					},
 					error : function ( response ){console.log( response )}
 
@@ -37,11 +41,13 @@
 				$.ajax({
 					beforeSend : function(xhr){
 						xhr.setRequestHeader( 'X-WP-NONCE', wsdata.nonce );
+						$('.ajax-req-like').show(1000);
 					},
 					url : wsdata.root_url +'/wp-json/ws/V1/follow',
 					type : 'POST',
 					data :{
-						'author_id' : author_id
+						'author_id' : author_id,
+						'follower_id': follower_id,
 					},
 					success : function( response ){
 						var new_followers_no = old_followers_no+1;
@@ -50,9 +56,11 @@
 						$('.click-follow').attr("data-followexist", 'yes');
 						$('.click-follow').attr("data-follow_id", response);
 						$('.click-follow').html('Unfollow');
-						$('.click-follow').css('background', 'var(--theme-color-dark)');
+						$('.click-follow').css('background', 'var(--theme-color)');
 						$('.click-follow').css('color', '#fff');
 						$('.js-followers').html(new_followers_no);
+						$('.ajax-req-like').hide(1000);
+						
 					},
 					error : function ( response ){console.log( response )}
 				});
@@ -100,6 +108,7 @@
 						$('.like-box').attr("data-like", '')
 						$('.like-box').attr("data-exist", 'no');
 						console.log(response);
+						$('.ajax-req-like').hide(1000);
 						$('.ajax-req-like').hide(1000);
 					},
 					error : function ( response ){console.log( response )}
