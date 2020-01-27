@@ -12,7 +12,6 @@ get_header();
         $post_id = get_the_ID();
         $post_user_id = get_the_author_meta('ID');
         $current_user_id = get_current_user_id();
-        $like = get_like_num( $post_id );
         $category = get_the_terms($post_id, 'blog_category');
         $get_img = get_the_post_thumbnail_url( get_the_ID());
 
@@ -60,37 +59,18 @@ get_header();
 
                                             <div class="col-lg-4 col-xs-12 text-right">
                                                <?php 
-                                                $likeCount = new WP_Query( array(
-                                                    'post_type'     => 'like',
-                                                    'meta_query'    => array(
-                                                        array(
-                                                            'key'       => 'liked_blog_id',
-                                                            'compare'   => '=',
-                                                            'value'     => $post_id
-                                                        ))
-                                                ) );
-
+                                                $likeCount = likecount( get_the_ID() );
                                                 $like_style = '';
                                                 $data_exist = 'data-exist="no"';
                                                 // set no of likes in metakey
-                                                setLike( $post_id, $likeCount->found_posts );
+                                                setLike( $post_id, $likeCount );
 
                                                 // set levels in metakey
-                                                setLevel( $post_id, $likeCount->found_posts, getPostViews(get_the_ID()) );
+                                                setLevel( $post_id, $likeCount, getPostViews(get_the_ID()) );
 
                                                 if( is_user_logged_in() ){
-                                                    $checklike = new WP_Query( array(
-                                                    'author'        => get_current_user_id(),
-                                                    'post_type'     => 'like',
-                                                    'meta_query'    => array(
-                                                        array(
-                                                            'key'       => 'liked_blog_id',
-                                                            'compare'   => '=',
-                                                            'value'     => $post_id
-                                                        ))
-                                                    ) );
-
-                                                     if( $checklike->found_posts ){
+                                                    $checklike = checklike( get_the_ID(),  get_current_user_id() );
+                                                     if( $checklike ){
                                                         $like_style = 'style="color:red"';
                                                         $data_exist = 'data-exist="yes"';
                                                      }
@@ -99,7 +79,7 @@ get_header();
 
                                                 if( is_user_logged_in() ){
                                                ?>
-                                                <span class="like-box" <?php echo $data_exist; ?> data-blog="<?php echo get_the_ID(); ?>" data-like="<?php if( isset( $checklike->posts[0]->ID ) ){echo $checklike->posts[0]->ID;} ?>">
+                                                <span class="like-box" <?php echo $data_exist; ?> data-blog="<?php echo get_the_ID(); ?>" data-like="<?php if(  $checklike  ){echo $checklike;} ?>" data-author="<?php  echo get_current_user_id() ?>">
                                                 <?php 
                                                 }else{
                                                 ?>
@@ -109,7 +89,7 @@ get_header();
                                             			
                                             		</i>
                                             		&nbsp;&nbsp;
-                                            		<label class="present-like-count"><?php echo $likeCount->found_posts; ?></label> likes
+                                            		<label class="present-like-count"><?php echo $likeCount; ?></label> likes
                                                 
                                                     &nbsp;&nbsp;&nbsp;
                                                 </span>

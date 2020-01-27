@@ -77,13 +77,15 @@
 	jQuery(document).ready(function($){
 		$(".like-box").on('click', function(e){
 			var blog_id = $(this).data('blog');
-			var like_id = $(this).data('like');
+			var like_id = $(this).attr('data-like');
+			var author_id = $(this).data('author');
 			if( $(this).attr('data-exist') == 'yes' ){
 				//delete like
 
 				$.ajax({
 					beforeSend : function(xhr){
 						xhr.setRequestHeader( 'X-WP-NONCE', wsdata.nonce );
+						$('.ajax-req-like').show(1000);
 					},
 					url : wsdata.root_url +'/wp-json/ws/V1/like',
 					data : {
@@ -97,6 +99,8 @@
 						$('.present-like-count').html( new_like_count );
 						$('.like-box').attr("data-like", '')
 						$('.like-box').attr("data-exist", 'no');
+						console.log(response);
+						$('.ajax-req-like').hide(1000);
 					},
 					error : function ( response ){console.log( response )}
 				});
@@ -105,11 +109,13 @@
 				$.ajax({
 					beforeSend : function(xhr){
 						xhr.setRequestHeader( 'X-WP-NONCE', wsdata.nonce );
+						$('.ajax-req-like').show(1000);
 					},
 					url : wsdata.root_url +'/wp-json/ws/V1/like',
 					type : 'POST',
 					data :{
-						'blog_id' : blog_id
+						'blog_id' 	: blog_id,
+						'author_id'	: author_id
 					},
 					success : function( response ){
 						$('.fa-heart').css('color', 'red');
@@ -120,6 +126,7 @@
 						$('.like-box').attr("data-like", response);
 						$('.like-box').attr("data-exist", 'yes');
 						console.log(response);
+						$('.ajax-req-like').hide(1000);
 					},
 					error : function ( response ){console.log( response )}
 				});
@@ -419,7 +426,7 @@ jQuery(document).ready(function($){
 
 //Front page like pop up
 jQuery(document).ready(function($){
-	$('#front-like').on('click', function(){
+	$('.front-like').on('click', function(){
 		var permalink = $(this).data('link');
 		alert('Read The Full Blog To Like');
 		window.location = permalink;

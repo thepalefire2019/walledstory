@@ -48,7 +48,7 @@ get_header();
 	                                            'value'     => $blog_id
 	                                        ))
 	                                ) );
-				        $no_of_likes = $likeCount->found_posts;
+				        $no_of_likes = likecount( get_the_ID() );
 				        $no_of_views = getPostViews(get_the_ID());
 				        //print_r($category);
 				?>
@@ -75,7 +75,7 @@ get_header();
 							</div>
 							<div class="credential">
 								<span><i class="fas fa-eye"></i>&nbsp; <?php echo $no_of_views; ?></span>
-								<span id="front-like" data-link="<?php the_permalink(); ?>"><i class="fas fa-heart" style="<?php if( $no_of_likes >0 ){ echo 'color:#ed4956;';  } ?>"></i> &nbsp;<?php echo $no_of_likes; ?></span>
+								<span id="front-like" data-link="<?php the_permalink(); ?>"><i class="fas fa-heart front-like" style="<?php if( $no_of_likes >0 ){ echo 'color:#ed4956;';  } ?>"></i> &nbsp;<?php echo $no_of_likes; ?></span>
 								<span class="share-btn"><i class="fas fa-share-alt"></i></span>
 							</div>
 							<div class="share">

@@ -246,6 +246,13 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
             </div>
            
         </div>
+
+
+
+        <div class="ajax-req-like">
+            <img src="<?php echo get_stylesheet_directory_uri()?>/img/like.gif">
+        </div>
+
         <div class="director">
             
             <div class="sidebar-left">
