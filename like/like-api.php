@@ -21,7 +21,7 @@ function ws_like_post_routes( $data ){
 
 		if( $checklike == 0 ){
 			global $wpdb;
-			$table_name = $wpdb->prefix .'wp_ws_like';
+			$table_name = $wpdb->prefix .'ws_like';
 			$addlike = $wpdb->insert( 
 									$table_name, 
 									array( 
@@ -76,7 +76,7 @@ function ws_like_post_routes( $data ){
 function ws_like_delete_routes( $data ){
 	$like_id = sanitize_text_field($data['like_id']);
 	global $wpdb;
-	$table_name = $wpdb->prefix .'wp_ws_like';
+	$table_name = $wpdb->prefix .'ws_like';
 
 	$deletelike = $wpdb->delete( $table_name, array( 'like_id' => $like_id ) );
 
