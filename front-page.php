@@ -1,6 +1,9 @@
 <?php
 get_header();
-	
+global $current_user, $wp_roles;
+$avatar_url_current = get_the_author_meta( 'profile_picture', $current_user->ID ) ;
+$user_fname = get_the_author_meta( 'first_name', $current_user->ID );
+$user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 ?>
  <script>
   function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}
@@ -9,6 +12,30 @@ get_header();
 	<div class="container" >
 		<div class="row">
 			<div class="col-md-8 left-layout">
+				<?php if( is_user_logged_in() ){  ?>
+
+				<!-- Write blog card -->
+				<div class="blog-card" style="height: 180px;">
+					<div class="row">
+						<div class="col-md-12 full-card" style="height: 180px;">
+							<div class="blog-card-header">
+								<div class="blog-card-author">
+									<span><a href="<?php echo site_url('my-profile') ?>"><?php echo  $user_fname; ?></a></span>
+									<img src="<?php echo $avatar_url_current; ?>">
+								</div>
+								<a href="#"><p><?php echo 'Create Post' ?></p></a>
+							</div>
+							<div class="blog-card-text-area">
+								<p data-toggle="modal" data-target="#exampleModalLong">Write Something for the world to see ......<br>এখানে কিছু লিখুন...</p>
+								
+							</div>
+							
+						</div>
+					</div>
+					
+				</div>
+				<!-- Write blog card -->
+				<?php  } ?>
 				<div class="load-more-block">
 				<?php 
 					$blog = new WP_Query( array(

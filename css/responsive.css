@@ -84,6 +84,7 @@
 	.left-layout .blog-card .full-card .share{width: 25%; height: 6vh; bottom: 63px; right: 51px;}
 	.left-layout .blog-card .right-blog-card .share{height: 5vh; bottom: 37px;}
 	.left-layout .blog-card:first-child{margin-top: 0;}
+	.modal-jorkore-margin{margin-left: unset; width: 70%;}
 	/** author page **/
 
 	.author-bio .author-img{display: none;}

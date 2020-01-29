@@ -32,38 +32,18 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 
 <!------------Dark Header --------------->
 <div class="dark-header">
-    <div class="row">
-        <div class="col-md-1 col-1 dark-header-logo">
-             <a href="<?php echo site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/img/logows.jpeg' ?>"></a>
-            
-        </div>
-        <div class="col-md-1 col-4 dark-header-social">
-             <ul>
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-            </ul> 
-        </div>
-
-        <div class="col-md-4 col-1 dark-header-search">
-            <?php get_search_form() ?>
-
-        </div>
-
-        <div class="col-md-2  dark-head-ws-font" >
-             <a href="<?php echo site_url(); ?>"><p>WALLEDSTORY</p></a>
-        </div>
-        <div class="col-md-2 col-4 dark-header-add-post" >
-            
-            <?php if( is_user_logged_in() ){ ?>
-            <p data-toggle="modal" data-target="#exampleModalLong">
-            Create Blog
-            </p>
-            <?php } ?>
-        </div>
-        <div class="col-md-3 col-3 dark-header-profile">
-            <?php  if(is_user_logged_in()){ ?>
-            <div class="dropdown">
+    <div class="new-header-logo">
+        <a href="<?php echo site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/img/logows.jpeg' ?>"></a>
+    </div>
+    <div class="new-header-search">
+        <?php get_search_form() ?>
+    </div>
+    <div class="new-header-walledstory">
+        <a href="<?php echo site_url(); ?>"><p>WALLEDSTORY</p></a>
+    </div>
+    <div class="new-header-profile">
+        <?php if(is_user_logged_in()){ ?>
+             <div class="dropdown">
                 <a class="profile-btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span> <img src="<?php echo $avatar_url; ?>"></span><?php echo $user_fname; ?>
                 </a>
@@ -74,15 +54,35 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                    
                 </div>
             </div>
-            <?php }else{ ?>
-            <div class="col-md-3 col-3 dark-header-profile-login">
+        <?php }else{ ?>
+            <div class="parent-login">
                 <a href="<?php echo wp_login_url(); ?>" class="login">Login</a>
             </div>
-            <?php } ?>
+            
+        <?php } ?>
+    </div>
+    <div class="new-header-social">
+         <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+        </ul> 
+    </div>
+    <div class="new-header-menu">
+       <div class="main-menu">
+            <img class="main-menu-img" src="<?php echo get_stylesheet_directory_uri()?>/img/svg/menu.svg">
+            <img class="main-menu-close" src="<?php echo get_stylesheet_directory_uri()?>/img/svg/delete.svg">
         </div>
-       
     </div>
 </div>
+
+
+
+
+
+
+
+
 	<!------------ Header --------------->
     <?php 
     if( is_front_page() ){ 
@@ -140,10 +140,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                         <!-- <img src="<?php  echo get_stylesheet_directory_uri()?>/img/Walledstorylong.svg?>"> -->
                     </div>
                     <div class="col-lg-2 col-2">
-                        <div class="main-menu">
-                            <img class="main-menu-img" src="<?php echo get_stylesheet_directory_uri()?>/img/svg/menu.svg">
-                            <img class="main-menu-close" src="<?php echo get_stylesheet_directory_uri()?>/img/svg/delete.svg">
-                        </div>
+                     
                         <div class="mobile-search">
                            <img class="mobile-search-img" src="<?php echo get_stylesheet_directory_uri() ?>/img/svg/search.svg">
                            <img class="mobile-search-img-close" src="<?php echo get_stylesheet_directory_uri() ?>/img/svg/delete.svg">

@@ -623,7 +623,7 @@ function wpse_29570_where_filter($where){
 
 
 
-    /**
+/**
  * Custom register email
  */
 //add_filter( 'wp_new_user_notification_email', 'custom_wp_new_user_notification_email', 10, 3 );
@@ -646,4 +646,17 @@ function custom_wp_new_user_notification_email( $wp_new_user_notification_email,
     $wp_new_user_notification_email['message'] = $message;
  
     return $wp_new_user_notification_email;
+}
+
+
+/**
+ * Redirect for register
+ */
+add_action( 'init', 'wpse_login_register_password_title' );
+function wpse_login_register_password_title() {
+  if ( isset( $GLOBALS['pagenow'] ) && $GLOBALS['pagenow'] === 'wp-login.php' ) {
+    if ( ! empty( $_REQUEST['action'] ) && $_REQUEST['action'] === 'register' ){
+      wp_redirect(site_url('/register'));
+    }
+  }
 }
