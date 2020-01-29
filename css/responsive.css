@@ -32,19 +32,21 @@
 		padding: 5px; color: #00D99F;}
 	/** header **/
 	header{box-shadow:unset;}
-	.bl-header{padding-top: 2.5vh; margin-bottom: 0}
+	.bl-header{ margin-bottom: 0}
 	.bl-header-search{display: none;}
-	.hd-menu{display: block;  width: 32px; height:70px;padding-top: 30px;}
+	.hd-menu{display: block;  width: 32px; height:58px;padding-top: 10px;}
 	.hd-menu img{ width: 100%; }
 	.bl-header .main-menu{display: none}
 	.bl-header-logo h2{font-size: 1.5em;}
-	.dark-header{position: absolute;}
-	.dark-header .dark-header-add-post{right: 200px;}
-	.dark-header .dark-header-profile{right: 110px;}
 	.dropdown-menu{min-width: 6rem; font-size: 0.6rem;}
-	.dark-header .dark-header-profile .profile-btn{font-size: 14px;}
-	.dark-header .dark-header-social{right:-31px;}
-	.dark-header .dark-head-ws-font{left: 130px; top: 57px;}
+	.dark-header .new-header-search{display: none;}
+	.dark-header .new-header-menu{display: none;}
+
+	.dark-header .new-header-walledstory a>p{transform: unset; margin-left: 0;padding-top: 11px; font-size: 12px;}
+	.dark-header .new-header-profile .dropdown{transform: unset; margin-left: 5%;}
+	.dark-header .new-header-social ul{transform: unset; margin-left: 28%;}
+	.dark-header .new-header-social ul li{margin-right: 10px;}
+	.dark-header .new-header-social ul li>a>i{font-size: 14px;}
 	
 	/** Menu Screen **/
 	.mobile-menu-screen{position: absolute; width:100%; height:100vh; background-color: #E8E8E8;z-index: 2000;
@@ -102,6 +104,7 @@
 	.tax-parent .tax-container h1{font-size: 55px;}
 	.space-custom-tax{height: 1360px;}
 	.tax-parent .tax-container .pop-tax-box:hover{transform: unset;box-shadow: none;}
+	.tax-parent{margin-top: -2%}
 
 	/** Single  page **/
 	.bl-main-content-row{margin-left: 0px; margin-right: 0px;}
@@ -113,7 +116,7 @@
 
 	/** search  **/
 	.dark-header .dark-header-search{display: none}
-	.mobile-search{display: block}
+	.mobile-search{display: none;}
 	.mobile-search img{height: 30px ; }
 	.mobile-search .mobile-search-img-close{display: none}
 	.mobile-search-screen{position: absolute; width:100%; height:10vh; background-color: transparent;z-index: 2000;
@@ -144,4 +147,5 @@
 
 	.sidebar-left{display: none}
 	.right-layout{display: none}
+	.modal-jorkore-margin{width: 100%}
 }
