@@ -11,7 +11,7 @@
 			
 				<div class="space40"></div>
 				<div class="ft-content">
-					<p>Mauris fermentum porta sem, non hendrerit enim bibendum consectetur. Fusce diam est, porttitor vehicula gravida at, accumsan bibendum tincidunt imperdiet. Maecenas quis magna faucibus, varius ante sit amet, varius augue. Praesent aliquam, augue ac pulvinar accumsan.</p>
+					<p>WALLEDSTORY is a web-based social platform connecting the artists of the world. From Poets to Painters, Writers to Designers, WALLEDSTORY is the new symposium for Expression.</p>
 				</div>
 				<div class="space40"></div>
 			</div>
