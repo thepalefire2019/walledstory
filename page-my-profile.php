@@ -217,9 +217,9 @@ while( have_posts() ){
                         <input name="action" type="hidden" id="action" value="update-user" />
                     </p><!-- .form-submit -->
                     
-        <button type="submit" class="btn btn-secondary" data-dismiss="modal" >Close</button>
-        <!-- <input type="button" class="btn btn-primary" name="updateuser" id="updateuser">Save changes</input> -->
-      </div>
+                    <button type="submit" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+                    <!-- <input type="button" class="btn btn-primary" name="updateuser" id="updateuser">Save changes</input> -->
+                  </div>
                 </form><!-- #adduser -->
             <?php endif; ?>
         </div><!-- .entry-content -->

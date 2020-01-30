@@ -86,7 +86,7 @@
 								if( has_post_thumbnail() ){
 						?>
 									<div class="carousel-item <?php if( $img_counter == 0 ){ echo 'active' ;} ?>">
-										<img class="d-block w-100" src="<?php echo $get_img; ?>" >
+										<img class="d-block height-40" src="<?php echo $get_img; ?>" >
 									</div>
 						<?php 
 									$img_counter++;

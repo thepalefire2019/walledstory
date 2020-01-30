@@ -105,7 +105,7 @@ $avatar_url = get_the_author_meta( 'profile_picture', $author_id ) ;
 		</div><!-- Author bio -->
 
 		<div class="author-blogs">
-			<h1>Blogs By <span>Sarasij</span></h1>
+			<h1>Blogs By <span><?php  echo the_author_meta( 'first_name', $author_id ) ?></span></h1>
 			<p class="underline"></p>
 			<div class="clearfix"></div>
 			<header>

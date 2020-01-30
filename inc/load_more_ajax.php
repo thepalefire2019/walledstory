@@ -7,13 +7,13 @@ $league = $_POST["league"];
 if( $league == 'front' ){
   $args = array(
         'post_type'         => 'ws_blog',
-        'posts_per_page'  => 2 ,
+        'posts_per_page'  => 12 ,
         'paged'     =>$paged,  
 );  
 }elseif( $league == 'gold' ){
   $args = array(
             'post_type'         => 'ws_blog',
-            'posts_per_page'  => 2 ,
+            'posts_per_page'  => 12 ,
             'paged'     =>$paged,
             'meta_query'    => array(
                                     array(
@@ -25,7 +25,7 @@ if( $league == 'front' ){
 }elseif( $league == 'silver' ){
   $args = array(
             'post_type'         => 'ws_blog',
-            'posts_per_page'  => 2 ,
+            'posts_per_page'  => 12 ,
             'paged'     =>$paged, 
             'meta_query'    => array(
                                     array(
@@ -37,7 +37,7 @@ if( $league == 'front' ){
 }elseif( $league == 'bronze' ){
   $args = array(
             'post_type'         => 'ws_blog',
-            'posts_per_page'  => 2 ,
+            'posts_per_page'  => 12 ,
             'paged'     =>$paged,
             'meta_query'    => array(
                                       array(

@@ -40,7 +40,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 				<?php 
 					$blog = new WP_Query( array(
 	                            'post_type'         => 'ws_blog',
-	                            'posts_per_page'	=> 2   
+	                            'posts_per_page'	=> 12   
 	                            ));
 					$loop_counter = 0;
 
@@ -182,7 +182,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 				<div class="right-card">
 					<div class="col-lg-12 bl-side-content">
 						<aside class="bl-widget">
-			                <h3>Walledstory Sports</h3>
+			                <h3>Wall Sports</h3>
 
 
 			                <?php 
