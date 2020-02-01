@@ -256,13 +256,18 @@ function ws_api_login( $data ){
 		$verify_user = wp_signon( $login_array, false );
 
 		if( !is_wp_error( $verify_user ) ){
+			$user_id = $verify_user->ID;
 				$array = array(
 					'code' =>1,
 					'message' => 'Successful Login',
-					// 'user_id' =>	
-					// 'first_name' =>
-					// 'last_name' =>
-					// 'image_url' =>	
+					'user_id' =>	$verify_user->ID,
+					'first_name' => get_the_author_meta( 'first_name', $user_id ),
+					'last_name' => get_the_author_meta( 'last_name', $user_id ),
+					'image_url' => get_the_author_meta( 'profile_picture', $user_id ),
+					'description' => get_the_author_meta( 'description', $user_id ),
+					'followers'		=> followerscount( $user_id ),
+					'following'	=> followingcount( $user_id ),
+
 				);
 			}else{
 				$array = array(
