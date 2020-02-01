@@ -123,7 +123,7 @@ function ws_api_blog_result( $data ){
 		      	'content'      => $content,
 		      	'excerpt'      => $excerpt,
 		      	'like_count'   => $no_of_likes,
-		      	'view_count'   => $no_of_views,
+		      	'view_count'   => intval($no_of_views),
 		      	'checklike'	   => 0,	
 		    );
 		    }else{
@@ -150,8 +150,8 @@ function ws_api_blog_result( $data ){
 		      	'content'      => $content,
 		      	'excerpt'      => $excerpt,
 		      	'like_count'   => $no_of_likes,
-		      	'view_count'   => $no_of_views,
-		      	'checklike'	   => $checklike,	
+		      	'view_count'   => intval($no_of_views),
+		      	'checklike'	   => intval($checklike),	
 		    );
 		    }
 
