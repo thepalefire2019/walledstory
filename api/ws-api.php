@@ -126,7 +126,18 @@ function ws_api_blog_result( $data ){
 		      	'view_count'   => $no_of_views,	
 		    );
 		    }else{
-		    	$checklike = checklike( $post_id, $author_id_check );
+
+		    	// $checklike = checklike( get_the_ID(), $author_id_check );
+		    	global $wpdb;
+		    	$table_name = $wpdb->prefix .'ws_like';
+
+				$results = $wpdb->get_results( "SELECT * FROM $table_name WHERE user_id = $author_id_check AND blog_id = get_the_ID()", OBJECT );
+				if( $results ){
+					$like_id = $results[0]->like_id;
+					
+				}else{
+					$like_id = 0;
+				}
 
 		    	$data[$count] = array(
 	    		'id'           => $post_id, 
@@ -139,7 +150,7 @@ function ws_api_blog_result( $data ){
 		      	'excerpt'      => $excerpt,
 		      	'like_count'   => $no_of_likes,
 		      	'view_count'   => $no_of_views,
-		      	'checklike'	   => $checklike,	
+		      	'checklike'	   => $like_id,	
 		    );
 		    }
 
@@ -247,7 +258,11 @@ function ws_api_login( $data ){
 		if( !is_wp_error( $verify_user ) ){
 				$array = array(
 					'code' =>1,
-					'message' => 'Successful Login',	
+					'message' => 'Successful Login',
+					'user_id' =>	
+					'first_name' =>
+					'last_name' =>
+					'image_url' =>	
 				);
 			}else{
 				$array = array(
