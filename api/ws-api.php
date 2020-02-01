@@ -127,7 +127,7 @@ function ws_api_blog_result( $data ){
 		    );
 		    }else{
 
-		    	// $checklike = checklike( get_the_ID(), $author_id_check );
+		    	$checklike = checklike( get_the_ID(), $author_id_check );
 		  //   	global $wpdb;
 		  //   	$table_name = $wpdb->prefix .'ws_like';
 
@@ -150,7 +150,7 @@ function ws_api_blog_result( $data ){
 		      	'excerpt'      => $excerpt,
 		      	'like_count'   => $no_of_likes,
 		      	'view_count'   => $no_of_views,
-		      	// 'checklike'	   => $like_id,	
+		      	'checklike'	   => $checklike,	
 		    );
 		    }
 
