@@ -131,7 +131,7 @@ function ws_api_blog_result( $data ){
 		    	global $wpdb;
 		    	$table_name = $wpdb->prefix .'ws_like';
 
-				$results = $wpdb->get_results( "SELECT * FROM $table_name WHERE user_id = $author_id_check AND blog_id = get_the_ID()", OBJECT );
+				$results = $wpdb->get_results( "SELECT * FROM $table_name WHERE blog_id = $post_id AND user_id = $author_id_check", OBJECT );
 				if( $results ){
 					$like_id = $results[0]->like_id;
 					
@@ -259,10 +259,10 @@ function ws_api_login( $data ){
 				$array = array(
 					'code' =>1,
 					'message' => 'Successful Login',
-					'user_id' =>	
-					'first_name' =>
-					'last_name' =>
-					'image_url' =>	
+					// 'user_id' =>	
+					// 'first_name' =>
+					// 'last_name' =>
+					// 'image_url' =>	
 				);
 			}else{
 				$array = array(
