@@ -123,7 +123,8 @@ function ws_api_blog_result( $data ){
 		      	'content'      => $content,
 		      	'excerpt'      => $excerpt,
 		      	'like_count'   => $no_of_likes,
-		      	'view_count'   => $no_of_views,	
+		      	'view_count'   => $no_of_views,
+		      	'checklike'	   => 0,	
 		    );
 		    }else{
 
@@ -215,7 +216,9 @@ function ws_api_users( $data ){
 			'user_img'		=> $avatar_url,
 			'followers'		=> $followCount,
 			'following'		=> $following,
-			'facebook'		=> get_the_author_meta( 'facebook', $user_id )
+			'facebook'		=> get_the_author_meta( 'facebook', $user_id ),
+			'username'	=> get_the_author_meta( 'nickname', $user_id ),
+			'email'	=> get_the_author_meta( 'user_email', $user_id ),
 		);
 
 		$array = array(
@@ -267,6 +270,8 @@ function ws_api_login( $data ){
 					'description' => get_the_author_meta( 'description', $user_id ),
 					'followers'		=> followerscount( $user_id ),
 					'following'	=> followingcount( $user_id ),
+					'username'	=> get_the_author_meta( 'nickname', $user_id ),
+					'email'	=> get_the_author_meta( 'user_email', $user_id ),
 
 				);
 			}else{
