@@ -126,7 +126,7 @@ function ws_api_blog_result( $data ){
 		      	'view_count'   => $no_of_views,	
 		    );
 		    }else{
-		    	$checklike = checklike( $post_id, $author_id );
+		    	$checklike = checklike( $post_id, $author_id_check );
 
 		    	$data[$count] = array(
 	    		'id'           => $post_id, 
