@@ -72,7 +72,7 @@ if ($user_ID)
             $success = 1;  
    
             //header( 'Location:' . get_bloginfo('url') . '/login/?success=1&u=' . $username );  
-            echo '<script>window.location = "'.site_url('wp-admin/login/?success=1$u=').$username.'"</script>';
+            echo '<script>window.location = "'.site_url('wp-admin/wp-login.php/?success=1$u=').$username.'"</script>';
         }  else{
             foreach( $errors as $error ){
                 ?>

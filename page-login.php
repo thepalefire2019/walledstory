@@ -9,21 +9,22 @@ if( !$user_ID ){
 
 		$login_array = array(
 				'user_login' => $username,
-				'user_password' => $password
+				'user_password' => $password,
+				'remember'      => true
 		);
 		$user = get_user_by( 'login', $username);
 		$roles = $user->roles;
 		//echo($roles[0]);
 
 		if( $roles[0] == 'subscriber' ){
-			$verify_user = wp_signon( $login_array, false );
+			$verify_user = wp_signon( $login_array, true );
 			if( !is_wp_error( $verify_user ) ){
 				 echo '<script>window.location = "'.site_url().'"</script>';
 			}else{
 				echo '<script>alert("Invalid Credentials")</script>';
 			}
 		}else{
-			$verify_user = wp_signon( $login_array, false );
+			$verify_user = wp_signon( $login_array, true );
 			if( !is_wp_error( $verify_user ) ){
 				 echo '<script>window.location = "'.site_url('wp-admin').'"</script>';
 				 // wp_set_auth_cookie( $user->ID, true, is_ssl() );

@@ -66,15 +66,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 				        $author_permalink = get_author_posts_url(get_the_author_meta('ID'));
 
 				        //Blog Details
-				        $likeCount = new WP_Query( array(
-	                                    'post_type'     => 'like',
-	                                    'meta_query'    => array(
-	                                        array(
-	                                            'key'       => 'liked_blog_id',
-	                                            'compare'   => '=',
-	                                            'value'     => $blog_id
-	                                        ))
-	                                ) );
+				        
 				        $no_of_likes = likecount( get_the_ID() );
 				        $no_of_views = getPostViews(get_the_ID());
 				        //print_r($category);
