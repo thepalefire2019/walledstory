@@ -34,6 +34,15 @@ function ws_api_post(){
       'methods' => 'POST',
       'callback' => 'ws_api_viewandroid'
     ));
+
+  register_rest_route('ws/v1', 'follow-android', array(
+      'methods' => 'POST',
+      'callback' => 'ws_api_follow'
+    ));
+  register_rest_route('ws/v1', 'unfollow-android', array(
+      'methods' => 'POST',
+      'callback' => 'ws_api_unfollow'
+    ));
 }
 
 
@@ -437,6 +446,12 @@ function ws_api_unlikeandroid( $data ){
 		}
 		echo json_encode($array);
 
+	}else{
+		$array = array(
+			"code" => 0,
+			"message" => 'Invalid API Credential'
+		);
+		echo json_encode($array);
 	}
 }
 
@@ -469,5 +484,114 @@ function ws_api_viewandroid( $data ){
 			);
 		echo json_encode($array);
 
+	}else{
+		$array = array(
+			"code" => 0,
+			"message" => 'Invalid API Credential'
+		);
+		echo json_encode($array);
 	}
 }
+
+function ws_api_follow( $data ){
+	$apicredential = array(
+		'apiuser' 	=> 'sarasij94',
+		'apipass'	=> '123' 
+	);
+	$all_data_json = file_get_contents('php://input');
+	//{"apicredential":{"apiuser":"", "apipass": ""}, "author_id": "1", "follower_id": "2" }
+	$all_data = ( isset( $all_data_json ) && $all_data_json != "" )? json_decode( $all_data_json ) : "";
+	if( $all_data->apicredential->apiuser == $apicredential['apiuser'] AND $all_data->apicredential->apipass == $apicredential['apipass']){
+		$author_id = $all_data->author_id;
+		$follower_id = $all_data->follower_id;
+
+		$checkfollow = checkfollow( $author_id, $follower_id );
+
+		if( $checkfollow == 0 ){
+
+			global $wpdb;
+			$table_name = $wpdb->prefix .'ws_follow';
+			$addfollow = $wpdb->insert( 
+									$table_name, 
+									array( 
+										'author_id' => $author_id, 
+										'follower_id' => $follower_id 
+									), 
+									array( 
+										'%d', 
+										'%d' 
+									) 
+						);
+			if( $addfollow ){
+				$array = array(
+					'code' =>1,
+					'message' => 'Follow Registered',	
+					'follow_id' => $wpdb->insert_id
+				);
+				
+			}else{
+				$array = array(
+					'code' =>0,
+					'message' => 'Database Error',	
+				);
+			}
+			
+		}else{
+			$array = array(
+					'code' =>0,
+					'message' => 'Already Followed',	
+				);
+		}
+		$verify_user = wp_signon( $login_array, false );
+
+		
+
+		return $array;
+	}else{
+		$array = array(
+			"code" => 0,
+			"message" => 'Invalid API Credential'
+		);
+		echo json_encode($array);
+	}
+
+} //function
+
+function ws_api_unfollow( $data ){
+	$apicredential = array(
+		'apiuser' 	=> 'sarasij94',
+		'apipass'	=> '123' 
+	);
+	$all_data_json = file_get_contents('php://input');
+	//{"apicredential":{"apiuser":"", "apipass": ""}, "follow_id": "22" }
+	$all_data = ( isset( $all_data_json ) && $all_data_json != "" )? json_decode( $all_data_json ) : "";
+	if( $all_data->apicredential->apiuser == $apicredential['apiuser'] AND $all_data->apicredential->apipass == $apicredential['apipass']){
+
+		$follow_id = $all_data->follow_id;
+
+		global $wpdb;
+		$table_name = $wpdb->prefix .'ws_follow';
+
+		$deletefollow = $wpdb->delete( $table_name, array( 'follow_id' => $follow_id ) );
+
+		if( $deletefollow ){
+			$array = array(
+				"code" => 1,
+				"message" => 'Unfollowed'
+			);
+		}else{
+			$array = array(
+				"code" => 0,
+				"message" => 'Unfollow Failed'
+			);
+		}
+		echo json_encode($array);
+
+	}else{
+		$array = array(
+			"code" => 0,
+			"message" => 'Invalid API Credential'
+		);
+		echo json_encode($array);
+	}
+} //function
