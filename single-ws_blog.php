@@ -255,7 +255,7 @@ get_header();
                                 <div class="rel-post-header"><h5><?php echo get_the_time('F d, Y'); ?></h5></div>
                                 <a href="<?php the_permalink() ?>">
                                     <div class="rel-post-content">
-                                        <h2><?php the_title(); ?></h2>
+                                        <h2><?php echo wp_trim_words( get_the_title(), 9 ); ?></h2>
                                     </div>
                                 </a>
                             </div>
@@ -308,7 +308,7 @@ get_header();
                         <div class="bl-header-images-date">
                             <h3><?php echo get_the_time('F d, Y'); ?> in <?php echo $rel_auth_category[0]->name; ?></h3>
                             <div class="bl-header-images-content">
-                                <a href="<?php the_permalink(); ?>"><p><?php echo wp_trim_words( get_the_title(), 9 ); ?></p></a>
+                                <a href="<?php the_permalink(); ?>"><p><?php echo wp_trim_words( get_the_title(), 7 ); ?></p></a>
                             </div>
                         </div>
                     </div>

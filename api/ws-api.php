@@ -16,6 +16,7 @@ function ws_api_post(){
       'methods' => 'POST',
       'callback' => 'ws_api_login'
     ));
+
   register_rest_route('ws/v1', 'register', array(
       'methods' => 'POST',
       'callback' => 'ws_api_register'
@@ -23,6 +24,10 @@ function ws_api_post(){
   register_rest_route('ws/v1', 'like-android', array(
       'methods' => 'POST',
       'callback' => 'ws_api_likeandroid'
+    ));
+  register_rest_route('ws/v1', 'unlike-android', array(
+      'methods' => 'POST',
+      'callback' => 'ws_api_unlikeandroid'
     ));
 }
 
@@ -394,5 +399,38 @@ function ws_api_likeandroid( $data ){
 			"message" => 'Invalid API Credential'
 		);
 		echo json_encode($array);
+	}
+}
+
+function ws_api_unlikeandroid( $data ){
+	$apicredential = array(
+		'apiuser' 	=> 'sarasij94',
+		'apipass'	=> '123' 
+	);
+	$all_data_json = file_get_contents('php://input');
+	//{"apicredential":{"apiuser":"", "apipass": ""}, "like_id": "22" }
+	$all_data = ( isset( $all_data_json ) && $all_data_json != "" )? json_decode( $all_data_json ) : "";
+	if( $all_data->apicredential->apiuser == $apicredential['apiuser'] AND $all_data->apicredential->apipass == $apicredential['apipass']){
+
+		$like_id = $all_data->like_id;
+
+		global $wpdb;
+		$table_name = $wpdb->prefix .'ws_like';
+
+		$deletelike = $wpdb->delete( $table_name, array( 'like_id' => $like_id ) );
+
+		if( $deletelike ){
+			$array = array(
+				"code" => 1,
+				"message" => 'Unliked'
+			);
+		}else{
+			$array = array(
+				"code" => 0,
+				"message" => 'Unlike Failed'
+			);
+		}
+		echo json_encode($array);
+
 	}
 }

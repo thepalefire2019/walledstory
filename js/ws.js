@@ -436,9 +436,13 @@ jQuery(document).ready(function($){
 //Front page like pop up
 jQuery(document).ready(function($){
 	$('.front-like').on('click', function(){
-		var permalink = $(this).data('link');
-		alert('Read The Full Blog To Like');
-		window.location = permalink;
+		var permalink = $(this).attr('data-link');
+
+		// alert(permalink);
+		if( confirm(' Read The Full Blog To Like. Would You like to read the full blog?') ){
+			window.location = permalink;
+		}
+		
 	});
 });
 

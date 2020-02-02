@@ -13,12 +13,11 @@ get_header();
     <div class="container-fluid bl-main-content">
         <div class="row bl-main-content-row">
 <?php
-	while(have_posts()):
-		the_post();
+    while(have_posts()):
+        the_post();
         $post_id = get_the_ID();
         $post_user_id = get_the_author_meta('ID');
         $current_user_id = get_current_user_id();
-        $like = get_like_num( $post_id );
         $category = get_the_terms($post_id, 'blog_category');
         $get_img = get_the_post_thumbnail_url( get_the_ID());
 
@@ -36,7 +35,7 @@ get_header();
         //echo getLikes(get_the_ID());
         //echo getLevel(get_the_ID());
 
-		?>
+        ?>
 
 
             <!---------------- Post -------------->
@@ -52,6 +51,7 @@ get_header();
                                 ?>
                                 
                             </div>
+                           
                             <div class="bl-post-content">
                                 <header class="bl-post-content-header">
                                     <div class="bl-post-content-header-content">
@@ -65,37 +65,18 @@ get_header();
 
                                             <div class="col-lg-4 col-xs-12 text-right">
                                                <?php 
-                                                $likeCount = new WP_Query( array(
-                                                    'post_type'     => 'like',
-                                                    'meta_query'    => array(
-                                                        array(
-                                                            'key'       => 'liked_blog_id',
-                                                            'compare'   => '=',
-                                                            'value'     => $post_id
-                                                        ))
-                                                ) );
-
+                                                $likeCount = likecount( get_the_ID() );
                                                 $like_style = '';
                                                 $data_exist = 'data-exist="no"';
                                                 // set no of likes in metakey
-                                                setLike( $post_id, $likeCount->found_posts );
+                                                setLike( $post_id, $likeCount );
 
                                                 // set levels in metakey
-                                                setLevel( $post_id, $likeCount->found_posts, getPostViews(get_the_ID()) );
+                                                setLevel( $post_id, $likeCount, getPostViews(get_the_ID()) );
 
                                                 if( is_user_logged_in() ){
-                                                    $checklike = new WP_Query( array(
-                                                    'author'        => get_current_user_id(),
-                                                    'post_type'     => 'like',
-                                                    'meta_query'    => array(
-                                                        array(
-                                                            'key'       => 'liked_blog_id',
-                                                            'compare'   => '=',
-                                                            'value'     => $post_id
-                                                        ))
-                                                    ) );
-
-                                                     if( $checklike->found_posts ){
+                                                    $checklike = checklike( get_the_ID(),  get_current_user_id() );
+                                                     if( $checklike ){
                                                         $like_style = 'style="color:red"';
                                                         $data_exist = 'data-exist="yes"';
                                                      }
@@ -104,17 +85,17 @@ get_header();
 
                                                 if( is_user_logged_in() ){
                                                ?>
-                                                <span class="like-box" <?php echo $data_exist; ?> data-blog="<?php echo get_the_ID(); ?>" data-like="<?php if( isset( $checklike->posts[0]->ID ) ){echo $checklike->posts[0]->ID;} ?>">
+                                                <span class="like-box" <?php echo $data_exist; ?> data-blog="<?php echo get_the_ID(); ?>" data-like="<?php if(  $checklike  ){echo $checklike;} ?>" data-author="<?php  echo get_current_user_id() ?>">
                                                 <?php 
                                                 }else{
                                                 ?>
                                                 <span class="logout-like-box" >
                                                 <?php }?>
-                                            		<i class="fas fa-heart" <?php echo $like_style;?> >
-                                            			
-                                            		</i>
-                                            		&nbsp;&nbsp;
-                                            		<label class="present-like-count"><?php echo $likeCount->found_posts; ?></label> likes
+                                                    <i class="fas fa-heart" <?php echo $like_style;?> >
+                                                        
+                                                    </i>
+                                                    &nbsp;&nbsp;
+                                                    <label class="present-like-count"><?php echo $likeCount; ?></label> likes
                                                 
                                                     &nbsp;&nbsp;&nbsp;
                                                 </span>
@@ -126,10 +107,10 @@ get_header();
                                             if( $author_id == get_current_user_id() ){ 
                                         ?>
                                         <div class="row">
-                                             <div class="col-md-6 blog-edit">
+                                             <div class="col-md-6 col-6 blog-edit">
                                                 <p data-toggle="modal" data-target="#exampleModalLongedit">Edit</p>
                                             </div>
-                                            <div class="col-md-6 blog-delete">
+                                            <div class="col-md-6 col-6 blog-delete">
                                                 <p id="delete-blog" data-id="<?php the_ID(); ?>">Delete</p>
                                             </div>
                                         </div>
@@ -149,6 +130,25 @@ get_header();
                                    <div class="bl-entry-content">
                                         <?php the_content(); ?>                     
                                    </div>
+                                </div>
+                                <div class="share-single">
+                                    <h2>Share IN</h2>
+                                    <ul>
+                                         <script>
+                                          function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}
+                                        </script>
+                                        <li>
+                                            <a rel="nofollow" href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>" onclick="return fbs_click()" target="_blank" >
+                                                <i class="fab fa-facebook-square"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://twitter.com/share?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>&via=palefire16" onclick="window.open(this.href, 'mywin',
+                                            'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" >
+                                                <i class="fab fa-twitter-square"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </article>
@@ -211,15 +211,15 @@ get_header();
              <!-- Edit Modal -->
 
          
-		
+        
 
-		<?php
+        <?php
 
-	endwhile;//end of main while loop
+    endwhile;//end of main while loop
 
-	?>
+    ?>
 
-	   <!---------------- Side Column -------------->
+       <!---------------- Side Column -------------->
             <!-- Author Description -->
                 <div class="col-sm-4 col-sm-4 bl-side-sec">
                     <div class="col-lg-12 bl-side-content">
@@ -229,40 +229,13 @@ get_header();
                                  <img src="<?php echo $avatar_url ?>"> 
                                 <!-- <?php echo $author_img; ?> -->
                             </div>
+                            <h1 class="auth-name-fire"><?php  echo the_author_meta( 'first_name', $author_id ) ?> <?php  echo the_author_meta( 'last_name', $author_id ) ?></h1>
                             <p>
                                 <?php echo $author_desc; ?>
                             </p>
                         </aside>
 
-                       <!--  <aside class="bl-widget">
-                            <h3>Categories</h3>      
-                            <ul>
-                                <li>
-                                    <a href="#">Advertising</a><span>1</span>
-                                </li>
-                                <li>
-                                    <a href="#">Creative</a><span>1</span>
-                                </li>
-                                <li>
-                                    <a href="#">Inspiration</a><span>1</span>
-                                </li>
-                                <li>
-                                    <a href="#">Life</a><span>3</span>
-                                </li>
-                                <li>
-                                    <a href="#">Music</a><span>2</span>
-                                </li>
-                                <li>
-                                    <a href="#">Photography</a><span>1</span>
-                                </li>
-                                <li>
-                                    <a href="#">readolog</a><span>6</span>
-                                </li>
-                                <li>
-                                    <a href="#">Travel</a><span>2</span>
-                                </li>
-                            </ul>
-                        </aside> -->
+                  
 
                         <aside class="bl-widget">
                             <h3>Related Posts</h3>
@@ -288,7 +261,7 @@ get_header();
                                 <div class="rel-post-header"><h5><?php echo get_the_time('F d, Y'); ?></h5></div>
                                 <a href="<?php the_permalink() ?>">
                                     <div class="rel-post-content">
-                                        <h2><?php the_title(); ?></h2>
+                                        <h2><?php echo wp_trim_words( get_the_title(), 9 ); ?></h2>
                                     </div>
                                 </a>
                             </div>
@@ -310,10 +283,10 @@ get_header();
 
         <!-- Related posts -->
         <header>
-		<div class="bl-header-image-sec">
+        <div class="bl-header-image-sec">
             <div class="container-fluid">
                 <aside class="bl-widget">
-                    <h3><a href="<?php echo $author_permalink ?>">More Posts By The Author</a></h3>
+                    <h3><a href="<?php echo $author_permalink ?>">More Posts By <?php  echo the_author_meta( 'first_name', $author_id ) ?></a></h3>
                 </aside>
                 <div class="row">
 
@@ -333,11 +306,15 @@ get_header();
                         $get_img = get_the_post_thumbnail_url($rel_auth_post_id,'ws-regular');
                         ?>
                     <div class="col-lg-3 bl-header-image-div">
+                        <?php if( has_post_thumbnail() ){?> 
                         <img class="bl-header-images img-responsive" src="<?php echo $get_img; ?>">
+                    <?php }else{?>
+                         <img class="bl-header-images img-responsive" src="<?php echo get_stylesheet_directory_uri().'/img/black.jpg' ?>" >
+                    <?php } ?>
                         <div class="bl-header-images-date">
                             <h3><?php echo get_the_time('F d, Y'); ?> in <?php echo $rel_auth_category[0]->name; ?></h3>
                             <div class="bl-header-images-content">
-                                <a href="<?php the_permalink(); ?>"><p><?php echo wp_trim_words( get_the_title(), 9 ); ?></p></a>
+                                <a href="<?php the_permalink(); ?>"><p><?php echo wp_trim_words( get_the_title(), 7 ); ?></p></a>
                             </div>
                         </div>
                     </div>
@@ -350,8 +327,8 @@ get_header();
                 </div>
             </div>
         </div>
-	</header>
-	<div class="space30"></div>
+    </header>
+    <div class="space30"></div>
 
 
 
@@ -363,9 +340,3 @@ get_header();
 
 <?php
 get_footer();
-
-
-
-
-
-

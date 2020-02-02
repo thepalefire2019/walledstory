@@ -45,7 +45,12 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
         <?php if(is_user_logged_in()){ ?>
              <div class="dropdown">
                 <a class="profile-btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span> <img src="<?php echo $avatar_url; ?>"></span><?php echo $user_fname; ?>
+                    <?php if( $avatar_url ){ ?>
+                <span> <img src="<?php echo $avatar_url; ?>"></span>
+                    <?php }else {?>
+                    <span><img src="<?php echo get_template_directory_uri() ?>/img/no_avatar.png"></span>
+                    <?php } ?>
+                <?php echo $user_fname; ?>
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="bottom-start">

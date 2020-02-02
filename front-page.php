@@ -78,7 +78,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 					<?php  if( has_post_thumbnail() ){ ?>
 					<div class="row">
 						<div class="col-md-6 left-blog-card">
-							<?php the_post_thumbnail('ws-regular')?>
+							<?php the_post_thumbnail('ws-square')?>
 							<a href="<?php echo $category_permalink; ?>"><p><?php echo $category[0]->name; ?></p></a>
 						</div>
 						<div class="col-md-6 right-blog-card">
@@ -89,12 +89,12 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 								</div>
 							</div>
 							<div class="blog-card-title">
-								<h3><?php echo wp_trim_words( get_the_title(), 15 ); ?></h3>
+								<h3><?php echo wp_trim_words( get_the_title(), 8 ); ?></h3>
 								<p><?php echo wp_trim_words( get_the_content(), 18 ); ?></p>
 							</div>
 							<div class="credential">
 								<span><i class="fas fa-eye"></i>&nbsp; <?php echo $no_of_views; ?></span>
-								<span id="front-like" data-link="<?php the_permalink(); ?>"><i class="fas fa-heart front-like" style="<?php if( $no_of_likes >0 ){ echo 'color:#ed4956;';  } ?>"></i> &nbsp;<?php echo $no_of_likes; ?></span>
+								<span id="front-like" data-link="<?php the_permalink(); ?>" class="front-like"><i class="fas fa-heart " style="<?php if( $no_of_likes >0 ){ echo 'color:#ed4956;';  } ?>"></i> &nbsp;<?php echo $no_of_likes; ?></span>
 								<span class="share-btn"><i class="fas fa-share-alt"></i></span>
 							</div>
 							<div class="share">
@@ -126,7 +126,7 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
 							</div>
 							<div class="credential">
 								<span><i class="fas fa-eye"></i>&nbsp; <?php echo $no_of_views; ?></span>
-								<span id="front-like" data-link="<?php the_permalink(); ?>"><i class="fas fa-heart" style="<?php if( $no_of_likes >0 ){ echo 'color:#ed4956;';  } ?>"></i> &nbsp;<?php echo $no_of_likes; ?></span>
+								<span id="front-like" data-link="<?php the_permalink(); ?>" class="front-like"><i class="fas fa-heart " style="<?php if( $no_of_likes >0 ){ echo 'color:#ed4956;';  } ?>"></i> &nbsp;<?php echo $no_of_likes; ?></span>
 								<span class="share-btn"><i class="fas fa-share-alt"></i></span>
 							</div>
 							<div class="share">
