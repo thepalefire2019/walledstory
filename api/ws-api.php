@@ -98,12 +98,14 @@ function ws_api_blog_result( $data ){
 		    //$author_link = get_author_posts_url($author_id);
 		    $fname = get_the_author_meta('first_name');
 		    $lname = get_the_author_meta('last_name');
+		    $username = get_the_author_meta('user_nicename');
 		    $author_img =  get_the_author_meta( 'profile_picture',  get_the_author_meta('ID') ) ;
 		    $author = array(
 		        'author_id'   => $author_id,
 		        //'author_link' => $author_link,
 		        'first_name'  => $fname,
 		        'last_lname'  => $lname,
+		        'username'  => $username,
 		        'author_img'  => $author_img
 		    );
 		    //post author
