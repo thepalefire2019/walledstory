@@ -29,6 +29,11 @@ function ws_api_post(){
       'methods' => 'POST',
       'callback' => 'ws_api_unlikeandroid'
     ));
+
+  register_rest_route('ws/v1', 'view-android', array(
+      'methods' => 'POST',
+      'callback' => 'ws_api_viewandroid'
+    ));
 }
 
 
@@ -430,6 +435,38 @@ function ws_api_unlikeandroid( $data ){
 				"message" => 'Unlike Failed'
 			);
 		}
+		echo json_encode($array);
+
+	}
+}
+
+function ws_api_viewandroid( $data ){
+	$apicredential = array(
+		'apiuser' 	=> 'sarasij94',
+		'apipass'	=> '123' 
+	);
+	$all_data_json = file_get_contents('php://input');
+	//{"apicredential":{"apiuser":"", "apipass": ""}, "blog_id": "22" }
+	$all_data = ( isset( $all_data_json ) && $all_data_json != "" )? json_decode( $all_data_json ) : "";
+	if( $all_data->apicredential->apiuser == $apicredential['apiuser'] AND $all_data->apicredential->apipass == $apicredential['apipass']){
+
+		$blog_id = $all_data->blog_id;
+
+		$count_key = 'post_views_count';
+    	$count = get_post_meta($blog_id, $count_key, true);
+
+    	if($count==''){
+	        $count = 0;
+	        delete_post_meta($blog_id, $count_key);
+	        add_post_meta($blog_id, $count_key, '0');
+	    }else{
+	        $count++;
+	        update_post_meta($blog_id, $count_key, $count);
+	    }
+		$array = array(
+				"code" => 1,
+				"message" => 'View Increased'
+			);
 		echo json_encode($array);
 
 	}
