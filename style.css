@@ -188,6 +188,7 @@ body {
     position: relative;
     padding: 0 !important;
     margin: 0 !important;
+    height: 200px;
 }
 
 .bl-header-images

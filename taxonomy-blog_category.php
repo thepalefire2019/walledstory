@@ -52,7 +52,7 @@ $taxonomy_name = $taxonomy->name;
 								<img src="<?php echo $get_img; ?>">
 							</div>
 							<div class="pop-tax-desc">
-								<h3><?php echo wp_trim_words( get_the_title(), 10 ); ?></h3>
+								<h3><?php echo wp_trim_words( get_the_title(), 7 ); ?></h3>
 								<h5><?php echo wp_trim_words( get_the_content(), 10 ); ?>...</h5>
 								<p>By <a href="<?php echo $author_permalink; ?>"><?php  if( $author_first_name AND $author_last_name ){echo $author_first_name.' '. get_the_author_meta('last_name')[0];}else{ echo $author_nick_name; } ?>.</a> <span>on</span> <?php echo get_the_time('d F, Y'); ?></p>
 							</div>

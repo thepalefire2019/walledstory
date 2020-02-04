@@ -261,13 +261,19 @@ $user_lname = get_the_author_meta( 'last_name', $current_user->ID );
                 <div class="arrow">
                     <img src="<?php echo get_stylesheet_directory_uri()?>/img/svg/grid.svg">
                 </div>
-                
+                <?php if( is_user_logged_in() ){ ?>
                 <a href="<?php echo site_url('my-profile') ?>"><p >My Profile</p></a>
+                <?php }else{ ?>
+                <a href="<?php echo site_url('my-profile') ?>"><p >Log In</p></a>
+                <?php } ?>
+
                 <a href="<?php echo site_url('gold') ?>"><p >Walledstory Gold</p></a>
                 <a href="<?php echo site_url('silver') ?>"><p>Walledstory Silver</p></a>
                 <a href="<?php echo site_url('bronze') ?>"><p>Walledstory Bronze</p></a>
                 <a href="<?php echo site_url('about') ?>"><p>About</p></a>
+                <?php if( is_user_logged_in() ){ ?>
                 <a href="<?php echo wp_logout_url(); ?>"><p>Logout</p></a>
+                <?php } ?>
                 
             </div>
             
