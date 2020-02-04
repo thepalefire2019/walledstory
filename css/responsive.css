@@ -76,17 +76,22 @@
 	.left-layout .blog-card .left-blog-card img{width: 100%;}
 	.left-layout .blog-card .left-blog-card p{right: 30px}
 	.left-layout .blog-card .right-blog-card{height: 320px;}
-	.left-layout .blog-card .full-card .credential{left: 0; transform: unset; bottom: 100px;}
-	.left-layout .blog-card .right-blog-card .credential{left: 0; transform: unset}
+	.left-layout .blog-card .full-card .credential{left: -50px; transform: unset; bottom: 100px;}
+	.left-layout .blog-card .right-blog-card .credential{left: -50px; transform: unset}
 	.left-layout .blog-card .full-card{height: 550px;}
 	.left-layout .blog-card .full-card .credential span:first-child{margin-left: 152px;}
 	.left-layout .blog-card .right-blog-card .credential span:first-child{margin-left: 152px;}
 	.load-more-button-div .load-more-btn .load-more-btn-btn{margin-left: 25px;}
 	.load-more-button-div .load-more-btn .loading{margin-left: -7%;}
-	.left-layout .blog-card .full-card .share{width: 25%; height: 6vh; bottom: 63px; right: 51px;}
-	.left-layout .blog-card .right-blog-card .share{height: 5vh; bottom: 37px;}
+	.left-layout .blog-card .full-card .share{width: 28%; height: 6vh; bottom: 63px; right: 51px;}
+	.left-layout .blog-card .right-blog-card .share{height: 6vh; bottom: 37px;}
 	.left-layout .blog-card:first-child{margin-top: 0;}
 	.modal-jorkore-margin{margin-left: unset; width: 70%;}
+	.left-layout .blog-card .right-blog-card .blog-card-title{margin-left: 45%}
+	.left-layout .blog-card .right-blog-card .rd-more{margin-left: 45%}
+	.left-layout .blog-card .full-card .blog-card-title{margin-left: 45%}
+	.left-layout .blog-card .full-card .rd-more{margin-left: 45%}
+
 	/** author page **/
 
 	.author-bio .author-img{display: none;}
@@ -141,7 +146,11 @@
 	.login-box .right-box{width: 100%; height: 60%; top:25vh; left: 0;}
 	.login-box .right-box .right-box-details{margin-top: 5%; margin-bottom: 20px;padding-bottom: 20px;}
 
-
+	/** Login  and Registration Page **/
+	.final-footer{height: 170px;}
+	.final-footer .left-final-footer h3{margin-left: 10%; transform: unset; width: 80%}
+	.final-footer .middle-final-footer h3{margin-left: 10%; transform: unset; width: 80%}
+	.final-footer .right-final-footer h3{margin-left: 10%; transform: unset; width: 80%}
 
 
 
